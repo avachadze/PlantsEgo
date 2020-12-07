@@ -1,0 +1,7 @@
+.shadowfilter:hover {
+    filter: drop-shadow(2px 2px 15px rgba(0, 190, 133, 0.5));
+}
+
+.logo {
+    width: 500px;
+}
