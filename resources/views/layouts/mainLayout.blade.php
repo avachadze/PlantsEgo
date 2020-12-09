@@ -11,10 +11,9 @@
 </head>
 
 <body>
-    <header>
+    <header class="bg-light">
         <nav class="head container-fluid navbar justify-content-between  navbar-expand-sm">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="#">
                     <img id="logo" src="images/logo.png" width="60" height="60" class="logo ">
                 </a>
@@ -31,7 +30,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Product</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -47,14 +45,14 @@
     @show
 
     <footer>
-    <footer>
+        <footer>
 
-<a href=""><img id="footerImage" class="col-4" src="images/logo.png" alt=""></a>
+            <a href="#" class="text-success">Go Back</a>
 
-    </footer>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        </footer>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
