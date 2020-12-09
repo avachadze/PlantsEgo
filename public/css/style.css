@@ -1,7 +1,59 @@
-.shadowfilter:hover {
+.logo {
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.logo:hover {
+    cursor: default;
+    transform: rotate(360deg);
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.logo:hover {
     filter: drop-shadow(2px 2px 15px rgba(0, 190, 133, 0.5));
 }
 
-.logo {
-    width: 500px;
+header {
+    border-bottom: 2px solid darkgreen;
+}
+
+#carousel {
+    margin-top: 5vh;
+}
+
+#carouselExampleCaptions {
+    margin-top: 2vh;
+    border-radius: 1vh;
+}
+
+#carImg {
+    height: 60vh;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    position: relative;
+}
+
+footer::after {
+    content: "";
+    background: url(../images/footer.png);
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+a {
+    width: auto;
+    text-decoration: none;
+}
+
+#footerImage {
+    height: 30%;
 }
