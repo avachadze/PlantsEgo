@@ -3,8 +3,11 @@
 
 <head>
     <link rel="icon" href="{{URL::asset('images/logo.png')}}">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <link rel="stylesheet" href="css/style.css">
+    <script src="{{mix('js/app.js')}}"></script>
+    
     </style>
     <meta charset="utf-8">
     <title>Plants EGO</title>
@@ -46,13 +49,8 @@
 
     <footer>
         <footer>
-
             <a href="#" class="text-success">Go Back</a>
-
         </footer>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

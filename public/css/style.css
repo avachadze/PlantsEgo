@@ -62,3 +62,16 @@ a {
     color: red;
     background-color: lightgray;
 }
+
+#card {
+    background-image: url("../images/head.png");
+    opacity: 1;
+}
+
+#cardHead {
+    background-color: #e5fce3;
+}
+
+#textCard {
+    color: darkblue;
+}
