@@ -171,14 +171,14 @@
 </main>
 <footer id="footer" class="container-fluid text-light py-3 bg-secondary mt-5">
     <h4 class="text-center">Enter your email if you want to receive more information</h4>
-    <form class="container mt-3 w-25">
+    <form class="container mt-3">
         <div class="form-group">
             <label for="mail">E-mail:</label>
             <input type="text" class="form-control" id="mail">
         </div>
         <input type="button" value="send">
+        <h5 class="mt-4">Copyright Plants EGO</h5>
     </form>
-    <h5>Copyright Plants EGO</h5>
 </footer>
 </body>
 </html>
