@@ -10,7 +10,6 @@
 
         .carousel-inner
         {
-            height: 45vh;
             width: 100%;
         }
 
@@ -103,10 +102,10 @@
         </article>
     </section>
 
-    <div class="container justify-content-around d-flex mt-5">
+    <div class="container justify-content-around d-md-flex">
 
         {{-- Info Paragraph --}}
-        <aside class="col-6 border border-success bg-light rounded p-3 ">
+        <aside class="col-md-6 col-sm-12 border border-success bg-light rounded p-3 mt-5">
             <h1 class="border-bottom border-secondary pb-2">
                 What does PlantsEGO offer?
             </h1>
@@ -128,7 +127,7 @@
         </aside>
 
         {{-- Accordion --}}
-        <section class="col-6 accordion rounded" id="specAccordion">
+        <section class="col-md-6 col-sm-12 accordion rounded mt-5" id="specAccordion">
             <article class="card-item bg-info border border-dark rounded-top">
                 <h2 class="card-header" id="specAccordion-headingOne">
                     <button class="btn btn-link btn-block text-left text-dark" type="button" data-toggle="collapse" data-target="#specAccordion-collapseOne" aria-expanded="false" aria-controls="specAccordion-collapseOne">
@@ -171,7 +170,7 @@
     </div>
 </main>
 <footer id="footer" class="container-fluid text-light py-3 bg-secondary mt-5">
-    <h4 class="text-center">Enter your email if you want to recieve more information</h4>
+    <h4 class="text-center">Enter your email if you want to receive more information</h4>
     <form class="container mt-3 w-25">
         <div class="form-group">
             <label for="mail">E-mail:</label>
@@ -179,6 +178,7 @@
         </div>
         <input type="button" value="send">
     </form>
+    <h5>Copyright Plants EGO</h5>
 </footer>
 </body>
 </html>
