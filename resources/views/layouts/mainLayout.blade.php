@@ -3,17 +3,17 @@
 
 <head>
     <link rel="icon" href="{{URL::asset('images/logo.png')}}">
-    
+
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <link rel="stylesheet" href="css/style.css">
     <script src="{{mix('js/app.js')}}"></script>
-    
+
     </style>
     <meta charset="utf-8">
     <title>Plants EGO</title>
 </head>
 
-<body>
+<body id="myPage">
     <header class="bg-light">
         <nav class="head container-fluid navbar justify-content-between  navbar-expand-sm">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -49,8 +49,36 @@
 
     <footer>
         <footer>
-            <a href="#" class="text-success">Go Back</a>
+            <a href="#myPage" title="To Top"><img id="scroll" src="images/arrow.png" alt=""></a>
         </footer>
+
+        <script>
+            $(document).ready(function() {
+
+                $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 900, function() {
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+                $(window).scroll(function() {
+                    $(".slideanim").each(function() {
+                        var pos = $(this).offset().top;
+
+                        var winTop = $(window).scrollTop();
+                        if (pos < winTop + 600) {
+                            $(this).addClass("slide");
+                        }
+                    });
+                });
+            })
+        </script>
 </body>
 
 </html>
