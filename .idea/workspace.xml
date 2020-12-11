@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6955f8c1-9deb-4823-b51c-8a92fe6ad450" name="Default Changelist" comment="Carlos Landing page">
-      <change beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +173,7 @@
       <workItem from="1607618604876" duration="1502000" />
       <workItem from="1607623648506" duration="5371000" />
       <workItem from="1607631059017" duration="10921000" />
-      <workItem from="1607670854056" duration="2792000" />
+      <workItem from="1607670854056" duration="5348000" />
     </task>
     <task id="LOCAL-00001" summary="Carlos Landing page">
       <created>1607671151309</created>
@@ -188,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607673577423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Carlos Landing page">
+      <created>1607673824558</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607673824558</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
