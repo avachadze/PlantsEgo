@@ -1,5 +1,193 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+#logo {
+  height: 50px;
+}
+
+nav {
+  position: relative;
+  height: 12vh;
+  background-color: rgba(237, 237, 237, 0.679);
+}
+
+.fotoheader {
+  display: block;
+  background-image: url(/images/irrigation-dark.png?f6f5f6b8bcad871265b803bc0b782090);
+  height: 88vh;
+  background-size: cover;
+}
+
+.pagina {
+  /* margin-top: 50vh;*/
+  width: 100%;
+  height: 40rem;
+}
+
+.fotosapp {
+  height: 80vh;
+}
+
+#contact {
+  /* margin-top: 50vh;*/
+  width: 100%;
+  height: 50rem;
+}
+
+#contact-form {
+  display: block;
+  width: 50vw;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.verde-oscuro {
+  background-color: darkgreen;
+}
+
+.titulos {
+  height: 4rem;
+}
+
+.title {
+  position: absolute;
+  top: 15vh;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.679);
+}
+
+.subtitle {
+  position: absolute;
+  top: 24vh;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+input {
+  border-radius: 100px;
+  border: 0px;
+  padding-left: 0.5em;
+  height: 2em;
+}
+
+.movil {
+  display: none;
+}
+
+.title-movil {
+  text-align: center;
+}
+
+#fotopanel {
+  width: 80%;
+}
+
+.fotopequeña {
+  height: 80vh;
+}
+
+#beneficios {
+  height: auto;
+  padding: 5vh;
+  background-image: url(/images/Sistema-de-riego.jpg?5242f26100d56594055f2220fe5230ee);
+  background-size: cover;
+}
+
+.padding-fotos {
+  padding-top: 30vh;
+}
+
+.jumbotron {
+  width: 70%;
+}
+
+.variables {
+  background-image: url(/images/2871586.png?91d3d83a799f56bb2cf4e4003b7ad666);
+  background-size: cover;
+  height: 50vh;
+}
+
+.variable-icon {
+  width: 10vw;
+}
+
+.ordenador {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .fotoheader {
+    display: none;
+  }
+
+  .ordenador {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  #contact-form {
+    display: block;
+    width: 80vw;
+  }
+
+  #beneficios {
+    height: auto;
+    padding: 5vh;
+    background-image: url(/images/Sistema-de-riego.jpg?5242f26100d56594055f2220fe5230ee);
+    background-size: cover;
+  }
+
+  .pagina {
+    background-image: url(/images/Sistema-de-riego.jpg?5242f26100d56594055f2220fe5230ee);
+    background-size: cover;
+    width: 100%;
+    height: 70rem;
+  }
+
+  .movil {
+    display: block;
+  }
+}
+
+@media (max-width: 567px) {
+  #beneficios {
+    height: auto;
+    padding: 5vh;
+  }
+
+  .ordenador {
+    display: none;
+  }
+
+  .variables {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
