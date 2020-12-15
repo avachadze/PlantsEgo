@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts/mainLayout')
 
-<head>
-  <link rel="icon" href="{{URL::asset('img/logo.png')}}">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plants Ego</title>
+@section('compatibility')
 
-  <link rel="stylesheet" href="{{mix('css/app.css')}}">
-  <script src="{{mix('js/app.js') }}"></script>
+<li class="nav-item">
+  <a class="nav-link" href="#beneficios">Compatibility</a>
+</li>
+@endsection
 
-  <link rel="stylesheet" href="node_modules/animate.css/animate.css">
-</head>
+@section('main')
 
-<body>
+
   <div class="fotoheader">
 
     <h1 class="title animate__animated animate__backInDown">Plants Ego</h1>
@@ -33,7 +29,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#compatibility">Compatibility</a>
+            <a class="nav-link" href="#beneficios">Compatibility</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -146,7 +142,4 @@
     </div>
 
   </main>
-  <footer class="bg-dark text-light text-center">Copyright &copy; 2020-2021 Plants Ego</footer>
-</body>
-
-</html>
+  @endsection

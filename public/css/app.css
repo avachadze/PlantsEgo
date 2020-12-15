@@ -5,6 +5,10 @@
   margin: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #logo {
   height: 50px;
 }
@@ -131,6 +135,20 @@ input {
 
 .ordenador {
   display: block;
+}
+
+.button5 {
+  border-radius: 50%;
+}
+
+#location {
+  width: 100%;
+  height: 100%;
+}
+
+#scrollable {
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 992px) {
