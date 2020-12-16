@@ -111,6 +111,7 @@ input {
 #beneficios {
   height: auto;
   padding: 5vh;
+  border-top: 1px solid white;
   background-image: url(/images/Sistema-de-riego.jpg?5242f26100d56594055f2220fe5230ee);
   background-size: cover;
 }
@@ -127,6 +128,7 @@ input {
   background-image: url(/images/2871586.png?91d3d83a799f56bb2cf4e4003b7ad666);
   background-size: cover;
   height: 50vh;
+  border-top: 1px solid white;
 }
 
 .variable-icon {
@@ -146,9 +148,8 @@ input {
   height: 100%;
 }
 
-#scrollable {
+a {
   text-decoration: none;
-  color: white;
 }
 
 @media (max-width: 992px) {
