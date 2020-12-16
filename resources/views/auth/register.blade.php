@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <input type="text" class="form-control" value="user" id="role" name="role" required autocomplete="role">
+                        <input type="text" class="d-none form-control" value="user" id="role" name="role" required autocomplete="role">
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
