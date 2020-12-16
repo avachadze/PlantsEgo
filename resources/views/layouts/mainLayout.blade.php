@@ -28,11 +28,22 @@
                     <a class="nav-link" href="/{{__('messages.lang')}}">{{__('messages.home')}} <span class="sr-only">(current)</span></a>
                 </li>
                 @section ('compatibility')
-                
+
                 @show
                 <li class="nav-item">
                     <a class="nav-link" href="/{{__('messages.lang')}}/contact">{{__('messages.contact')}}</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{__('messages.language')}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @section ('languages')
+                        
+                        @show
+                    </div>
+                </li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item ">
@@ -41,6 +52,8 @@
                 <li class="nav-item ">
                     <button type="submit" class="btn btn-success " id="register">{{__('messages.sign-up')}}</button>
                 </li>
+
+
     </nav>
 
     <div class="pos-f-t">

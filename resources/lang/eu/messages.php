@@ -30,5 +30,9 @@ return [
     'subject'=>'Asuntoa',
     'sendMessage'=>'Mezua',
     'submit'=>'Bidali',
+    'language'=>'Hizkuntza',
+    'english'=>'Inglesa',
+    'spanish'=>'Gaztelania',
+    'basque'=>'Euskara'
     
 ];

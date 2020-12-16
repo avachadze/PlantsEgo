@@ -31,5 +31,9 @@ return [
     'subject'=>'Subject',
     'sendMessage'=>'Message',
     'submit'=>'Submit',
+    'language'=>'Language',
+    'english'=>'english',
+    'spanish'=>'spanish',
+    'basque'=>'basque'
 
 ];

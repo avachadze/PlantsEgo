@@ -1,6 +1,10 @@
 @extends('layouts/mainLayout')
 @section('main')
-
+@section('languages')
+<a class="dropdown-item" href="/en/contact">{{__('messages.english')}}</a>
+<a class="dropdown-item" href="/es/contact">{{__('messages.spanish')}}</a>
+<a class="dropdown-item" href="/eu/contact">{{__('messages.basque')}}</a>
+@endsection
 <section class="container my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
