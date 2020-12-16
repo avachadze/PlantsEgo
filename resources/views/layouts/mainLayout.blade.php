@@ -10,7 +10,6 @@
     <script src="{{mix('js/app.js') }}"></script>
     <script src="js/scroll.js"></script>
     <link rel="stylesheet" href="node_modules/animate.css/animate.css">
-
 </head>
 @section ('photoHeader')
 
@@ -28,27 +27,82 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 @section ('compatibility')
-                
+
                 @show
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item ">
-                    <button type="submit" class="btn btn-outline-success mx-1" id="login">Sign in</button>
-                </li>
-                <li class="nav-item ">
-                    <button type="submit" class="btn btn-success " id="register">Sign up</button>
-                </li>
+            <ul class="nav navbar-nav navbar-right" id="login_register">
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard') }}">
+                                {{ __('Dashboard') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
     </nav>
 
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
-                <h4 class="text-dark">Log in or register</h4>
-                <button type="submit" class="btn btn-outline-success" id="login">Sign in</button>
-                <button type="submit" class="btn btn-success " id="register">Sign up</button>
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                        <a class="btn btn-outline-success" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <a class="btn btn-success" id="dash_button" href="{{ route('usrDashboard') }}">
+                            {{ __('Dashboard') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                @endguest
 
             </div>
         </div>
