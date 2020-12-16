@@ -3,9 +3,9 @@
 
 <section class="container my-5">
 
-  <h2 class="h1-responsive font-weight-bold text-center my-5">Contact us</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
 
-  <p class="text-center w-responsive mx-auto pb-5">We have employees looking forward to reply to any of your problem or ideas. Contact us for anything you need, we also hire personal. Send information about your experience and past jobs and we will be contacting you as soon as possible,</p>
+  <p class="text-center w-responsive mx-auto pb-5">{{__('messages.contactText')}}</p>
 
   <div class="row">
 
@@ -14,30 +14,30 @@
         <div class="card-body">
 
           <div class="form-header blue accent-1">
-            <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
+            <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
           </div>
           <div class="md-form">
             <i class="fas fa-user prefix grey-text"></i>
             <input type="text" id="form-name" class="form-control">
-            <label for="form-name">Your name</label>
+            <label for="form-name">{{__('messages.name')}}</label>
           </div>
           <div class="md-form">
             <i class="fas fa-envelope prefix grey-text"></i>
             <input type="text" id="form-email" class="form-control">
-            <label for="form-email">Your email</label>
+            <label for="form-email">Email</label>
           </div>
           <div class="md-form">
             <i class="fas fa-tag prefix grey-text"></i>
             <input type="text" id="form-Subject" class="form-control">
-            <label for="form-Subject">Subject</label>
+            <label for="form-Subject">{{__('messages.subject')}}</label>
           </div>
           <div class="md-form">
             <i class="fas fa-pencil-alt prefix grey-text"></i>
             <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-            <label for="form-text">Send message</label>
+            <label for="form-text">{{__('messages.sendMessage')}}</label>
           </div>
           <div class="text-center">
-            <button class="btn btn-outline-primary waves-effec">Submit</button>
+            <button class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
           </div>
         </div>
       </div>

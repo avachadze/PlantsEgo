@@ -25,21 +25,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/{{__('messages.lang')}}">{{__('messages.home')}} <span class="sr-only">(current)</span></a>
                 </li>
                 @section ('compatibility')
                 
                 @show
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link" href="/{{__('messages.lang')}}/contact">{{__('messages.contact')}}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item ">
-                    <button type="submit" class="btn btn-outline-success mx-1" id="login">Sign in</button>
+                    <button type="submit" class="btn btn-outline-success mx-1" id="login">{{__('messages.sign-in')}}</button>
                 </li>
                 <li class="nav-item ">
-                    <button type="submit" class="btn btn-success " id="register">Sign up</button>
+                    <button type="submit" class="btn btn-success " id="register">{{__('messages.sign-up')}}</button>
                 </li>
     </nav>
 
@@ -47,8 +47,8 @@
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
                 <h4 class="text-dark">Log in or register</h4>
-                <button type="submit" class="btn btn-outline-success" id="login">Sign in</button>
-                <button type="submit" class="btn btn-success " id="register">Sign up</button>
+                <button type="submit" class="btn btn-outline-success" id="login">{{__('messages.sign-in')}}</button>
+                <button type="submit" class="btn btn-success " id="register">{{__('messages.sign-up')}}</button>
 
             </div>
         </div>

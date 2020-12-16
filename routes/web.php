@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/index');
-})->name('index');
-Route::get('/contact', function () {
+Route::redirect('/', '/en');
+
+Route::get('/{locale}/contact', function ($locale) {
+    App::setLocale($locale);
     return view('pages/contact');
+});
+
+
+Route::get('/{locale}', function ($locale) {
+    App::setLocale($locale);
+    //dd(App::getLocale());
+    return view('pages/index');
+    //
 });

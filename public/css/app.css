@@ -191,6 +191,10 @@ a {
   }
 }
 
+.cardImg {
+  width: 25vw;
+}
+
 @media (max-width: 567px) {
   #beneficios {
     height: auto;
