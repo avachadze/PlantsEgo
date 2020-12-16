@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #logo {
     height: 50px;
 }
@@ -105,6 +109,7 @@ input {
 #beneficios {
     height: auto;
     padding: 5vh;
+    border-top: 1px solid white;
     background-image: url("../../public/img/Sistema-de-riego.jpg");
     background-size: cover;
 }
@@ -121,6 +126,7 @@ input {
     background-image: url("../../public/img/2871586.png");
     background-size: cover;
     height: 50vh;
+    border-top: 1px solid white;
 }
 
 .variable-icon {
@@ -129,6 +135,19 @@ input {
 
 .ordenador {
     display: block;
+}
+
+.button5 {
+    border-radius: 50%;
+}
+
+#location {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
 }
 
 @media(max-width: 992px) {
