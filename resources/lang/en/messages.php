@@ -34,6 +34,9 @@ return [
     'language'=>'Language',
     'english'=>'english',
     'spanish'=>'spanish',
-    'basque'=>'basque'
+    'basque'=>'basque',
+    'remember'=>'Remember Me',
+    'password'=>'Password',
+
 
 ];

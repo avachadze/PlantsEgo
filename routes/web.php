@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/en');
 
-Route::get('/{locale}/contact', function ($locale) {
-    App::setLocale($locale);
-    return view('pages/contact');
+
+
+
+Route::get('/', function () {
+    return redirect(app()->getLocale());
 });
 
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => 'setLocale'
+], function(){
+    
+        Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
 
-Route::get('/{locale}', function ($locale) {
-    App::setLocale($locale);
-    //dd(App::getLocale());
-    return view('pages/index');
-    //
+        
+
+        Route::get('/demo', function (){
+            $demoData= null;
+            return view('dashboardDemo')->with('demoData', $demoData);
+        });
+
+        Route::get('/contact', function () {
+            return view('pages/contact');
+        });
+
+
+        Route::get('/', function () {
+            return view('pages/index');
+        });
+
+        Auth::routes();
+
 });
+
+Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');

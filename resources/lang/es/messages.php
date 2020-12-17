@@ -34,5 +34,7 @@ return [
     'language'=>'Idioma',
     'english'=>'Ingles',
     'spanish'=>'Español',
-    'basque'=>'Euskera'
+    'basque'=>'Euskera',
+    'remember'=>'Recordar usuario',
+    'password'=>'Contraseña',
 ];

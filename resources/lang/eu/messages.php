@@ -33,6 +33,8 @@ return [
     'language'=>'Hizkuntza',
     'english'=>'Inglesa',
     'spanish'=>'Gaztelania',
-    'basque'=>'Euskara'
+    'basque'=>'Euskara',
+    'remember'=>'Gogorarazi',
+    'password'=>'Pasahitza',
     
 ];
