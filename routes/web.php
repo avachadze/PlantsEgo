@@ -27,10 +27,13 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => 'setLocale'
 ], function(){
-    
+
         Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
 
-        
+        Route::get('/Company', 'CompaniesController@index')->name('Company.index');
+        Route::get('/Company/{company}', 'CompaniesController@show')->middleware('can:view,company')->name('Company.show');
+        Route::resource('Company', 'CompaniesController')->middleware('auth');
+
 
         Route::get('/demo', function (){
             $demoData= null;
