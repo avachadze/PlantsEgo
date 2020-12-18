@@ -45,8 +45,9 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
+        $company= Company::find($id);
         return view('company.show')->with('Company', $company);
     }
 
