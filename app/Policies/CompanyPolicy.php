@@ -18,7 +18,7 @@ class CompanyPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->role === 'admin';
+        //
     }
 
     /**
