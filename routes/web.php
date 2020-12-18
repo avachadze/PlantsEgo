@@ -52,5 +52,7 @@ Route::group([
         Auth::routes();
 
 });
-
+Auth::routes(['verify' => true]);
+  
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
