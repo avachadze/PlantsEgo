@@ -15,19 +15,23 @@
         display: none;
     }
 </style>
-
+@section('languages')
+<a class="dropdown-item" href="/en/login">{{__('messages.english')}}</a>
+<a class="dropdown-item" href="/es/login">{{__('messages.spanish')}}</a>
+<a class="dropdown-item" href="/eu/login">{{__('messages.basque')}}</a>
+@endsection
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('messages.login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login', app()->getLocale()) }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('messages.email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -69,12 +73,12 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('messages.login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request', app()->getLocale()) }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('messages.forgot') }}
                                     </a>
                                 @endif
                             </div>

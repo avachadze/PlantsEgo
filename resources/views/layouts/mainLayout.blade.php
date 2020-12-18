@@ -48,13 +48,13 @@
             @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login', app()->getLocale()) }}">{{__('messages.sign-in')}}</a>
+                            <a id="login" class="nav-link btn btn-outline-success text-success mx-1" href="{{ route('login', app()->getLocale()) }}">{{__('messages.sign-in')}}</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a id="register" class="nav-link btn btn-success" href="{{ route('register', app()->getLocale()) }}">{{__('messages.sign-up')}}</a>
+                            <a id="register" class="nav-link btn btn-success text-light" href="{{ route('register', app()->getLocale()) }}">{{__('messages.sign-up')}}</a>
                         </li>
                     @endif
                 @else
