@@ -51,6 +51,10 @@ Route::group([
 
         Auth::routes();
 
-});
 
+});
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+Auth::routes(['verify' => true]);
 Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
