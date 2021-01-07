@@ -1,11 +1,29 @@
 @extends('layouts.mainLayout')
-
+@section('languages')
+<a class="dropdown-item" href="/en">{{__('messages.english')}}</a>
+<a class="dropdown-item" href="/es">{{__('messages.spanish')}}</a>
+<a class="dropdown-item" href="/eu">{{__('messages.basque')}}</a>
+@endsection
 @section('main')
-<div class="container">
+
+<style>
+    footer
+    {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    #login_register
+    {
+        display: none;
+    }
+</style>
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('passwords.pass') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +32,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.email', app()->getLocale()) }}">
                         @csrf
 
                         <div class="form-group row">
