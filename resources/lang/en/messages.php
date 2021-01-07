@@ -5,8 +5,6 @@
 return [
     'home'=> 'Home',
     'compatibility'=> 'Compatibility',
-    'sign-in'=> 'Sign In',
-    'sign-up'=> 'Sign Up',
     'subtitle'=> 'The best admin panel for your irrigation system!',
     'jumbotitle'=> 'Try the system for free!',
     'jumbosubtitle'=> 'We have a demonstration of the application to try and decide if you buy it or not',
@@ -27,7 +25,6 @@ return [
     'contactTitle'=> 'Contact Us',
     'contactText' => 'We have employees looking forward to reply to any of your problem or ideas. Contact us for anything you need, we also hire personal. Send information about your experience and past jobs and we will be contacting you as soon as possible',
     'contactWrite'=>'Write Us',
-    'name'=>'Name',
     'subject'=>'Subject',
     'sendMessage'=>'Message',
     'submit'=>'Submit',
@@ -35,8 +32,7 @@ return [
     'english'=>'english',
     'spanish'=>'spanish',
     'basque'=>'basque',
-    'remember'=>'Remember Me',
-    'password'=>'Password',
+    
 
 
 ];
