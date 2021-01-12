@@ -14,10 +14,10 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header">{{ __('messages.sign-up') }}</div>
+                                <div class="card-header">{{ __('auth.sign-up') }}</div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('register', app()->getLocale()) }}">
+                                    <form method="POST" action="{{ route('register') }}">
                                         @csrf
 
                                         <input type="text" class="d-none form-control" value="user" id="role" name="role" required autocomplete="role">
