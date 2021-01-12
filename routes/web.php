@@ -26,11 +26,6 @@ Route::group([
 
     Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
 
-    Route::get('/demo', function () {
-        $demoData = null;
-        return view('dashboardDemo')->with('demoData', $demoData);
-    });
-
     Route::get('/contact', function () {
         return view('pages/contact');
     });
