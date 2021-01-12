@@ -37,9 +37,9 @@
                         {{__('messages.language')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @section ('languages')
-
-                        @show
+                        <a class="dropdown-item" href="{{ route('switchLang', 'en') }}">{{__('messages.english')}}</a>
+                        <a class="dropdown-item" href="{{ route('switchLang', 'es') }}">{{__('messages.spanish')}}</a>
+                        <a class="dropdown-item" href="{{ route('switchLang', 'eu') }}">{{__('messages.basque')}}</a>
                     </div>
                 </li>
 
@@ -48,13 +48,13 @@
                 @guest
                 @if (Route::has('login'))
                 <li class="nav-item">
-                    <a id="login" class="nav-link btn btn-outline-success mx-1" data-toggle="modal" data-target="#signIn" href="{{ route('login', app()->getLocale()) }}">{{__('auth.sign-in')}}</a>
+                    <a id="login" class="nav-link btn btn-outline-success mx-1" data-toggle="modal" data-target="#signIn" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
                 </li>
                 @endif
 
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a id="register" class="nav-link btn btn-success" data-toggle="modal" data-target="#signUp" href="{{ route('register', app()->getLocale()) }}">{{__('auth.sign-up')}}</a>
+                    <a id="register" class="nav-link btn btn-success" data-toggle="modal" data-target="#signUp" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
                 </li>
                 @endif
                 @else
@@ -64,16 +64,16 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
 
-                        <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard', app()->getLocale()) }}">
+                        <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard') }}">
                             {{ __('Dashboard') }}
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </div>
@@ -87,26 +87,26 @@
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
                 < @guest @if (Route::has('login')) <li class="nav-item">
-                    <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login', app()->getLocale()) }}">{{__('auth.sign-in')}}</a>
+                    <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
                     </li>
                     @endif
 
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a id="register" class="nav-link btn btn-success" href="{{ route('register', app()->getLocale()) }}">{{__('auth.sign-up')}}</a>
+                        <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
                     </li>
                     @endif
                     @else
-                    <a class="btn btn-outline-success" href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault();
+                    <a class="btn btn-outline-success" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 
-                    <a class="btn btn-success" id="dash_button" href="{{ route('usrDashboard', app()->getLocale()) }}">
+                    <a class="btn btn-success" id="dash_button" href="{{ route('usrDashboard') }}">
                         {{ __('Dashboard') }}
                     </a>
 
-                    <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                     @endguest

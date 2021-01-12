@@ -18,36 +18,26 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
 
 Route::group([
-    'prefix' => '{locale}',
-    'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => 'setLocale'
-], function(){
-    
-        Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
+], function () {
+    Route::get('switchLang/{lang}', 'LangController@switchLang')->name('switchLang');
 
-        
+    Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
 
-        Route::get('/demo', function (){
-            $demoData= null;
-            return view('dashboardDemo')->with('demoData', $demoData);
-        });
+    Route::get('/demo', function () {
+        $demoData = null;
+        return view('dashboardDemo')->with('demoData', $demoData);
+    });
 
-        Route::get('/contact', function () {
-            return view('pages/contact');
-        });
+    Route::get('/contact', function () {
+        return view('pages/contact');
+    });
 
-
-        Route::get('/', function () {
-            return view('pages/index');
-        });
-
-        Auth::routes();
-
-});
-
-Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
+    Route::get('/', function () {
+        return view('pages/index');
+    });
+    Auth::routes(['verify' => true]);
+    Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
+    });
