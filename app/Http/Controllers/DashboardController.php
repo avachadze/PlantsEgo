@@ -20,6 +20,6 @@ class DashboardController extends Controller
 
     public function redirect()
     {
-        return redirect(app()->getLocale() . '/Dashboard/' . Auth::id());
+        return redirect('/Dashboard/' . Auth::id());
     }
 }
