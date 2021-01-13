@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plant;
 use Illuminate\Http\Request;
 
 class PlantsController extends Controller
@@ -34,7 +35,15 @@ class PlantsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $plantName = $request->input('name');
+        $plantType = $request->input('type');
+        $plantDescription = $request->input('description');
+        $plant = new Plant();
+        $plant->name = $plantName;
+        $plant->type = $plantType;
+        $plant->description = $plantDescription;
+        $plant->save();
+        return redirect('/plants');
     }
 
     /**

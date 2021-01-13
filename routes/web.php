@@ -26,6 +26,12 @@ Route::group([
 
     Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
 
+
+    Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
+
+    Route::get('/plants/add', function(){
+        return view('pages/addPlant');
+    });
     Route::get('/contact', function () {
         return view('pages/contact');
     });
@@ -35,4 +41,5 @@ Route::group([
     });
     Auth::routes(['verify' => true]);
     Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
+
     });
