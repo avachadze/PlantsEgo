@@ -9,8 +9,8 @@ $(document).ready(function() {
         login.removeClass('disabled');
     }
 
-    email.keyup(validate);
-    password.keyup(validate);
+    email.on('input', validate);
+    password.on('input', validate);
 
     function validate() {
         if ((email.val() == "") | (password.val() == "")) {

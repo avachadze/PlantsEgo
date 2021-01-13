@@ -11,10 +11,10 @@ $(document).ready(function() {
         register.removeClass('disabled');
     }
 
-    name.keyup(validate);
-    email.keyup(validate);
-    confirm.keyup(validate);
-    password.keyup(validate);
+    name.on('input', validate);
+    email.on('input', validate);
+    confirm.on('input', validate);
+    password.on('input', validate);
 
     function validate() {
         if ((confirm.val() == "") | (name.val() == "") | (email.val() == "") | (password.val() == "")) {
