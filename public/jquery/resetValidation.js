@@ -8,7 +8,7 @@ $(document).ready(function() {
         emailButton.removeClass('disabled');
     }
 
-    emailReset.keyup(validate);
+    emailReset.on('input', validate);
 
     function validate() {
         if (emailReset.val() == "") {
