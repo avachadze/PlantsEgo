@@ -1,3 +1,4 @@
+<script src="/jquery/loginValidation.js"></script>
 <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -56,7 +57,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button id="sendLogin" type="submit" class="btn btn-primary">
                                         {{ __('auth.login') }}
                                     </button>
 

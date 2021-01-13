@@ -23,7 +23,7 @@
           <div class="md-form">
             <i class="fas fa-user prefix grey-text"></i>
             <input type="text" id="form-name" class="form-control">
-            <label for="form-name">{{__('messages.name')}}</label>
+            <label for="form-name">{{__('auth.name')}}</label>
           </div>
           <div class="md-form">
             <i class="fas fa-envelope prefix grey-text"></i>
@@ -41,7 +41,8 @@
             <label for="form-text">{{__('messages.sendMessage')}}</label>
           </div>
           <div class="text-center">
-            <button class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
+            <button id="submitContact" class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
+
           </div>
         </div>
       </div>

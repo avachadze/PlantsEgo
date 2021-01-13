@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/node_modules/animate.css/animate.css">
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="{{mix('js/app.js') }}"></script>
-
+   
 </head>
 @section ('photoHeader')
 
