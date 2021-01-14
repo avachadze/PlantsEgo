@@ -26,7 +26,6 @@ return [
     'contactTitle'=> 'Kontaktatu',
     'contactText' =>'Zuri laguntzeko prest langileak ditugu. Gurekin kontaktuan jarri behar duzun edozein gauzarako, ere pertsonala kontratatzen dugu. Mesedez, bidali zure esperientzia eta aurreko lanari buruzko informazioa eta ahalik eta azkarren erantzungo dizugu.',
     'contactWrite'=>'idatzi iezaguzu',
-    'name'=>'Izena',
     'subject'=>'Asuntoa',
     'sendMessage'=>'Mezua',
     'submit'=>'Bidali',
@@ -34,7 +33,7 @@ return [
     'english'=>'Inglesa',
     'spanish'=>'Gaztelania',
     'basque'=>'Euskara',
-    'remember'=>'Gogorarazi',
-    'password'=>'Pasahitza',
+    
+   
     
 ];

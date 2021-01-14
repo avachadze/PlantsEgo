@@ -27,7 +27,6 @@ return [
     'contactTitle'=> 'Contactanos',
     'contactText' =>'Tenemos empleados que estan dispuestos a ayudarte. Contáctanos para cualquier cosa que necesites, también contratamos personal. Envíe información sobre su experiencia y trabajos anteriores y nos pondremos en contacto con usted lo antes posible',
     'contactWrite'=>'Escribenos',
-    'name'=>'Nombre',
     'subject'=>'Asunto',
     'sendMessage'=>'Mensaje',
     'submit'=>'Enviar',
@@ -35,6 +34,6 @@ return [
     'english'=>'Ingles',
     'spanish'=>'Español',
     'basque'=>'Euskera',
-    'remember'=>'Recordar usuario',
-    'password'=>'Contraseña',
+    
+    
 ];

@@ -1,10 +1,5 @@
 @extends('layouts/mainLayout')
 @section('main')
-@section('languages')
-<a class="dropdown-item" href="/en/contact">{{__('messages.english')}}</a>
-<a class="dropdown-item" href="/es/contact">{{__('messages.spanish')}}</a>
-<a class="dropdown-item" href="/eu/contact">{{__('messages.basque')}}</a>
-@endsection
 <section class="container my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
@@ -16,34 +11,41 @@
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card">
         <div class="card-body">
+          <form action="">
+            <div class="form-header blue accent-1">
+              <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="nameC" class="form-control">
+              <label for="nameC">{{__('auth.name')}}</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="text" id="emailC" class="form-control">
+              @error('email')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <label for="emailC">Email</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-tag prefix grey-text"></i>
+              <input type="text" id="form-Subject" class="form-control">
+              <label for="form-Subject">{{__('messages.subject')}}</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-pencil-alt prefix grey-text"></i>
+              <textarea id="msg" class="form-control md-textarea" rows="3"></textarea>
+              <label for="msg">{{__('messages.sendMessage')}}</label>
+            </div>
+            <div class="text-center">
+              <button id="submitContact" class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
 
-          <div class="form-header blue accent-1">
-            <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
-          </div>
-          <div class="md-form">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input type="text" id="form-name" class="form-control">
-            <label for="form-name">{{__('messages.name')}}</label>
-          </div>
-          <div class="md-form">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="text" id="form-email" class="form-control">
-            <label for="form-email">Email</label>
-          </div>
-          <div class="md-form">
-            <i class="fas fa-tag prefix grey-text"></i>
-            <input type="text" id="form-Subject" class="form-control">
-            <label for="form-Subject">{{__('messages.subject')}}</label>
-          </div>
-          <div class="md-form">
-            <i class="fas fa-pencil-alt prefix grey-text"></i>
-            <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-            <label for="form-text">{{__('messages.sendMessage')}}</label>
-          </div>
-          <div class="text-center">
-            <button class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
-          </div>
+            </div>
         </div>
+        </form>
       </div>
 
 
@@ -79,5 +81,5 @@
     </div>
   </div>
 </section>
-
+<script src="/jquery/contactValidation.js"></script>
 @endsection

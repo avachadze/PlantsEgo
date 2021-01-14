@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/node_modules/animate.css/animate.css">
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="{{mix('js/app.js') }}"></script>
-
+   
 </head>
 @section ('photoHeader')
 
@@ -24,61 +24,60 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/{{__('messages.lang')}}">{{__('messages.home')}} <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">{{__('messages.home')}} <span class="sr-only">(current)</span></a>
                 </li>
                 @section ('compatibility')
 
                 @show
                 <li class="nav-item">
-                    <a class="nav-link" href="/{{__('messages.lang')}}/contact">{{__('messages.contact')}}</a>
+                    <a class="nav-link" href="/contact">{{__('messages.contact')}}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{__('messages.language')}}
+                        {{__('messages.language')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @section ('languages')
-                        
-                        @show
+                        <a class="dropdown-item" href="{{ route('switchLang', 'en') }}">{{__('messages.english')}}</a>
+                        <a class="dropdown-item" href="{{ route('switchLang', 'es') }}">{{__('messages.spanish')}}</a>
+                        <a class="dropdown-item" href="{{ route('switchLang', 'eu') }}">{{__('messages.basque')}}</a>
                     </div>
                 </li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login', app()->getLocale()) }}">{{__('messages.sign-in')}}</a>
-                        </li>
-                    @endif
+                @guest
+                @if (Route::has('login'))
+                <li class="nav-item">
+                    <a id="login" class="nav-link btn btn-outline-success mx-1" data-toggle="modal" data-target="#signIn" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
+                </li>
+                @endif
 
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a id="register" class="nav-link btn btn-success" href="{{ route('register', app()->getLocale()) }}">{{__('messages.sign-up')}}</a>
-                        </li>
-                    @endif
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a id="register" class="nav-link btn btn-success" data-toggle="modal" data-target="#signUp" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
+                </li>
+                @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard') }}">
+                            {{ __('Dashboard') }}
+                        </a>
 
-                            <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard', app()->getLocale()) }}">
-                                {{ __('Dashboard') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
                 @endguest
             </ul>
 
@@ -87,36 +86,36 @@
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
-                < @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login', app()->getLocale()) }}">{{__('messages.sign-in')}}</a>
-                        </li>
+                < @guest @if (Route::has('login')) <li class="nav-item">
+                    <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
+                    </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a id="register" class="nav-link btn btn-success" href="{{ route('register', app()->getLocale()) }}">{{__('messages.sign-up')}}</a>
-                        </li>
+                    <li class="nav-item">
+                        <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
+                    </li>
                     @endif
-                @else
-                        <a class="btn btn-outline-success" href="{{ route('logout', app()->getLocale()) }}"
-                           onclick="event.preventDefault();
+                    @else
+                    <a class="btn btn-outline-success" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                        {{ __('Logout') }}
+                    </a>
 
-                        <a class="btn btn-success" id="dash_button" href="{{ route('usrDashboard', app()->getLocale()) }}">
-                            {{ __('Dashboard') }}
-                        </a>
+                    <a class="btn btn-success" id="dash_button" href="{{ route('usrDashboard') }}">
+                        {{ __('Dashboard') }}
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                @endguest
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    @endguest
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    @include('auth.login')
+    @include('auth.register')
 </header>
 
 <body id="top">

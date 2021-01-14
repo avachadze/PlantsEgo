@@ -236,7 +236,7 @@ a {
   --danger: #e3342f;
   --light: #f8f9fa;
   --dark: #343a40;
-  --lightWarning: #ff6d6d;
+  --lightWarning: #ff5e5e;
   --lightWarningBorder: #e93b3b;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -2213,23 +2213,23 @@ pre code {
 .table-lightWarning,
 .table-lightWarning > th,
 .table-lightWarning > td {
-  background-color: #ffd6d6;
+  background-color: #ffd2d2;
 }
 
 .table-lightWarning th,
 .table-lightWarning td,
 .table-lightWarning thead th,
 .table-lightWarning tbody + tbody {
-  border-color: #ffb3b3;
+  border-color: #ffabab;
 }
 
 .table-hover .table-lightWarning:hover {
-  background-color: #ffbdbd;
+  background-color: #ffb9b9;
 }
 
 .table-hover .table-lightWarning:hover > td,
 .table-hover .table-lightWarning:hover > th {
-  background-color: #ffbdbd;
+  background-color: #ffb9b9;
 }
 
 .table-lightWarningBorder,
@@ -3248,44 +3248,44 @@ fieldset:disabled a.btn {
 }
 
 .btn-lightWarning {
-  color: #212529;
-  background-color: #ff6d6d;
-  border-color: #ff6d6d;
+  color: #fff;
+  background-color: #ff5e5e;
+  border-color: #ff5e5e;
 }
 
 .btn-lightWarning:hover {
   color: #fff;
-  background-color: #ff4747;
-  border-color: #ff3a3a;
+  background-color: #ff3838;
+  border-color: #ff2b2b;
 }
 
 .btn-lightWarning:focus,
 .btn-lightWarning.focus {
   color: #fff;
-  background-color: #ff4747;
-  border-color: #ff3a3a;
-  box-shadow: 0 0 0 0.2rem rgba(222, 98, 99, 0.5);
+  background-color: #ff3838;
+  border-color: #ff2b2b;
+  box-shadow: 0 0 0 0.2rem rgba(255, 118, 118, 0.5);
 }
 
 .btn-lightWarning.disabled,
 .btn-lightWarning:disabled {
-  color: #212529;
-  background-color: #ff6d6d;
-  border-color: #ff6d6d;
+  color: #fff;
+  background-color: #ff5e5e;
+  border-color: #ff5e5e;
 }
 
 .btn-lightWarning:not(:disabled):not(.disabled):active,
 .btn-lightWarning:not(:disabled):not(.disabled).active,
 .show > .btn-lightWarning.dropdown-toggle {
   color: #fff;
-  background-color: #ff3a3a;
-  border-color: #ff2d2d;
+  background-color: #ff2b2b;
+  border-color: #ff1e1e;
 }
 
 .btn-lightWarning:not(:disabled):not(.disabled):active:focus,
 .btn-lightWarning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-lightWarning.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(222, 98, 99, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 118, 118, 0.5);
 }
 
 .btn-lightWarningBorder {
@@ -3618,39 +3618,39 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-lightWarning {
-  color: #ff6d6d;
-  border-color: #ff6d6d;
+  color: #ff5e5e;
+  border-color: #ff5e5e;
 }
 
 .btn-outline-lightWarning:hover {
-  color: #212529;
-  background-color: #ff6d6d;
-  border-color: #ff6d6d;
+  color: #fff;
+  background-color: #ff5e5e;
+  border-color: #ff5e5e;
 }
 
 .btn-outline-lightWarning:focus,
 .btn-outline-lightWarning.focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 109, 109, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 94, 94, 0.5);
 }
 
 .btn-outline-lightWarning.disabled,
 .btn-outline-lightWarning:disabled {
-  color: #ff6d6d;
+  color: #ff5e5e;
   background-color: transparent;
 }
 
 .btn-outline-lightWarning:not(:disabled):not(.disabled):active,
 .btn-outline-lightWarning:not(:disabled):not(.disabled).active,
 .show > .btn-outline-lightWarning.dropdown-toggle {
-  color: #212529;
-  background-color: #ff6d6d;
-  border-color: #ff6d6d;
+  color: #fff;
+  background-color: #ff5e5e;
+  border-color: #ff5e5e;
 }
 
 .btn-outline-lightWarning:not(:disabled):not(.disabled):active:focus,
 .btn-outline-lightWarning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-lightWarning.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 109, 109, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 94, 94, 0.5);
 }
 
 .btn-outline-lightWarningBorder {
@@ -5886,20 +5886,20 @@ a.badge-dark.focus {
 }
 
 .badge-lightWarning {
-  color: #212529;
-  background-color: #ff6d6d;
+  color: #fff;
+  background-color: #ff5e5e;
 }
 
 a.badge-lightWarning:hover,
 a.badge-lightWarning:focus {
-  color: #212529;
-  background-color: #ff3a3a;
+  color: #fff;
+  background-color: #ff2b2b;
 }
 
 a.badge-lightWarning:focus,
 a.badge-lightWarning.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(255, 109, 109, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 94, 94, 0.5);
 }
 
 .badge-lightWarningBorder {
@@ -6080,17 +6080,17 @@ a.badge-lightWarningBorder.focus {
 }
 
 .alert-lightWarning {
-  color: #853939;
-  background-color: #ffe2e2;
-  border-color: #ffd6d6;
+  color: #853131;
+  background-color: #ffdfdf;
+  border-color: #ffd2d2;
 }
 
 .alert-lightWarning hr {
-  border-top-color: #ffbdbd;
+  border-top-color: #ffb9b9;
 }
 
 .alert-lightWarning .alert-link {
-  color: #612a2a;
+  color: #602323;
 }
 
 .alert-lightWarningBorder {
@@ -6546,20 +6546,20 @@ a.badge-lightWarningBorder.focus {
 }
 
 .list-group-item-lightWarning {
-  color: #853939;
-  background-color: #ffd6d6;
+  color: #853131;
+  background-color: #ffd2d2;
 }
 
 .list-group-item-lightWarning.list-group-item-action:hover,
 .list-group-item-lightWarning.list-group-item-action:focus {
-  color: #853939;
-  background-color: #ffbdbd;
+  color: #853131;
+  background-color: #ffb9b9;
 }
 
 .list-group-item-lightWarning.list-group-item-action.active {
   color: #fff;
-  background-color: #853939;
-  border-color: #853939;
+  background-color: #853131;
+  border-color: #853131;
 }
 
 .list-group-item-lightWarningBorder {
@@ -7546,14 +7546,14 @@ button.bg-dark:focus {
 }
 
 .bg-lightWarning {
-  background-color: #ff6d6d !important;
+  background-color: #ff5e5e !important;
 }
 
 a.bg-lightWarning:hover,
 a.bg-lightWarning:focus,
 button.bg-lightWarning:hover,
 button.bg-lightWarning:focus {
-  background-color: #ff3a3a !important;
+  background-color: #ff2b2b !important;
 }
 
 .bg-lightWarningBorder {
@@ -7648,7 +7648,7 @@ button.bg-lightWarningBorder:focus {
 }
 
 .border-lightWarning {
-  border-color: #ff6d6d !important;
+  border-color: #ff5e5e !important;
 }
 
 .border-lightWarningBorder {
@@ -11294,12 +11294,12 @@ a.text-dark:focus {
 }
 
 .text-lightWarning {
-  color: #ff6d6d !important;
+  color: #ff5e5e !important;
 }
 
 a.text-lightWarning:hover,
 a.text-lightWarning:focus {
-  color: #ff2121 !important;
+  color: #ff1212 !important;
 }
 
 .text-lightWarningBorder {
