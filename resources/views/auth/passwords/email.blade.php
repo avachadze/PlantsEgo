@@ -51,7 +51,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <button id="sendReset" type="submit" class="btn btn-primary" >
                                     
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('passwords.send') }}
                                 </button>
                             </div>
                         </div>

@@ -11,4 +11,5 @@ return [
     'forgot' => "Ahaztu zaizu pasahitza?",
     'password'=>'Pasahitza',
     'confirm' => 'Konfirmatu Pasahitza',
+    'send' => 'Bidail rekuperazio emaila',
 ];
