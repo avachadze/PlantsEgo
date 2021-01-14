@@ -33,6 +33,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <a href="{{ route('Company.index', app()->getLocale()) }}" class="btn btn-outline-info bg-light text-info"><button>Companies</button></a>
             </div>
         </div>
     </div>

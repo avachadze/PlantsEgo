@@ -22,9 +22,15 @@ use Illuminate\Support\Facades\Auth;
 Route::group([
     'middleware' => 'setLocale'
 ], function () {
+
+    Route::get('/Company', 'CompaniesController@index')->name('Company.index');
+    Route::get('/Company/{company}', 'CompaniesController@show')->name('Company.show');
+    Route::resource('Company', 'CompaniesController')->middleware('auth');
+  
     Route::get('switchLang/{lang}', 'LangController@switchLang')->name('switchLang');
 
     Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
+
 
     Route::get('/contact', function () {
         return view('pages/contact');

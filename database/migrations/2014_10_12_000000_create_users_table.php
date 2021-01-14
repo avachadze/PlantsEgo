@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        $seeder= new \Database\Seeders\UserSeeder();
+        $seeder->run();
     }
 
     /**
