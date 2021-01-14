@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Sensor;
 
 class SensorsController extends Controller
 {
@@ -34,7 +35,13 @@ class SensorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sensorName = $request->name;
+        $sensorTopic = $request->topic;
+        $sensor = new Sensor();
+        $sensor->name = $sensorName;
+        $sensor->topic = $sensorTopic;
+        $sensor->save();
+        return redirect('/system');
     }
 
     /**

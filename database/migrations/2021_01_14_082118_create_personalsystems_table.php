@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSystemsTable extends Migration
+class CreatePersonalsystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('systems', function (Blueprint $table) {
+        Schema::create('personalsystems', function (Blueprint $table) {
             $table->id();
             $table->String('name');
             $table->foreignId('user_id')->constrained('users');

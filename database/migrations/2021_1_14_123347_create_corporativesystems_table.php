@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSensorsTable extends Migration
+class CreateCorporativesystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSensorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('corporativesystems', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("topic");
+            $table->String('name');
+            $table->foreignId('company_id')->constrained('companies');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('systems');
     }
 }

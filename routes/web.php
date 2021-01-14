@@ -32,6 +32,11 @@ Route::group([
     Route::get('/plants/add', function(){
         return view('pages/addPlant');
     });
+    Route::get('/systems/sensors/add', function(){
+        return view('pages/addSensor');
+    });
+    Route::post('/system/sensors/add', '\App\Http\Controllers\SensorsController@store');
+
     Route::get('/contact', function () {
         return view('pages/contact');
     });
