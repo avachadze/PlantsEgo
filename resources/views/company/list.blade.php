@@ -22,7 +22,7 @@
         @foreach($Companies as $company)
             <h4>
                 @can('view', $company)
-                    <a href="{{ route('Company.show', [app()->getLocale(), $company]) }}">{{ $company->name }}</a>
+                    <a href="{{ route('Company.show', $company) }}">{{ $company->name }}</a>
                 @endcan
 
                 @cannot('view', $company)

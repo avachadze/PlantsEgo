@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class LangController extends Controller
 {
-    public function switchLang($lang)
+    public function __invoke($lang)
     {
         if (array_key_exists($lang, Config::get('languages'))) {
             Session::put('applocale', $lang);

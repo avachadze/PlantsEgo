@@ -48,6 +48,7 @@ class CompaniesController extends Controller
     public function show($id)
     {
         $company= Company::find($id);
+        $this->authorize('view', $company);
         return view('company.show')->with('Company', $company);
     }
 
