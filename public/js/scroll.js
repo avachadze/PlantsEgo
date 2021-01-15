@@ -104,7 +104,11 @@ eval("$(document).ready(function () {\n  $(\".navbar a, footer a[href='#top']\")
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! D:\Bibliotecas\Escritorio\plantsego\plantsego\resources\js\scroll.js */"./resources/js/scroll.js");
+=======
+module.exports = __webpack_require__(/*! /home/zubiri/Escritorio/PlantsEGO/PlantsEgo/resources/js/scroll.js */"./resources/js/scroll.js");
+>>>>>>> 762ec1c5d8ab13363104b613ddc8abacee9d2af4
 
 
 /***/ })

@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean('corporative');
             $table->timestamps();
         });
+        $seeder= new \Database\Seeders\UserSeeder();
+        $seeder->run();
     }
 
     /**

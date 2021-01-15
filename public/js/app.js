@@ -537,8 +537,13 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! D:\Bibliotecas\Escritorio\plantsego\plantsego\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\Bibliotecas\Escritorio\plantsego\plantsego\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /home/zubiri/Escritorio/PlantsEGO/PlantsEgo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/zubiri/Escritorio/PlantsEGO/PlantsEgo/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> 762ec1c5d8ab13363104b613ddc8abacee9d2af4
 
 
 /***/ })

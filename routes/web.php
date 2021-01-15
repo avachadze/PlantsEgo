@@ -13,25 +13,30 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-
-
-
-
 Route::group([
     'middleware' => 'setLocale'
 ], function () {
-    Route::get('switchLang/{lang}', 'LangController@switchLang')->name('switchLang');
 
-    Route::resource('Dashboard', 'DashboardController')->only('show')->middleware('auth');
+    Route::group(
+    ['middleware' => 'auth'],
+     function (){
 
+         Route::resource('Dashboard', 'DashboardController')->only('show');
+         Route::resource('Company', 'CompaniesController');
+     });
 
+    Route::get('switchLang/{lang}', 'LangController')->name('switchLang');
+
+    Route::view('/contact', 'pages/contact');
+
+    Route::view('/', 'pages/index');
     Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
-
+    Route::post('/systems/add/corporative','\App\Http\Controllers\CorporativeSystemController@store');
+    Route::post('/systems/add/personal','\App\Http\Controllers\PersonalSystemController@store');
     Route::get('/plants/add', function(){
         return view('pages/addPlant');
     });
+    Route::view('/systems/add', 'pages/addSystem');
     Route::get('/systems/sensors/add', function(){
         return view('pages/addSensor');
     });
@@ -41,10 +46,7 @@ Route::group([
         return view('pages/contact');
     });
 
-    Route::get('/', function () {
-        return view('pages/index');
-    });
     Auth::routes(['verify' => true]);
     Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
 
-    });
+});

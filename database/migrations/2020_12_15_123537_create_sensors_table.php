@@ -15,10 +15,12 @@ class CreateSensorsTable extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("topic");
+            $table->string('type');
+            $table->foreignId('plant_id')->constrained('plants');
             $table->timestamps();
         });
+        $seeder= new \Database\Seeders\SensorSeeder();
+        $seeder->run();
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
@@ -13,7 +14,8 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
+        $Companies= Company::all();
+        return view('company.list')->with('Companies', $Companies);
     }
 
     /**
@@ -45,7 +47,9 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        //
+        $company= Company::find($id);
+        $this->authorize('view', $company);
+        return view('company.show')->with('Company', $company);
     }
 
     /**

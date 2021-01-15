@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalsystemsTable extends Migration
+class CreateSystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePersonalsystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('personalsystems', function (Blueprint $table) {
+        Schema::create('systems', function (Blueprint $table) {
             $table->id();
             $table->String('name');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
