@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Company;
+use App\Models\Sensor;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CompanyPolicy
+class SensorPolicy
 {
     use HandlesAuthorization;
 
@@ -26,14 +26,12 @@ class CompanyPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Sensor  $sensor
      * @return mixed
      */
-    public function view(User $user, Company $company)
+    public function view(User $user, Sensor $sensor)
     {
-        return  $user->role === 'admin' ||
-                $user->role === 'technician' ||
-                $company->id === $user->company_id;
+        //
     }
 
     /**
@@ -52,24 +50,23 @@ class CompanyPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Sensor  $sensor
      * @return mixed
      */
-    public function update(User $user, Company $company)
+    public function update(User $user, Sensor $sensor)
     {
         return  $user->role === 'admin' ||
-                $user->role === 'technician' ||
-                $company->id === $user->company_id;
+                $user->role === 'technician';
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Sensor  $sensor
      * @return mixed
      */
-    public function delete(User $user, Company $company)
+    public function delete(User $user, Sensor $sensor)
     {
         return  $user->role === 'admin' ||
                 $user->role === 'technician';

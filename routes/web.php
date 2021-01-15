@@ -17,21 +17,26 @@ Route::group([
     'middleware' => 'setLocale'
 ], function () {
 
-    Route::group(
-    ['middleware' => 'auth'],
-     function (){
+    Route::group([
+        'middleware' => 'verified'
+    ], function () {
 
-         Route::resource('Dashboard', 'DashboardController')->only('show');
-         Route::resource('Company', 'CompaniesController');
-     });
+        Route::group(
+            ['middleware' => 'auth'],
+            function (){
+
+                Route::resource('Dashboard', 'DashboardController')->only('show');
+                Route::resource('Company', 'CompaniesController');
+            });
+
+        Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
+    });
+
+    Auth::routes(['verify' => true]);
 
     Route::get('switchLang/{lang}', 'LangController')->name('switchLang');
 
     Route::view('/contact', 'pages/contact');
 
     Route::view('/', 'pages/index');
-
-    Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
-
-    Auth::routes(['verify' => true]);
 });

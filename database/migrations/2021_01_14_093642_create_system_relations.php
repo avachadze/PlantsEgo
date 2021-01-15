@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSystemsTable extends Migration
+class SystemRelations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateSystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('systems', function (Blueprint $table) {
+        Schema::create('system_relations', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('system_id')->unique();
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('company_id')->nullable();
+            $table->boolean('isInCompany');
             $table->timestamps();
         });
-        //$seeder= new \Database\Seeders\SystemSeeder();
-        //$seeder->run();
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateSystemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('systems');
+        Schema::dropIfExists('system_relations');
     }
 }

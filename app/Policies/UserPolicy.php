@@ -17,7 +17,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return  $user->role === 'admin';
     }
 
     /**
@@ -29,7 +29,8 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        return  $user->role === 'admin' ||
+                $model->id === $user->id;
     }
 
     /**
@@ -40,7 +41,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +53,8 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        return  $user->role === 'admin' ||
+                $user->id === $model->id;
     }
 
     /**
@@ -64,30 +66,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
-     * @return mixed
-     */
-    public function restore(User $user, User $model)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
-     * @return mixed
-     */
-    public function forceDelete(User $user, User $model)
-    {
-        //
+        return  $user->role === 'admin' ||
+                $user->id === $model->id;
     }
 }
