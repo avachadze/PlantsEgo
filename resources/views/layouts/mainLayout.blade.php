@@ -120,7 +120,7 @@
 
 <body id="top">
 
-    <div class="container mt-5">
+    <div class="mt-5">
         @section('main')
 
 
