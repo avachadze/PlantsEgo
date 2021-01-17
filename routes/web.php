@@ -34,9 +34,8 @@ Route::group([
     Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
     Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
     Route::get('/systems','\App\Http\Controllers\SystemsController@index');
-    Route::get('/plants/add', function(){
-        return view('pages/addPlant');
-    });
+    Route::get('/systems/{id}', '\App\Http\Controllers\PlantsController@index');
+    Route::get('/systems/{id}/plants/add', '\App\Http\Controllers\PlantsController@showStoreForm');
     Route::view('/systems/add', 'pages/addSystem');
     Route::get('/systems/sensors/add', function(){
         return view('pages/addSensor');

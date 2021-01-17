@@ -3,10 +3,7 @@
     <div>
         <form action="/plants/add" method="post">
         @csrf
-            <select name="systemSelector" id="systemSelector">
-            
-            </select>
-            <br>
+        <input name="systemID" type="hidden" value="{{$id}}">
             <label for="name">Name</label>
             <br>
             <input type="text" name="name">

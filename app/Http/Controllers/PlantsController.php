@@ -12,9 +12,16 @@ class PlantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $plants = Plant::All();
+        $plantsToShow = array();
+        foreach($plants as $plant){
+            if($plant->system_id==$request->id){
+                array_push($plantsToShow,$plant);
+            }
+        }
+        return view('pages.plants')->with('plants',$plantsToShow);
     }
 
     /**
@@ -33,17 +40,22 @@ class PlantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showStoreForm(Request $request){
+        return view('pages.addPlant')->with('id',$request->id);
+    }
     public function store(Request $request)
     {
         $plantName = $request->input('name');
         $plantType = $request->input('type');
         $plantDescription = $request->input('description');
+        $plantSystemID = $request->input('systemID');
         $plant = new Plant();
         $plant->name = $plantName;
         $plant->type = $plantType;
         $plant->description = $plantDescription;
+        $plant->system_id = $plantSystemID;
         $plant->save();
-        return redirect('/plants');
+        return redirect('/systems/'.$plantSystemID);
     }
 
     /**
