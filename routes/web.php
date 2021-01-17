@@ -31,8 +31,9 @@ Route::group([
 
     Route::view('/', 'pages/index');
     Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
-    Route::post('/systems/add/corporative','\App\Http\Controllers\CorporativeSystemController@store');
-    Route::post('/systems/add/personal','\App\Http\Controllers\PersonalSystemController@store');
+    Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
+    Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
+    Route::get('/systems','\App\Http\Controllers\SystemsController@index');
     Route::get('/plants/add', function(){
         return view('pages/addPlant');
     });
