@@ -29,6 +29,22 @@ Route::group([
                 Route::resource('Company', 'CompaniesController');
             });
 
+        Route::post('/plants/add', 'PlantsController@store');
+
+        Route::get('/systems', function ()
+        {
+            Route::get('/','SystemsController@index');
+            Route::post('/add/corporative','SystemsController@store');
+            Route::post('/add/personal','SystemsController@store');
+            Route::view('/add', '/pages/addSystem');
+            Route::get('/{id}', 'PlantsController@index');
+            Route::get('/{id}/addplant', 'PlantsController@showStoreForm');
+            Route::get('/{id}/addsensor', 'SensorsController@showStoreForm');
+            Route::get('/{id}/{plantid}', 'PlantsController@show');
+            Route::post('/sensors/add', 'SensorsController@store');
+        });
+
+
         Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
     });
 

@@ -14,9 +14,11 @@ class CreateSystemsTable extends Migration
     public function up()
     {
         Schema::create('systems', function (Blueprint $table) {
+
             $table->id();
             $table->String('name');
-            $table->foreignId('user_id')->constrained('users');
+            $table->integer('userID')->nullable();
+            $table->integer('companyID')->nullable();
             $table->timestamps();
         });
         //$seeder= new \Database\Seeders\SystemSeeder();

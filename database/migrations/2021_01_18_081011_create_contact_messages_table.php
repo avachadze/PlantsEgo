@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SystemRelations extends Migration
+class CreateContactMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class SystemRelations extends Migration
      */
     public function up()
     {
-        Schema::create('system_relations', function (Blueprint $table) {
+        Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('system_id')->unique();
-            $table->foreignId('user_id')->nullable();
-            $table->foreignId('company_id')->nullable();
-            $table->boolean('isInCompany');
+            $table->string('fromName');
+            $table->string('fromEmail');
+            $table->string('subject');
+            $table->text('message');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +30,6 @@ class SystemRelations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('system_relations');
+        Schema::dropIfExists('contact_messages');
     }
 }
