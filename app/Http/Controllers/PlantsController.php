@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Plant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PlantsController extends Controller
 {
@@ -64,9 +66,11 @@ class PlantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $plant = DB::table('plants')->where('id', $request->plantid)->first();
+        return view('pages.statistics')->with('plant',$plant);
+
     }
 
     /**
