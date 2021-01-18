@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMqttdataTable extends Migration
+class CreateMqttdatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMqttdataTable extends Migration
      */
     public function up()
     {
-        Schema::create('mqttdata', function (Blueprint $table) {
+        Schema::create('mqttdatas', function (Blueprint $table) {
             $table->id();
             $table->string("topic");
             $table->float("message");
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

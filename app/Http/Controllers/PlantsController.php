@@ -25,6 +25,7 @@ class PlantsController extends Controller
         }
         return view('pages.plants')->with('plants',$plantsToShow);
     }
+   
 
     /**
      * Show the form for creating a new resource.

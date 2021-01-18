@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Sensor;
+use \App\Models\Mqttdata;
+use Illuminate\Support\Facades\DB;
 
 class SensorsController extends Controller
 {
@@ -12,9 +14,25 @@ class SensorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $sensors = Sensor::All();
+        $mqttdatasdb = Mqttdata::All();
+        $sensorsToShow=array();
+        $mqttdatas=array();
+        foreach($sensors as $sensor){
+            if($request->plantid == $sensor->plant_id){
+                foreach($mqttdatasdb as $mqttdata){
+                    if($sensor->topic == $mqttdata->topic){
+                        array_push($mqttdatas, $mqttdata);
+                    }
+                    
+                }
+                
+            }
+        }
+        dd($mqttdatas);
+        return $mqttdatas;
     }
 
     /**
@@ -33,13 +51,18 @@ class SensorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showStoreForm(Request $request){
+        return view('pages.addSensor')->with('id',$request->plantid);
+    }
     public function store(Request $request)
     {
         $sensorName = $request->name;
         $sensorTopic = $request->topic;
+        $sensorPlantId = $request->plant_id;
         $sensor = new Sensor();
         $sensor->name = $sensorName;
         $sensor->topic = $sensorTopic;
+        $sensor->plant_id = $sensorPlantId;
         $sensor->save();
         return redirect('/system');
     }

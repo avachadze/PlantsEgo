@@ -4,6 +4,7 @@
 <h1>Añadir sensores</h1>
     <form action="/system/sensors/add" method="post">
     @csrf
+        <input type="hidden" name="plant_id" value="{{$id}}">
         <label for="name">Name</label>
         <br>
         <input type="text" id="name" name="name">
