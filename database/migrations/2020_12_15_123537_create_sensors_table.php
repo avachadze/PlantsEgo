@@ -19,8 +19,8 @@ class CreateSensorsTable extends Migration
             $table->foreignId('plant_id')->constrained('plants');
             $table->timestamps();
         });
-        $seeder= new \Database\Seeders\SensorSeeder();
-        $seeder->run();
+        //$seeder= new \Database\Seeders\SensorSeeder();
+        //$seeder->run();
     }
 
     /**
