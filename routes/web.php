@@ -31,6 +31,11 @@ Route::group([
 
         Route::post('/plants/add', 'PlantsController@store');
 
+        Route::post('/message/create', 'ContactMessagesController@store')->name('storeContactMessage');
+        Route::get('/message', 'ContactMessagesController@index')->name('messages.list');
+        Route::get('/message/{id}', 'ContactMessagesController@show')->name('messages.show');
+        Route::delete('/message/{id}', 'ContactMessagesController@destroy')->name('destroyMessage');
+
         Route::get('/systems', function ()
         {
             Route::get('/','SystemsController@index');

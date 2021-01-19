@@ -1,5 +1,6 @@
 @extends('layouts/mainLayout')
 @section('main')
+    <script src="/jquery/contactValidation.js"></script>
 <section class="container my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
@@ -11,34 +12,37 @@
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card">
         <div class="card-body">
-          <form action="">
+          <form action="{{ route('storeContactMessage') }}" method="POST">
+
+              @csrf
+
             <div class="form-header blue accent-1">
               <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
             </div>
             <div class="md-form">
               <i class="fas fa-user prefix grey-text"></i>
-              <input type="text" id="nameC" class="form-control">
-              <label for="nameC">{{__('auth.name')}}</label>
+                <label for="nameC">{{__('auth.name')}}</label>
+              <input type="text" id="nameC" name="nameC" @auth value="{{ Auth::user()->name }}" @endauth class="form-control">
             </div>
             <div class="md-form">
               <i class="fas fa-envelope prefix grey-text"></i>
-              <input type="text" id="emailC" class="form-control">
+                <label for="emailC">Email</label>
+              <input type="text" id="emailC" name="emailC" @auth value="{{ Auth::user()->email }}" @endauth class="form-control">
               @error('email')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
-              <label for="emailC">Email</label>
             </div>
             <div class="md-form">
               <i class="fas fa-tag prefix grey-text"></i>
-              <input type="text" id="form-Subject" class="form-control">
-              <label for="form-Subject">{{__('messages.subject')}}</label>
+                <label for="form-Subject">{{__('messages.subject')}}</label>
+              <input type="text" id="form-Subject" name="form-Subject" class="form-control">
             </div>
             <div class="md-form">
               <i class="fas fa-pencil-alt prefix grey-text"></i>
-              <textarea id="msg" class="form-control md-textarea" rows="3"></textarea>
-              <label for="msg">{{__('messages.sendMessage')}}</label>
+                <label for="msg">{{__('messages.sendMessage')}}</label>
+              <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3"></textarea>
             </div>
             <div class="text-center">
               <button id="submitContact" class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
@@ -81,5 +85,4 @@
     </div>
   </div>
 </section>
-<script src="/jquery/contactValidation.js"></script>
 @endsection
