@@ -7,14 +7,13 @@
         height: 25vh;
         min-width: 15vw;
     }
-
-   
 </style>
 <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div id="logo" class="d-flex modal-header ">
-                <h4 class="modal-title col-11 text-center"><img src="img/logo.png" class="logo-margin-negative col-5"></h4>
+        <div id="modalWindow" class="modal-content">
+            <div id="logo" class="d-flex modal-header">
+                
+                <h4 class="modal-title col-11 text-center"><img src="img/logo.png" class="logo-margin-negative ml-5 col-5"></h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -22,20 +21,18 @@
             </div>
 
 
-            <div class="card-body">
-                <h4 style="text-align: center;">Log In</h4>
+            <div class="card-body ">
+                
+                <h1 class=" text-center">Log In</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <div class="form-group row row justify-content-center">
-        
+                    <div class="form-group row justify-content-center">
+
                         <div class="inputWithIcon">
-                            
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}">
-                                <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
-                            
 
-
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}">
+                            <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -45,9 +42,9 @@
                     </div>
 
                     <div class="form-group row justify-content-center">
-                       
+
                         <div class="inputWithIcon">
-                           
+
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('passwords.password') }}">
                             <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                             @error('password')
@@ -55,44 +52,55 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                            
+
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="remember">
-                                    {{ __('auth.remember') }}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button id="sendLogin" type="submit" class="btn btn-primary">
+                    <div class="form-group row justify-content-center">
+                        <div class="col-6">
+                            <button id="sendLogin" type="submit" class="btn btn-primary btn-block">
                                 {{ __('auth.login') }}
                             </button>
-
-                            @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('passwords.forgot') }}
-                            </a>
-                            @endif
                         </div>
+
                     </div>
                 </form>
+                <div id="forgotPass" class="text-center">
 
+                    @if(Session::has('AuthError'))
+                    <div class="alert alert-lightWarning border border-lightWarningBorder mt-4 animate__animated animate__backInUp">
+                        <h3>{{ Session::get('AuthError') }}</h3>
+                    </div class="col-12 text-center">
+                    @endif
 
+                    @if (Route::has('password.request'))
 
-                @if(Session::has('AuthError'))
-                <div class="alert alert-lightWarning border border-lightWarningBorder mt-4 animate__animated animate__backInUp">
-                    <h3>{{ Session::get('AuthError') }}</h3>
+                    <a class="btn btn-link justify-content-center" href="{{ route('password.request') }}">
+                        {{ __('passwords.forgot') }}
+                    </a>
+                    @endif
                 </div>
-                @endif
+
+
+
+
+                <div class="col-md-12 form-group row justify-content-center">
+                    <div class="">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                                {{ __('auth.remember') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 @extends('layouts.mainLayout')
 @section('main')
+<link rel="stylesheet" href="../css/forms.css">
 <script src="/jquery/resetValidation.js"></script>
 <style>
     footer
@@ -9,13 +10,6 @@
         width: 100%;
     }
 
-    #login_register
-    {
-        display: none;
-    }
-    .otro{
-        color: pink;
-    }
 </style>
 <div class="container mt-5">
     <div class="row justify-content-center">

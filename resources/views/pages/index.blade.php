@@ -2,7 +2,7 @@
 
 @section('compatibility')
 
-<li class="nav-item">
+<li class="item nav-item">
   <a class="nav-link" href="#beneficios">{{__('messages.compatibility')}}</a>
 </li>
 @endsection
@@ -64,32 +64,35 @@
     <h2 class="text-center text-light">{{__('messages.comptitle')}}</h2>
 
     <div class="card-deck">
-      <div class="card m-1">
+      <div id="card1" class="grow card m-1">
         <img class="card-img-top" src="img/goteo.jpg" alt="Card image cap">
         <div class="card-body">
-          <p class="card-text">
-            {{__('messages.card1')}}</p>
+          <p id="card1Text" class="card-text">
+            {{__('messages.card1')}}
+          </p>
         </div>
 
       </div>
-      <div class="card m-1">
+      <div class="grow card m-1">
         <img class="card-img-top" src="img/aspersor.jpg" alt="Card image cap">
         <div class="card-body">
-          <p class="card-text">{{__('messages.card2')}}</p>
+          <p id="card2Text" class="card-text">{{__('messages.card2')}}</p>
         </div>
       </div>
-      <div class="card  m-1">
+      <div class="grow card  m-1">
         <img class=" card-img-top" src="img/difusor.jpg" alt="Card image cap">
         <div class="card-body">
           <p class="card-text">
-            {{__('messages.card3')}}</p>
+            {{__('messages.card3')}}
+          </p>
         </div>
       </div>
-      <div class="card  m-1">
+      <div class="grow card m-1">
         <img class=" card-img-top" src="img/soterrat.jpg" alt="Card image cap">
         <div class="card-body">
           <p class="card-text">
-            {{__('messages.card4')}}</p>
+            {{__('messages.card4')}}
+          </p>
         </div>
       </div>
 

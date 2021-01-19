@@ -1,0 +1,35 @@
+#dropMenu {
+    border-left: 2px solid dodgerblue;
+    border-right: 2px solid dodgerblue;
+    border-bottom: 2px solid dodgerblue;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    border: 1px solid dodgerblue;
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+li {
+    transition: all .2s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+#hover:hover {
+    color: dodgerblue;
+}
+
+#scroll {
+    font-size: 8vh;
+}
