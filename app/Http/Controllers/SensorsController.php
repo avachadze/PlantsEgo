@@ -31,7 +31,7 @@ class SensorsController extends Controller
                 
             }
         }
-        dd($mqttdatas);
+        
         return $mqttdatas;
     }
 
