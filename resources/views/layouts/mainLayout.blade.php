@@ -23,7 +23,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="navbar-toggler-icon"></div>
         </button>
-        <a class="navbar-brand" href="/"><img src="img/logo.png" alt="" id="logo"></a>
+        <a class="navbar-brand" href="/"><img src="img/logo.png" alt="" id="logo" ></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="item nav-item active">
@@ -139,10 +139,10 @@
 </body>
 
 <footer class="text-light text-center bg-dark">
+
     <p> Copyright &copy; 2020-2021 Plants Ego</p>
-
-
     <a id="scrollable" href="#top"><i id="scroll" class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
 </footer>
 
 </body>

@@ -8,12 +8,12 @@
         min-width: 15vw;
     }
 </style>
-<div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade mt-3" id="signIn" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div id="modalWindow" class="modal-content">
-            <div id="logo" class="d-flex modal-header">
+            <div class="d-flex modal-header">
                 
-                <h4 class="modal-title col-11 text-center"><img src="img/logo.png" class="logo-margin-negative ml-5 col-5"></h4>
+                <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="img/logo.png" class="logo-margin-negative ml-5"></h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+Route::get('administrate', function () {
+    return view('admin/administration');
+});
+
+Route::get('administrate',[UsersController::class,'index']);
+Route::get('delete/{id}',[UsersController::class,'delete']);
+Route::get('restore/{id}',[UsersController::class,'restore']);
+Route::get('destroy/{id}',[UsersController::class,'destroy']);
+Route::get('edit/{id}',[UsersController::class,'updateRole']);
 
 
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class UsersController extends Controller
 {
     /**
@@ -13,7 +13,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+      $data = User::withTrashed()->get();
+       //return User::all();
+      return view('admin/administration',['users'=>$data]);
     }
 
     /**
@@ -47,6 +49,13 @@ class UsersController extends Controller
     {
         //
     }
+    public function restore($id)
+    {
+        User::withTrashed()->findOrFail($id)->restore();
+        return redirect('administrate');
+    }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -66,9 +75,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateRole( $id)
     {
-        //
+        $userRole = User::find($id);
+        
+        return $userRole;
     }
 
     /**
@@ -77,8 +88,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
+    public function delete($id)
+    {
+       $data = User::findOrFail($id);
+       $data->delete();
+       return redirect('administrate');
+    }
     public function destroy($id)
     {
-        //
+        User::withTrashed()->findOrFail($id)->forceDelete();
+        return redirect('administrate');
     }
 }

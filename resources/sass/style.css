@@ -12,10 +12,6 @@ html {
     transition: 0.3s;
 }
 
-#logo:hover {
-    rotate: 15deg;
-}
-
 nav {
     position: relative;
     height: 12vh;

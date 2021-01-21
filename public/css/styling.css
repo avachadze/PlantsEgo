@@ -33,3 +33,28 @@ li {
 #scroll {
     font-size: 8vh;
 }
+
+#logoRotate {
+    transition: 0.3s;
+}
+
+#logoRotate:hover {
+    rotate: 15deg;
+}
+
+#logo:hover {
+    rotate: 15deg;
+}
+
+.modificationIcons:hover {
+    transform: scale(1.1);
+    color: red;
+}
+
+.restore {
+    color: red;
+}
+
+.restore:hover {
+    color: green;
+}
