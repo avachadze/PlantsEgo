@@ -33,7 +33,5 @@ return [
     'english'=>'Inglesa',
     'spanish'=>'Gaztelania',
     'basque'=>'Euskara',
-    
-   
-    
+    'contactResponse' => 'Erantzuna bidali',
 ];

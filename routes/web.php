@@ -33,6 +33,7 @@ Route::group([
 
         Route::post('/message/create', 'ContactMessagesController@store')->name('storeContactMessage');
         Route::get('/message', 'ContactMessagesController@index')->name('messages.list');
+        Route::get('/message/send/{id}', 'ContactMessagesController@mailResponse')->name('contactResponseSend');
         Route::get('/message/{id}', 'ContactMessagesController@show')->name('messages.show');
         Route::delete('/message/{id}', 'ContactMessagesController@destroy')->name('destroyMessage');
 

@@ -3,6 +3,8 @@ var nav = null;
 
 function iniciar() {
     nav = document.getElementById("nav");
+    drop1= document.getElementById("drop1");
+    drop2= document.getElementById("drop2");
 
     if ($(window).width() > 992) {
         nav.setAttribute("data-toggle", "sticky-onscroll");
@@ -21,7 +23,7 @@ function actualizar() {
 }
 //$(document).ready(
 function sticky() {
-    // Custom 
+    // Custom
     var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
         var stickyHeight = sticky.outerHeight();
         var stickyTop = stickyWrapper.offset().top;
@@ -29,6 +31,7 @@ function sticky() {
             stickyWrapper.height(stickyHeight);
             sticky.addClass("is-sticky");
             sticky.addClass("navbar-dark");
+
         } else {
             sticky.removeClass("is-sticky");
             sticky.removeClass("navbar-dark");

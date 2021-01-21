@@ -1,11 +1,5 @@
 @extends('layouts.mainLayout')
 
-@section('languages')
-    <a class="dropdown-item" href="/en">{{__('messages.english')}}</a>
-    <a class="dropdown-item" href="/es">{{__('messages.spanish')}}</a>
-    <a class="dropdown-item" href="/eu">{{__('messages.basque')}}</a>
-@endsection
-
 @section('main')
 
     <style>
@@ -58,9 +52,42 @@
         </section>
 
         <aside class="col-4 border rounded border-lighterGray mx-2">
-
-            <form action="{{ route('destroyMessage', $message->id) }}"  method="POST">
-                <input type="submit" class="btn-lightWarning btn-outline-lightWarningBorder text-light btn" value="Delete this Message">
+            <form action="{{ route('contactResponseSend', $userID) }}" method="POST">
+                @csrf
+                <div class="form-header blue accent-1">
+                    <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactResponse')}}</h3>
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <label for="nameC">{{__('auth.name')}}</label>
+                    <input type="text" id="nameC" name="nameC" class="form-control">
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <label for="emailC">Email</label>
+                    <input type="text" id="emailC" name="emailC" class="form-control">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-tag prefix grey-text"></i>
+                    <label for="form-Subject">{{__('messages.subject')}}</label>
+                    <input type="text" id="form-Subject" name="form-Subject" class="form-control">
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-pencil-alt prefix grey-text"></i>
+                    <label for="msg">{{__('messages.sendMessage')}}</label>
+                    <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3"></textarea>
+                </div>
+                <div class="text-center">
+                    <button id="submitContact" class="btn btn-outline-primary waves-effect">{{__('messages.submit')}}</button>
+                </div>
+            </form>
+            <form action="{{ route('destroyMessage', $message->id) }}" class="d-flex justify-content-center my-2 text-center"  method="POST">
+                <input type="submit" id="submitContact" class="waves-effect btn-outline-lightWarningBorder btn pb-4" value="Delete this Message">
                 @method('DELETE')
                 @csrf
             </form>

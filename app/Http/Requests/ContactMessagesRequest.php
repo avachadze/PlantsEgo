@@ -27,7 +27,7 @@ class ContactMessagesRequest extends FormRequest
             'nameC' => 'required',
             'emailC' => 'required',
             'form-Subject' => 'required',
-            'msg' => 'required|max:500'
+            'msg' => 'required'
         ];
     }
 }

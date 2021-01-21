@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\contactResponse;
 use App\Models\ContactMessages;
 use App\Http\Requests\ContactMessagesRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Session;
 
 class ContactMessagesController extends Controller
 {
@@ -43,6 +48,7 @@ class ContactMessagesController extends Controller
         $newEntry->save();
 
         //returning to the page
+        Session::flash('savedMessage', 'Message saved successfully');
         return redirect('/contact');
     }
 
@@ -55,7 +61,8 @@ class ContactMessagesController extends Controller
     public function show($id)
     {
         $message= ContactMessages::find($id);
-        return view('ContactMessages.show')->with('message', $message);
+        $userID= \Illuminate\Support\Facades\DB::table('users')->where('email', $message->fromEmail)->value('id');
+        return view('ContactMessages.show')->with(['message' => $message, 'userID' => $userID]);
     }
 
     /**
@@ -68,6 +75,16 @@ class ContactMessagesController extends Controller
     {
         $toDelete= ContactMessages::find($id);
         $toDelete->delete();
+        return redirect('/message');
+    }
+
+    /**
+     * Send the email response to the user
+     */
+    public function mailResponse(ContactMessagesRequest $request, $id)
+    {
+        $user= User::find($id);
+        Mail::to($user)->send(new contactResponse());
         return redirect('/message');
     }
 }

@@ -1,7 +1,14 @@
 @extends('layouts/mainLayout')
+
 @section('main')
     <script src="/jquery/contactValidation.js"></script>
 <section class="container my-5">
+
+    @if(Session::has('savedMessage'))
+        <div class="row alert alert-lightSuccess border border-success mt-4 animate__animated animate__backInUp">
+            <h3>{{ Session::get('savedMessage') }}</h3>
+        </div>
+    @endif
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
 
@@ -48,8 +55,9 @@
               <button id="submitContact" class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
 
             </div>
+
+            </form>
         </div>
-        </form>
       </div>
 
 
