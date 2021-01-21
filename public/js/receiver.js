@@ -1,6 +1,7 @@
+var arrayGrafico = [];
 $.ajax({
     // la URL para la petición
-    url : '/systems/1/1/statistics',
+    url : window.location+'statistics',
 
     // la información a enviar
     // (también es posible utilizar una cadena de datos)
@@ -15,9 +16,28 @@ $.ajax({
     // código a ejecutar si la petición es satisfactoria;
     // la respuesta es pasada como argumento a la función
     success : function(json) {
-        $('<h1/>').text(json[1].topic).appendTo('body');
-        $('<div class="content"/>')
-            .html(json.html).appendTo('body');
+        let namesAndTopics = json[0];
+        let topicsAndValues = json[1];
+        let namesAndValues = null;
+        for(let i =0; i<namesAndTopics.length; i++){
+          console.log(namesAndTopics[i].topic);
+          console.log("for1: "+i)
+            for(let i2 =0; i2<topicsAndValues.length; i2++){
+              console.log("for2: "+i2)
+              console.log(topicsAndValues[i2].topic)
+              if(namesAndTopics[i].topic == topicsAndValues[i2].topic){
+                let value = topicsAndValues[i2].message;
+                let time = topicsAndValues[i2].id;
+                console.log(value);
+                console.log(time);
+                let arr = [];
+                arr.push(value);
+                arr.push(time);
+                arrayGrafico.push(arr);
+              }
+
+            }
+        }
     },
 
     // código a ejecutar si la petición falla;
@@ -37,14 +57,8 @@ $.ajax({
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart(json) {
-      var data = google.visualization.arrayToDataTable([
-        ['Time', 'value'],
-        ['2004',  1000],
-        ['2005',  1170],
-        ['2006',  660],
-        ['2007',  1030]
-      ]);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([arrayGrafico]);
 
       var options = {
         title: 'Company Performance',

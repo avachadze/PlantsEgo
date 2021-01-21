@@ -20,19 +20,21 @@ class SensorsController extends Controller
         $mqttdatasdb = Mqttdata::All();
         $sensorsToShow=array();
         $mqttdatas=array();
+        $dataToSend= array();
         foreach($sensors as $sensor){
             if($request->plantid == $sensor->plant_id){
+                array_push($sensorsToShow, $sensor);
                 foreach($mqttdatasdb as $mqttdata){
                     if($sensor->topic == $mqttdata->topic){
                         array_push($mqttdatas, $mqttdata);
-                    }
-                    
+                    }   
                 }
-                
             }
         }
-        
-        return $mqttdatas;
+        array_push($dataToSend, $sensorsToShow);
+        array_push($dataToSend, $mqttdatas);
+      
+        return $dataToSend;
     }
 
     /**
