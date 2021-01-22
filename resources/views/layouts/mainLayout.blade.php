@@ -97,14 +97,15 @@
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
-                < @guest @if (Route::has('login')) <li class="nav-item">
-                    <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
+                 @guest @if (Route::has('login')) 
+                    <li class="nav-item mb-3" style="list-style: none;">
+                        <a id="login" data-toggle="modal" data-target="#signIn"  class="nav-link btn btn-outline-success" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
                     </li>
                     @endif
 
                     @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
+                    <li class="nav-item " style="list-style: none;">
+                        <a id="register"  data-toggle="modal" data-target="#signUp"  class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
                     </li>
                     @endif
                     @else

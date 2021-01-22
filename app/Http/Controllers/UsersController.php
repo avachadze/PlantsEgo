@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Company;
 class UsersController extends Controller
 {
     /**
@@ -13,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-      $data = User::withTrashed()->get();
-       //return User::all();
-      return view('admin/administration',['users'=>$data]);
+      $users = User::withTrashed()->get();
+      $companies = Company::withTrashed()->get();
+      return view('admin.administration')->with(['users'=>$users, 'companies'=>$companies]);
     }
 
     /**
@@ -25,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -65,7 +66,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -77,7 +78,7 @@ class UsersController extends Controller
      */
     public function updateRole( $id)
     {
-        $userRole = User::find($id);
+        $userRole = User::findOrFail($id);
         
         return $userRole;
     }
@@ -98,6 +99,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         User::withTrashed()->findOrFail($id)->forceDelete();
+
         return redirect('administrate');
     }
 }

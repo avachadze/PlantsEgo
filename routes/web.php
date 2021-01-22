@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CompaniesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,14 +20,21 @@ use App\Http\Controllers\UsersController;
 Route::get('administrate', function () {
     return view('admin/administration');
 });
-
-Route::get('administrate',[UsersController::class,'index']);
-Route::get('delete/{id}',[UsersController::class,'delete']);
-Route::get('restore/{id}',[UsersController::class,'restore']);
-Route::get('destroy/{id}',[UsersController::class,'destroy']);
-Route::get('edit/{id}',[UsersController::class,'updateRole']);
-
-
+Route::get('edit', function () {
+    return view('admin/edit');
+});
+//User modifier 
+Route::get('administrate', [UsersController::class, 'index']);
+Route::get('deleteUser/{id}', [UsersController::class, 'delete']);
+Route::get('restoreUser/{id}', [UsersController::class, 'restore']);
+Route::get('destroyUser/{id}', [UsersController::class, 'destroy']);
+Route::get('edit/{id}', [UsersController::class, 'updateRole']);
+//Company Modifier
+Route::post('createCompany', 'CompaniesController@create');
+Route::put('updateCompany/{id}', 'CompaniesController@update');
+Route::delete('deleteCompany/{id}', 'CompaniesController@delete');
+Route::get('restoreCompany/{id}', 'CompaniesController@restore');
+Route::get('destroyCompany/{id}', 'CompaniesController@destroy');
 
 Route::group([
     'middleware' => 'setLocale'
@@ -44,4 +52,4 @@ Route::group([
     });
     Auth::routes(['verify' => true]);
     Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
-    });
+});
