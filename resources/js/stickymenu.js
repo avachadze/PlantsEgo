@@ -1,10 +1,13 @@
 window.onload = iniciar;
 var nav = null;
+var drop1= null;
+var drop2= null;
 
 function iniciar() {
     nav = document.getElementById("nav");
     drop1= document.getElementById("drop1");
     drop2= document.getElementById("drop2");
+    drop3= document.getElementById("drop3");
 
     if ($(window).width() > 992) {
         nav.setAttribute("data-toggle", "sticky-onscroll");
@@ -31,11 +34,12 @@ function sticky() {
             stickyWrapper.height(stickyHeight);
             sticky.addClass("is-sticky");
             sticky.addClass("navbar-dark");
-
+            dropup_down(true);
         } else {
             sticky.removeClass("is-sticky");
             sticky.removeClass("navbar-dark");
             stickyWrapper.height('auto');
+            dropup_down(false);
         }
     };
 
@@ -54,4 +58,30 @@ function sticky() {
         // On page load
         stickyToggle(sticky, stickyWrapper, $(window));
     });
+
+    function dropup_down($bool)
+    {
+        if ($bool)
+        {
+            drop1.classList.remove('dropup');
+            drop1.classList.add('dropdown');
+
+            drop2.classList.remove('dropup');
+            drop2.classList.add('dropdown');
+
+            drop3.classList.remove('dropup');
+            drop3.classList.add('dropdown');
+        }
+            else
+            {
+                drop1.classList.remove('dropdown');
+                drop1.classList.add('dropup');
+
+                drop2.classList.remove('dropdown');
+                drop2.classList.add('dropup');
+
+                drop3.classList.remove('dropdown');
+                drop3.classList.add('dropup');
+            }
+    }
 }
