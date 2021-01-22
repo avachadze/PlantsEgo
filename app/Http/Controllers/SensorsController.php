@@ -34,7 +34,7 @@ class SensorsController extends Controller
         array_push($dataToSend, $sensorsToShow);
         array_push($dataToSend, $mqttdatas);
       
-        return $dataToSend;
+        return response()->json($dataToSend,201);
     }
 
     /**

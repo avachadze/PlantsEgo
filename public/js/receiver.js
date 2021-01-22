@@ -1,7 +1,7 @@
 var arrayGrafico = [];
 $.ajax({
     // la URL para la petición
-    url : window.location+'statistics',
+    url : window.location+'/statistics',
 
     // la información a enviar
     // (también es posible utilizar una cadena de datos)
@@ -31,8 +31,9 @@ $.ajax({
                 console.log(value);
                 console.log(time);
                 let arr = [];
-                arr.push(value);
                 arr.push(time);
+                arr.push(value);
+               
                 arrayGrafico.push(arr);
               }
 
@@ -54,20 +55,29 @@ $.ajax({
     
 });
 
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+google.charts.load('current', {'packages':['line']});
+google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([arrayGrafico]);
+function drawChart() {
 
-      var options = {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: { position: 'bottom' }
-      };
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Time');
+data.addColumn('number', 'Value');
 
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-      chart.draw(data, options);
-    }
+data.addRows(arrayGrafico);
+
+var options = {
+  chart: {
+    title: '',
+    subtitle: ''
+  },
+  width: 900,
+  height: 500
+};
+
+var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+chart.draw(data, google.charts.Line.convertOptions(options));
+}
   
