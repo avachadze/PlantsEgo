@@ -1,4 +1,5 @@
 var arrayGrafico = [];
+
 $.ajax({
     // la URL para la petición
     url : window.location+'/statistics',
@@ -27,13 +28,12 @@ $.ajax({
               console.log(topicsAndValues[i2].topic)
               if(namesAndTopics[i].topic == topicsAndValues[i2].topic){
                 let value = topicsAndValues[i2].message;
-                let time = topicsAndValues[i2].id;
+                let time = formatDate(topicsAndValues[i2].created_at);
                 console.log(value);
                 console.log(time);
                 let arr = [];
                 arr.push(time);
                 arr.push(value);
-               
                 arrayGrafico.push(arr);
               }
 
@@ -45,24 +45,25 @@ $.ajax({
     // son pasados como argumentos a la función
     // el objeto de la petición en crudo y código de estatus de la petición
     error : function(xhr, status) {
-        alert('Disculpe, existió un problema');
+        alert('Disculpe, existió un problema al cargar los sensores');
     },
 
     // código a ejecutar sin importar si la petición falló o no
     complete : function(xhr, status) {
-        alert('Petición realizada');
+      
+        drawGraphic();
     }
     
 });
-
+function drawGraphic(){
 google.charts.load('current', {'packages':['line']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
 var data = new google.visualization.DataTable();
-data.addColumn('number', 'Time');
-data.addColumn('number', 'Value');
+data.addColumn('date', 'Date');
+data.addColumn('number', 'value');
 
 
 data.addRows(arrayGrafico);
@@ -80,4 +81,25 @@ var chart = new google.charts.Line(document.getElementById('linechart_material')
 
 chart.draw(data, google.charts.Line.convertOptions(options));
 }
-  
+}
+function formatDate(datetime){
+let year = null;
+let month = null;
+let day = null;
+let hour = null;
+let minute = null;
+let second = null;
+
+var str = datetime;
+year = str.substring(0, 4);
+month = str.substring(5, 7);
+day = str.substring(8,10);
+hour = str.substring(11,13);
+minute = str.substring(14,16);
+second = str.substring(17,19);
+console.log(hour);
+
+var date = new Date(year,month,day,hour,minute,second,0);
+
+return date;
+}

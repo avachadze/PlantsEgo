@@ -11,7 +11,7 @@ class Plant extends Model
 
     public function sensors(){
         return $this->hasMany(Sensor::class);
-
+    
     }
 
 }
