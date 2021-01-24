@@ -17,30 +17,26 @@ Route::group([
     'middleware' => 'setLocale'
 ], function () {
 
-    Route::group(
-    ['middleware' => 'auth'],
-     function (){
+    Route::group([
+        'middleware' => 'verified'
+    ], function () {
 
-         Route::resource('Dashboard', 'DashboardController')->only('show');
-         Route::resource('Company', 'CompaniesController');
-     });
+        Route::group(
+            ['middleware' => 'auth'],
+            function (){
 
-    Route::get('switchLang/{lang}', 'LangController')->name('switchLang');
+                Route::resource('Dashboard', 'DashboardController')->only('show');
+                Route::resource('Company', 'CompaniesController');
+            });
 
-    Route::view('/contact', 'pages/contact');
+        Route::post('/plants/add', 'PlantsController@store');
 
-    Route::view('/', 'pages/index');
+  
     Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
-    Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
-    Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
     Route::get('/systems','\App\Http\Controllers\SystemsController@index');
-    Route::view('/systems/add', '/pages/addSystem');
-    Route::get('/systems/{id}', '\App\Http\Controllers\PlantsController@index');
-    Route::get('/systems/{id}/addplant', '\App\Http\Controllers\PlantsController@showStoreForm');
     Route::get('/systems/{id}/{plantid}/addsensor', '\App\Http\Controllers\SensorsController@showStoreForm');
-    Route::get('/systems/{id}/{plantid}', '\App\Http\Controllers\PlantsController@show');
-    Route::get('/systems/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');
-    Route::post('/system/sensors/add', '\App\Http\Controllers\SensorsController@store');
+    Route::get('/{id}/{plantid}', '\App\Http\Controllers\PlantsController@show');
+    Route::get('/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');
 
     Route::get('/contact', function () {
         return view('pages/contact');

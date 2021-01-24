@@ -21,8 +21,8 @@ class CreatePlantsTable extends Migration
             $table->foreignId('system_id')->constrained('systems');
             $table->timestamps();
         });
-        $seeder= new \Database\Seeders\PlantSeeder();
-        $seeder->run();
+        //$seeder= new \Database\Seeders\PlantSeeder();
+        //$seeder->run();
     }
 
     /**
