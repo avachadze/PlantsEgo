@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Models\System;
+use Illuminate\Support\Facades\Auth;
 class SystemsController extends Controller
 {
     /**
@@ -13,9 +14,24 @@ class SystemsController extends Controller
      */
     public function index()
     {
-        //
+        $systems = System::All();
+        $systemsToShow=array();
+        if(Auth::User()->companyID!=null){
+            foreach($systems as $system){
+                if($system->companyID == Auth::User()->companyID){
+                    array_push($systemsToShow, $system);
+                }
+            }
+        }
+        else{
+            foreach($systems as $system){
+                if($system->userID == Auth::User()->id){
+                    array_push($systemsToShow, $system);
+                }
+        }
+        return view('pages.systems')->with('systems',$systemsToShow);
     }
-
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +50,16 @@ class SystemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $systemName = $request->input('name');
+        $systemCompanyID = $request->input('companyID');
+        $systemUserID = $request->input('userID');
+        $system = new System();
+        $system->name=$systemName;
+        $system->companyID=$systemCompanyID;
+        $system->userID=$systemUserID;
+        $system->save();
+        return redirect('/systems');
+
     }
 
     /**

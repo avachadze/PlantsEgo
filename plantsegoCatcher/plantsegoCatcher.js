@@ -82,7 +82,7 @@ function insert_message(topic, message_str, packet) {
 	var clientID= message_arr[0];
 	var message = message_arr[1];
 	var sql = "INSERT INTO ?? (??,??) VALUES (?,?)";
-	var params = ['mqttdata', 'topic', 'message', topic, message_str];
+	var params = ['mqttdatas', 'topic', 'message', topic, message_str];
 	sql = mysql.format(sql, params);	
 	
 	connection.query(sql, function (error, results) {

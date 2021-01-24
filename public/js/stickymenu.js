@@ -104,7 +104,7 @@ eval("window.onload = iniciar;\nvar nav = null;\n\nfunction iniciar() {\n  nav =
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/zubiri/Escritorio/PlantsEGO/PlantsEgo/resources/js/stickymenu.js */"./resources/js/stickymenu.js");
+module.exports = __webpack_require__(/*! /Users/urbil/Desktop/PlantsEgo/resources/js/stickymenu.js */"./resources/js/stickymenu.js");
 
 
 /***/ })
