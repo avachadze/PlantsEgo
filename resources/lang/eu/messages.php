@@ -13,10 +13,10 @@ return [
     'jumbotext'=> 'Demostrazion dagoen informazioa aleatorioki sortuta dago',
     'jumbobutton'=> 'Joan demostraziora!',
     'comptitle'=> 'Ureztatze sistema guztiekin kompatiblea da.',
-    'card1'=> 'Sistema hau gustiz konpatiblea da tanta sistemekin',
-    'card2'=> 'Sistema hau gustiz konpatiblea da aspersoreekin',
-    'card3'=> 'Sistema hau gustiz konpatiblea da aspersorekin',
-    'card4'=> 'Sistema hau gustiz konpatiblea da lurrazpiko ureztatze sistemekin.',
+    'card1'=> 'Sistema hau guztiz konpatiblea da tanta sistemekin',
+    'card2'=> 'Sistema hau guztiz konpatiblea da aspersoreekin',
+    'card3'=> 'Sistema hau guztiz konpatiblea da aspersorekin',
+    'card4'=> 'Sistema hau guztiz konpatiblea da lurrazpiko ureztatze sistemekin.',
     'variables'=> 'Bariable hauekin lana egiten dugu',
     'temperature'=> 'Tenperatura',
     'ground-humidity'=> 'Lurraren hezetasuna',
@@ -33,7 +33,5 @@ return [
     'english'=>'Inglesa',
     'spanish'=>'Gaztelania',
     'basque'=>'Euskara',
-    
-   
-    
+    'contactResponse' => 'Erantzuna bidali',
 ];
