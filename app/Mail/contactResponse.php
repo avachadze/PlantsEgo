@@ -11,14 +11,16 @@ class contactResponse extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $message= null;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($output)
     {
-        //
+        $this->message= $output;
     }
 
     /**
@@ -29,6 +31,6 @@ class contactResponse extends Mailable
     public function build()
     {
         return $this->from('plantsego@gmail.com')
-                    ->view('pages.response');
+                    ->view('pages.response')->with('message', $this->message);
     }
 }

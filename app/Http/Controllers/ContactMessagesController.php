@@ -84,7 +84,7 @@ class ContactMessagesController extends Controller
     public function mailResponse(ContactMessagesRequest $request, $id)
     {
         $user= User::find($id);
-        Mail::to($user)->send(new contactResponse());
+        Mail::to($user)->send(new contactResponse($request));
         return redirect('/message');
     }
 }

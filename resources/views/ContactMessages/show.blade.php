@@ -18,7 +18,7 @@
 
     </style>
 
-    <div class="container-fluid m-0 p-0 row" id="container">
+    <div class="container-fluid pt-4 row" id="container">
         <section class="col-7 border-lighterGray border rounded mx-4">
 
             <article class="mt-3">
@@ -52,25 +52,10 @@
         </section>
 
         <aside class="col-4 border rounded border-lighterGray mx-2">
-            <form action="{{ route('contactResponseSend', $userID) }}" method="POST">
+            <form action="{{ route('contactResponseSend', $userID) }}" method="GET">
                 @csrf
                 <div class="form-header blue accent-1">
                     <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactResponse')}}</h3>
-                </div>
-                <div class="md-form">
-                    <i class="fas fa-user prefix grey-text"></i>
-                    <label for="nameC">{{__('auth.name')}}</label>
-                    <input type="text" id="nameC" name="nameC" class="form-control">
-                </div>
-                <div class="md-form">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <label for="emailC">Email</label>
-                    <input type="text" id="emailC" name="emailC" class="form-control">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
                 </div>
                 <div class="md-form">
                     <i class="fas fa-tag prefix grey-text"></i>
