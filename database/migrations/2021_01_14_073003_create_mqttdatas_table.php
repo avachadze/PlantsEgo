@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSensorsTable extends Migration
+class CreateMqttdatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSensorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('mqttdatas', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->string('topic');
-            $table->foreignId('plant_id')->constrained('plants');
-            $table->timestamps();
+            $table->string("topic");
+            $table->float("message");
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
@@ -29,6 +28,6 @@ class CreateSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('mqttdata');
     }
 }

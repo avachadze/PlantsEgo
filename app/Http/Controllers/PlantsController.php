@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PlantsController extends Controller
 {
@@ -11,10 +14,18 @@ class PlantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $plants = Plant::All();
+        $plantsToShow = array();
+        foreach($plants as $plant){
+            if($plant->system_id==$request->id){
+                array_push($plantsToShow,$plant);
+            }
+        }
+        return view('pages.plants')->with('plants',$plantsToShow);
     }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -32,9 +43,22 @@ class PlantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showStoreForm(Request $request){
+        return view('pages.addPlant')->with('id',$request->id);
+    }
     public function store(Request $request)
     {
-        //
+        $plantName = $request->input('name');
+        $plantType = $request->input('type');
+        $plantDescription = $request->input('description');
+        $plantSystemID = $request->input('systemID');
+        $plant = new Plant();
+        $plant->name = $plantName;
+        $plant->type = $plantType;
+        $plant->description = $plantDescription;
+        $plant->system_id = $plantSystemID;
+        $plant->save();
+        return redirect('/systems/'.$plantSystemID);
     }
 
     /**
@@ -43,9 +67,11 @@ class PlantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $plant = DB::table('plants')->where('id', $request->plantid)->first();
+        return view('pages.statistics')->with('plant',$plant);
+
     }
 
     /**

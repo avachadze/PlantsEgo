@@ -104,7 +104,7 @@ eval("$(document).ready(function () {\n  $(\".navbar a, footer a[href='#top']\")
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/zubiri/Escritorio/PlantsEGO/PlantsEgo/resources/js/scroll.js */"./resources/js/scroll.js");
+module.exports = __webpack_require__(/*! /Users/urbil/Desktop/PlantsEgo/resources/js/scroll.js */"./resources/js/scroll.js");
 
 
 /***/ })

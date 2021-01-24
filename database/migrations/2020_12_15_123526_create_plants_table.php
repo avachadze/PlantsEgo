@@ -16,6 +16,8 @@ class CreatePlantsTable extends Migration
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('type');
+            $table->string('description');
             $table->foreignId('system_id')->constrained('systems');
             $table->timestamps();
         });
