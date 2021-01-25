@@ -1,47 +1,66 @@
 @extends('layouts/mainLayout')
-@section('main')
 
+@section('main')
+    <script src="/jquery/contactValidation.js"></script>
 <section class="container my-5">
 
+    @if(Session::has('savedMessage'))
+        <div class="row alert alert-lightSuccess border border-success mt-4 animate__animated animate__backInUp">
+            <h3>{{ Session::get('savedMessage') }}</h3>
+        </div>
+    @endif
+
   <h2 class="h1-responsive font-weight-bold text-center my-5">{{__('messages.contactTitle')}}</h2>
+
   <p class="text-center w-responsive mx-auto pb-5">{{__('messages.contactText')}}</p>
+
   <div class="row">
+
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card">
-        <div class=" card-body">
-          <form action="">
+        <div class="card-body">
+          <form action="{{ route('storeContactMessage') }}" method="POST">
+
+              @csrf
+
             <div class="form-header blue accent-1">
-              <h3 class="mt-2">{{__('messages.contactWrite')}}</h3>
+              <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
             </div>
             <div class="md-form">
-              <input type="text" id="nameC" class="form-control" required autocomplete>
-              <label for="nameC">{{__('auth.name')}}</label>
+              <i class="fas fa-user prefix grey-text"></i>
+                <label for="nameC">{{__('auth.name')}}</label>
+              <input type="text" id="nameC" name="nameC" @auth value="{{ Auth::user()->name }}" @endauth class="form-control">
             </div>
             <div class="md-form">
-              <input type="email" id="contactEmail" class="form-control" required autocomplete>
+              <i class="fas fa-envelope prefix grey-text"></i>
+                <label for="emailC">Email</label>
+              <input type="text" id="emailC" name="emailC" @auth value="{{ Auth::user()->email }}" @endauth class="form-control">
               @error('email')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
-              <label for="emailC">Email</label>
-            </div>
-            <div>
-              <div class="md-form">
-                <input type="text" id="form-Subject" class="form-control">
-              </div>
-              <label for="form-Subject">{{__('messages.subject')}}</label>
             </div>
             <div class="md-form">
-              <textarea id="msg" class="form-control md-textarea" rows="3" required autocomplete"></textarea>
-              <label for="msg">{{__('messages.sendMessage')}}</label>
+              <i class="fas fa-tag prefix grey-text"></i>
+                <label for="form-Subject">{{__('messages.subject')}}</label>
+              <input type="text" id="form-Subject" name="form-Subject" class="form-control">
+            </div>
+            <div class="md-form">
+              <i class="fas fa-pencil-alt prefix grey-text"></i>
+                <label for="msg">{{__('messages.sendMessage')}}</label>
+              <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3"></textarea>
             </div>
             <div class="text-center">
               <button id="submitContact" class="btn btn-outline-primary waves-effec">{{__('messages.submit')}}</button>
+
             </div>
+
+            </form>
         </div>
-        </form>
       </div>
+
+
     </div>
     <div class="col-lg-7">
       <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
@@ -51,20 +70,21 @@
       <div class="row text-center">
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
-
+            <i class="fas fa-map-marker-alt"></i>
           </a>
           <p>Donostia, 20012</p>
           <p class="mb-md-0">Guipuzcoa</p>
         </div>
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
-
+            <i class="fas fa-phone"></i>
           </a>
           <p>943 89 92 92</p>
           <p class="mb-md-0">Mon - Fri, 8:00-22:00</p>
         </div>
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
+            <i class="fas fa-envelope"></i>
           </a>
           <p>plantsEGO@gmail.com</p>
           <p class="mb-0">Plants EGO</p>
@@ -73,5 +93,4 @@
     </div>
   </div>
 </section>
-<script src="/jquery/contactValidation.js"></script>
 @endsection
