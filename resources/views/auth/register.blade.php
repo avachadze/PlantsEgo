@@ -23,11 +23,9 @@
             </div>
             <div class="modal-body">
                 <h2 class="text-center">Sign Up</h2>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <input type="text" class="d-none form-control" value="user" id="role" name="role" required autocomplete="role">
 
                         <div class="form-group row justify-content-center">
@@ -94,3 +92,4 @@
             </div>
         </div>
     </div>
+</div>

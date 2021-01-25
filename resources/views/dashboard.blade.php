@@ -6,12 +6,14 @@
 @endsection
 @section('main')
     <style>
+
         footer
         {
             position: absolute;
             bottom: 0px;
             width: 100%;
         }
+
         #dash_button
         {
             display: none;
@@ -23,16 +25,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{ __('You are logged in!') }}
                 </div>
+                <a href="{{ route('Company.index') }}" class="btn btn-outline-info bg-light text-info"><button>Companies</button></a>
             </div>
         </div>
     </div>

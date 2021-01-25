@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 Route::group([
     'middleware' => 'setLocale'
 ], function () {
-
     Route::group([
         'middleware' => 'verified'
     ], function () {

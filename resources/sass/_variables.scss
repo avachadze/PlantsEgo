@@ -16,4 +16,9 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
-$theme-colors: ( 'lightWarning': #ff5e5e, 'lightWarningBorder': #e93b3b);
+$theme-colors: (
+    'lightWarning': #ff5e5e,
+    'lightWarningBorder': #e93b3b,
+    'lighterGray': #9a9a9a,
+    'lightSuccess': #6cc263
+);

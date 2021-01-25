@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Sensor extends Model
 {
     use HasFactory;
+
+    public function mqttdata(){
+        return $this->hasMany(Mqttdata::class);
+    }
 }

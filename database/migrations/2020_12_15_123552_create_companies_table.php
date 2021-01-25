@@ -18,6 +18,8 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        $seeder= new \Database\Seeders\CompanySeeder();
+        $seeder->run();
     }
 
     /**
