@@ -11,4 +11,5 @@ return [
     'forgot' => "¿has olvidado la contraseña?",
     'password'=>'contraseña',
     'confirm' => 'Confirmar Contraseña', 
+    'send' => 'Manda un enlace de recuperación',
 ];

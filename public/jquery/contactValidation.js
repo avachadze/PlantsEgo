@@ -1,10 +1,11 @@
 $(document).ready(function() {
     var submit = $("#submitContact");
     var name = $("#nameC");
-    var email = $("#emailC");
+    var email = $("#contactEmail");
     var msg = $("#msg");
 
-    if ((name.val() == "") | (email.val() == "") | (msg.val() == "")) {
+
+    if ((email.val() == "") | (name.val() == "") | (msg.val() == "")) {
 
         submit.addClass('disabled');
     } else {
@@ -17,7 +18,7 @@ $(document).ready(function() {
 
     function validate() {
 
-        if ((name.val() == "") | (email.val() == "") | (msg.val() == "")) {
+        if ((email.val() == "") | (name.val() == "") | (msg.val() == "")) {
             submit.addClass('disabled');
         } else {
             submit.removeClass('disabled');

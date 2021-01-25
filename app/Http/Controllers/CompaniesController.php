@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Models\Company;
 
 class CompaniesController extends Controller
 {
@@ -23,11 +24,16 @@ class CompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request )
     {
-        //
+       Company::create($request->all());
+       return redirect('administrate');
     }
-
+    public function restore($id)
+    {
+        Company::withTrashed()->findOrFail($id)->restore();
+        return redirect('administrate');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -72,7 +78,9 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = Company::findOrFail($id);
+        $company -> update($request->all());
+        return redirect('administrate');
     }
 
     /**
@@ -81,8 +89,16 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function delete($id)
+    {
+       $data = Company::findOrFail($id);
+       $data->delete();
+       return redirect('administrate');
+    }
     public function destroy($id)
     {
-        //
+        Company::withTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect('administrate');
     }
 }
