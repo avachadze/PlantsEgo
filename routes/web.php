@@ -30,7 +30,7 @@ Route::group([
                 Route::view('/edit', 'admin/edit');
 
                 //User modifier 
-                Route::get('administrate', 'UsersController@index');
+                Route::get('administrate', 'UsersController@index')->name('administrate');
                 Route::get('deleteUser/{id}', 'UsersController@delete');
                 Route::get('restoreUser/{id}', 'UsersController@restore');
                 Route::get('destroyUser/{id}', 'UsersController@destroy');

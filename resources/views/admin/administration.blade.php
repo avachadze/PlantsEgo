@@ -64,7 +64,7 @@
                 <td>{{$user->company_id}}</td>
                 <td>
                     @if($user->role!=="admin")
-                    <a class="btn" href={{"destroy/".$user['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn" href={{"destroyUser/".$user['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
                     <a class="btn" href={{"edit/".$user['id']}}><i class="modificationIcons fa fa-pencil" aria-hidden="true"></i></a>
                     @if($user->deleted_at === null)
                     <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>

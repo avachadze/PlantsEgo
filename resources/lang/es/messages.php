@@ -35,4 +35,5 @@ return [
     'spanish'=>'Español',
     'basque'=>'Euskera',
     'contactResponse' => 'Envía una respuesta',
+    'dashboard'=> 'dashboard',
 ];
