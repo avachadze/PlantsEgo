@@ -36,18 +36,23 @@
             <button type="submit">Register</button>
         </form>
     @endif
-</div>
-
-      
-      
+      </div> 
     </div>
   </div>
 </div>
-
+<div class="container">
+<div class="row">
     @foreach($plantsToShow as $plant)
-  <div class="box-shadow border-radious">
-    <h1><a href="{{$plant->system_id.'/'.$plant->id}}">{{$plant->name}}</a></h1>
+    
+  <div class="select box-shadow col-3 border-radious mb-3 mt-3 mr-3">
+  <a class="text-decoration-none" href="{{$plant->system_id.'/'.$plant->id}}">
+    <h1>{{$plant->name}}</h1>
+    <p>Type:{{$plant->type}}</p>
+    <p>Description:{{$plant->description}}</p>
+    </a>
   </div>
-        
+ 
     @endforeach
+    </div>
+    </div>
 @endsection
