@@ -16,8 +16,13 @@
         }
 
     </style>
-
 <section class="d-flex flex-column justify-content-between align-items-center container-fluid">
+
+    @if(Session::has('sentReply'))
+        <div class="row alert alert-lightSuccess border border-success mt-4 animate__animated animate__backInUp">
+            <h3>{{ Session::get('sentReply') }}</h3>
+        </div>
+    @endif
 
     @foreach($Notifications as $message)
 

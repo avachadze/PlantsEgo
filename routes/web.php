@@ -35,7 +35,7 @@ Route::group([
         Route::get('/message/send/{id}', 'ContactMessagesController@mailResponse')->name('contactResponseSend');
         Route::get('/message/{id}', 'ContactMessagesController@show')->name('messages.show');
         Route::delete('/message/{id}', 'ContactMessagesController@destroy')->name('destroyMessage');
-      
+
         Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
         Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
         Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
@@ -48,11 +48,10 @@ Route::group([
         Route::get('/systems/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');
         Route::post('/system/sensors/add', '\App\Http\Controllers\SensorsController@store');
 
-    
         Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
 
 });
-Auth::routes(['verify' => true]);
+    Auth::routes(['verify' => true]);
 
     Route::get('switchLang/{lang}', 'LangController')->name('switchLang');
 

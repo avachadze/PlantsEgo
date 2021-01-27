@@ -52,7 +52,7 @@
         </section>
 
         <aside class="col-4 border rounded border-lighterGray mx-2">
-            <form action="{{ route('contactResponseSend', $userID) }}" method="GET">
+            <form action="{{ route('contactResponseSend', $userID) }}" method="get">
                 @csrf
                 <div class="form-header blue accent-1">
                     <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactResponse')}}</h3>
@@ -68,7 +68,7 @@
                     <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3"></textarea>
                 </div>
                 <div class="text-center">
-                    <button id="submitContact" class="btn btn-outline-primary waves-effect">{{__('messages.submit')}}</button>
+                    <button type="submit" class="btn btn-outline-primary waves-effect">{{__('messages.submit')}}</button>
                 </div>
             </form>
             <form action="{{ route('destroyMessage', $message->id) }}" class="d-flex justify-content-center my-2 text-center"  method="POST">
