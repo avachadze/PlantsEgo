@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Company;
 class UsersController extends Controller
 {
     /**
@@ -12,6 +13,29 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+      $users = User::withTrashed()->get();
+      $companies = Company::withTrashed()->get();
+      return view('admin.administration')->with(['users'=>$users, 'companies'=>$companies]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         //
     }
@@ -26,6 +50,13 @@ class UsersController extends Controller
     {
         //
     }
+    public function restore($id)
+    {
+        User::withTrashed()->findOrFail($id)->restore();
+        return redirect('administrate');
+    }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -35,7 +66,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -45,9 +76,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateRole( $id)
     {
-        //
+        $userRole = User::findOrFail($id);
+        
+        return $userRole;
     }
 
     /**
@@ -56,8 +89,17 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
+    public function delete($id)
+    {
+       $data = User::findOrFail($id);
+       $data->delete();
+       return redirect('administrate');
+    }
     public function destroy($id)
     {
-        //
+        User::withTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect('administrate');
     }
 }

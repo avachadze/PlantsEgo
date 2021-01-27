@@ -33,4 +33,5 @@ return [
     'spanish'=>'spanish',
     'basque'=>'basque',
     'contactResponse' => 'Send a reply',
+    'dashboard'=> 'dashboard',
 ];

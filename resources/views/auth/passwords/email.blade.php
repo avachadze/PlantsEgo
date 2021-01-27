@@ -1,5 +1,6 @@
 @extends('layouts.mainLayout')
 @section('main')
+<link rel="stylesheet" href="../css/forms.css">
 <script src="/jquery/resetValidation.js"></script>
 <style>
     footer
@@ -9,13 +10,6 @@
         width: 100%;
     }
 
-    #login_register
-    {
-        display: none;
-    }
-    .otro{
-        color: pink;
-    }
 </style>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -51,7 +45,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <button id="sendReset" type="submit" class="btn btn-primary" >
                                     
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('passwords.send') }}
                                 </button>
                             </div>
                         </div>

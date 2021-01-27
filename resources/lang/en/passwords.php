@@ -12,4 +12,6 @@ return [
     'forgot' => "Forgot your password?",
     'password'=>'Password',
     'confirm' => 'Confirm Password',
+    'send' => 'Send Password Reset Link',
+    
 ];

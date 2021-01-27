@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var register = $("#registerBtn");
     var name = $("#name");
-    var email = $("#email");
+    var email = $("#emailC");
     var password = $("#pass");
     var confirm = $('#password-confirm');
     if ((confirm.val() == "") | (name.val() == "") | (email.val() == "") | (password.val() == "")) {

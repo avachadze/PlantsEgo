@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="icon" href="{{URL::asset('img/logo.png')}}">
+    <link rel="stylesheet" href="css/styling.css">
+    <link rel="stylesheet" href="css/forms.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plants Ego</title>
@@ -20,26 +23,34 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="navbar-toggler-icon"></div>
         </button>
-        <a class="navbar-brand" href="/"><img src="img/logo.png" alt="" id="logo"></a>
+        <a class="navbar-brand" href="/"><img src="img/logo.png" alt="" id="logo" ></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="item nav-item active">
                     <a class="nav-link" href="/">{{__('messages.home')}} <span class="sr-only">(current)</span></a>
                 </li>
                 @section ('compatibility')
 
                 @show
-                <li class="nav-item">
+                <li class="item nav-item">
                     <a class="nav-link" href="/contact">{{__('messages.contact')}}</a>
                 </li>
                 <li class="nav-item dropup" id="drop3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{__('messages.language')}}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('switchLang', 'en') }}">{{__('messages.english')}}</a>
-                        <a class="dropdown-item" href="{{ route('switchLang', 'es') }}">{{__('messages.spanish')}}</a>
-                        <a class="dropdown-item" href="{{ route('switchLang', 'eu') }}">{{__('messages.basque')}}</a>
+                    <div id="dropMenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'en') }}"> <img class="item pr-3" src="language/en.png" style="width: 3vw; height:2vh">
+                            {{__('messages.english')}}
+                        </a>
+                        <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'es') }}">
+                            <img class="item pr-3" src="language/es.png" style="width: 3vw; height:2vh">
+                            {{__('messages.spanish')}}
+                        </a>
+                        <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'eu') }}">
+                            <img class="item pr-3" src="language/eu.png" style="width: 3vw; height:2vh">
+                            {{__('messages.basque')}}
+                        </a>
                     </div>
                 </li>
 
@@ -90,15 +101,15 @@
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 @if (Route::has('login'))
-                <li class="nav-item">
-                    <a id="login" class="nav-link btn btn-outline-success mx-1" data-toggle="modal" data-target="#signIn" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
-                </li>
+
+                <a id="login" class="btn text-sucess btn-outline-success mx-1" data-toggle="modal" data-target="#signIn" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
+
                 @endif
 
                 @if (Route::has('register'))
-                <li class="nav-item">
-                    <a id="register" class="nav-link btn btn-success" data-toggle="modal" data-target="#signUp" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
-                </li>
+
+                <a id="register" class="btn btn-success" data-toggle="modal" data-target="#signUp" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
+
                 @endif
                 @else
                 <li id="drop1" class="nav-item btn-group dropup">
@@ -109,13 +120,15 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('auth.logout') }}
                         </a>
 
                         <a class="dropdown-item" id="dash_button" href="{{ route('usrDashboard') }}">
-                            {{ __('Dashboard') }}
+                            {{ __('messages.dashboard') }}
                         </a>
-
+                        <a class="dropdown-item" href="{{ route('administrate') }}">
+                            {{ __('auth.administrate') }}
+                        </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -129,14 +142,15 @@
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
-                < @guest @if (Route::has('login')) <li class="nav-item">
-                    <a id="login" class="nav-link btn btn-outline-success mx-1" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
+                 @guest @if (Route::has('login')) 
+                    <li class="nav-item mb-3" style="list-style: none;">
+                        <a id="login" data-toggle="modal" data-target="#signIn"  class="nav-link btn btn-outline-success" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
                     </li>
                     @endif
 
                     @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a id="register" class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
+                    <li class="nav-item " style="list-style: none;">
+                        <a id="register"  data-toggle="modal" data-target="#signUp"  class="nav-link btn btn-success" href="{{ route('register') }}">{{__('auth.sign-up')}}</a>
                     </li>
                     @endif
                     @else
@@ -172,8 +186,10 @@
 </body>
 
 <footer class="text-light text-center bg-dark">
+
     <p> Copyright &copy; 2020-2021 Plants Ego</p>
-    <a id="scrollable" class="text-light" href="#top">Go Top</a>
+    <a id="scrollable" href="#top"><i id="scroll" class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
 </footer>
 
 </body>

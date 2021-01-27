@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     var login = $("#sendLogin");
     var email = $('#email');
+
     var password = $('#password');
     if ((email.val() == "") | (password.val() == "")) {
         login.addClass('disabled');

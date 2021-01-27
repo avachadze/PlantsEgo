@@ -20,5 +20,7 @@ return [
     'throttle' => 'Demasiados intentos de inicio de sesion. Por favor prueba en :seconds segundos.',
     'remember'=>'Recordar usuario',
     'email' => 'Correo Electronico',
+    'logout' => 'sailr',
+    'administrate' =>'administrar'
 
 ];

@@ -21,5 +21,7 @@ return [
     'throttle' => 'Saioa hasteko saiakera gehiegi. Saiatu berriro en :seconds segundotan.',
     'remember'=>'Gogorarazi',
     'email' => 'Helbide elektronikoa',
+    'logout' => 'saioa itxi',
+    'administrate' =>'administratu'
   
 ];

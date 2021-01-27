@@ -34,4 +34,5 @@ return [
     'spanish'=>'Gaztelania',
     'basque'=>'Euskara',
     'contactResponse' => 'Erantzuna bidali',
+    'dashboard'=> 'dashboard',
 ];
