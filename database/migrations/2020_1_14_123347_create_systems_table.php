@@ -17,9 +17,12 @@ class CreateSystemsTable extends Migration
 
             $table->id();
             $table->String('name');
+            $table->String('type');
+            $table->String('description');
             $table->timestamps();
             $table->integer('userID')->nullable();
             $table->integer('companyID')->nullable();
+          
         });
         //$seeder= new \Database\Seeders\SystemSeeder();
         //$seeder->run();

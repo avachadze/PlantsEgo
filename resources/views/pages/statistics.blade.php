@@ -1,5 +1,6 @@
 @extends('layouts.mainLayout')
 @section('main')
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="/js/receiver.js"></script>
 <link rel="stylesheet" href="/css/plant.css">
@@ -16,9 +17,10 @@
         <button type="submit" class="btn btn-primary col-3">Register sensor</button>
     </form>
 </div>
-</div>
+
+
    
-    <div class="container bg-primary">
+    <div class="container ">
 <h1 class="col-12">{{$plant->name}}</h1>
 
 <h2 class="col-12">Type: {{$plant->type}}</h2>
