@@ -6,6 +6,7 @@ use App\Mail\contactResponse;
 use App\Models\ContactMessages;
 use App\Http\Requests\ContactMessagesRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Session;
@@ -81,10 +82,11 @@ class ContactMessagesController extends Controller
     /**
      * Send the email response to the user
      */
-    public function mailResponse(ContactMessagesRequest $request, $id)
+    public function mailResponse(Request $request, $id)
     {
         $user= User::find($id);
         Mail::to($user)->send(new contactResponse($request));
+        Session::flash('sentReply', 'Message sent successfully');
         return redirect('/message');
     }
 }

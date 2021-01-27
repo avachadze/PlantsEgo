@@ -34,11 +34,13 @@ function sticky() {
             stickyWrapper.height(stickyHeight);
             sticky.addClass("is-sticky");
             sticky.addClass("navbar-dark");
+            dropup_down2(true);
             dropup_down(true);
         } else {
             sticky.removeClass("is-sticky");
             sticky.removeClass("navbar-dark");
             stickyWrapper.height('auto');
+            dropup_down2(false);
             dropup_down(false);
         }
     };
@@ -68,9 +70,6 @@ function sticky() {
 
             drop2.classList.remove('dropup');
             drop2.classList.add('dropdown');
-
-            drop3.classList.remove('dropup');
-            drop3.classList.add('dropdown');
         }
             else
             {
@@ -79,9 +78,20 @@ function sticky() {
 
                 drop2.classList.remove('dropdown');
                 drop2.classList.add('dropup');
-
-                drop3.classList.remove('dropdown');
-                drop3.classList.add('dropup');
             }
+    }
+
+    function dropup_down2($bool)
+    {
+        if ($bool)
+        {
+            drop3.classList.remove('dropup');
+            drop3.classList.add('dropdown');
+        }
+        else
+        {
+            drop3.classList.remove('dropdown');
+            drop3.classList.add('dropup');
+        }
     }
 }

@@ -30,7 +30,10 @@ class contactResponse extends Mailable
      */
     public function build()
     {
-        return $this->from('plantsego@gmail.com')
-                    ->view('pages.response')->with('message', $this->message);
+        return $this->subject($this->message->input('form-Subject'))
+                    ->from('plantsego@gmail.com')
+                    ->view('pages.response')->with(
+                                    ['msg' => $this->message->input('msg')]
+                                            );
     }
 }
