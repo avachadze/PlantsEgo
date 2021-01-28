@@ -2,6 +2,33 @@
 @section('resources')
 <link rel="stylesheet" href="{{ asset('css/system.css') }}">
 
+<script>
+  let doc = $(document);
+  doc.ready(iniciarEventos);
+  function iniciarEventos(){
+    let form = $('#form');
+    form.submit(validateTopic);
+  }
+  function validateTopic(e){
+    let string = "/plantsego/";
+    let topic = $('#topic').val();
+    let same = true;
+  
+    for(let i=0;i<11;i++){
+     
+      if(string[i]!=topic[i]){
+        same=false;
+      }
+    }
+    if(!same){
+      alert("the topic shoud start with /plantsego/");
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+</script>
 @endsection
 @section('main')
 <button class="add" data-toggle="modal" data-target="#exampleModal">
@@ -18,25 +45,28 @@
       </div>
       <div class="modal-body">
     
-      <form action="/system/sensors/add" method="post">
+      <form action="/system/sensors/add" id="form" method="post">
     @csrf
         <input type="hidden" name="plant_id" class="" value="{{$plant->id}}">
         <label for="name" class="">Name:</label>
         <br>
-        <input type="text" id="name" class="col-xl-12" name="name">
+        <input type="text" class="form-control" id="name" class="col-xl-12" name="name" required>
         <br>
         <label for="topic" class="">MQTT Topic:</label>
         <br>
-        <input type="text" id="topic" name="topic" class="col-xl-12 mb-2">
+        <input type="text" class="form-control" id="topic" name="topic" class="col-xl-12 mb-2" required>
         <br>
-        <button type="submit" class="btn btn-primary col-5">Register sensor</button>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="save" class="btn btn-primary">Save changes</button>
+      </div>
     </form>
       </div> 
     </div>
   </div>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="/js/receiver.js"></script>
+
   
 <div class="container border-radious box-shadow mt-3 mb-3">
 <h1 class="col-12">{{$plant->name}}</h1>

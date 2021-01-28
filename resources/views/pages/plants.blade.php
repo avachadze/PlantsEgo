@@ -24,18 +24,21 @@
         <input name="systemID" type="hidden" value="{{$id}}">
             <label for="name">Name</label>
             <br>
-            <input type="text" name="name">
+            <input type="text" class="form-control" name="name" required>
             <br>
             <label for="type">Type</label>
             <br>
-            <input type="text" name="type">
+            <input type="text" class="form-control" name="type" required>
             <br>
             <label for="">Description</label>
             <br>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
             <br>
-            <button type="submit">Register</button>
-        </form>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
     @endif
       </div> 
     </div>

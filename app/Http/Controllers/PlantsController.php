@@ -49,6 +49,11 @@ class PlantsController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'type'=>'required',
+            'description' => 'required'
+        ]);
         $plantName = $request->input('name');
         $plantType = $request->input('type');
         $plantDescription = $request->input('description');

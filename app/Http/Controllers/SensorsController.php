@@ -58,6 +58,12 @@ class SensorsController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'topic' => 'required',
+            'plant_id'=>'required'
+            
+        ]);
         $sensorName = $request->name;
         $sensorTopic = $request->topic;
         $sensorPlantId = $request->plant_id;
@@ -66,7 +72,7 @@ class SensorsController extends Controller
         $sensor->topic = $sensorTopic;
         $sensor->plant_id = $sensorPlantId;
         $sensor->save();
-        return redirect('/system');
+       
     }
 
     /**

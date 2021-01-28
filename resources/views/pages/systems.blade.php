@@ -1,11 +1,12 @@
 @extends('layouts.mainLayout')
 @section('resources')
 <script src="{{asset('js/validateSystemForms.js')}}"></script>
+<link rel="stylesheet" href="{{ asset('css/system.css') }}">
 @endsection
 @section('main')
-<link rel="stylesheet" href="{{asset('css/system.css')}}">
+
 <button class="add" data-toggle="modal" data-target="#exampleModal">
-<img src="img/plus.png" class="plus"alt="">
+<img src="{{asset('img/plus.png')}}" class="plus"alt="">
 </button>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -21,12 +22,12 @@
     <form action="/systems/add/personal" method="post">
     @csrf
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" class="form-control" id="name" required>
         <label for="type">Type:</label>
-        <input type="text" name="type" id="type">
+        <input type="text" name="type" class="form-control" id="type" required>
         <label for="description">Description:</label>
         <br>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
       <input type="hidden" name="userID" id="userID" value="{{Auth::User()->id}}">
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

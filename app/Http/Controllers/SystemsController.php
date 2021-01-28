@@ -50,6 +50,12 @@ class SystemsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'type' => 'required',
+            'description'=>'required'
+            
+        ]);
         $systemName = $request->input('name');
         $systemCompanyID = $request->input('companyID');
         $systemUserID = $request->input('userID');

@@ -4,12 +4,12 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="icon" href="{{URL::asset('img/logo.png')}}">
-    <link rel="stylesheet" href="css/styling.css">
-    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="{{asset('css/styling.css')}}">
+    <link rel="stylesheet" href="{{asset('css/forms.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plants Ego</title>
-    <link rel="stylesheet" href="/node_modules/animate.css/animate.css">
+    <link rel="stylesheet" href="{{asset('/node_modules/animate.css/animate.css')}}">
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="{{mix('js/app.js') }}"></script>
     <style>
@@ -31,7 +31,7 @@ footer {
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="navbar-toggler-icon"></div>
         </button>
-        <a class="navbar-brand" href="/"><img src="img/logo.png" alt="" id="logo" ></a>
+        <a class="navbar-brand" href="/"><img src="{{asset('img/logo.png')}}" alt="" id="logo" ></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="item nav-item active">
@@ -48,15 +48,15 @@ footer {
                         {{__('messages.language')}}
                     </a>
                     <div id="dropMenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'en') }}"> <img class="item pr-3" src="language/en.png" style="width: 3vw; height:2vh">
+                        <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'en') }}"> <img class="item pr-3" src="{{asset('language/en.png')}}" style="width: 3vw; height:2vh">
                             {{__('messages.english')}}
                         </a>
                         <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'es') }}">
-                            <img class="item pr-3" src="language/es.png" style="width: 3vw; height:2vh">
+                            <img class="item pr-3" src="{{asset('language/es.png')}}" style="width: 3vw; height:2vh">
                             {{__('messages.spanish')}}
                         </a>
                         <a id="hover" class="dropdown-item" href="{{ route('switchLang', 'eu') }}">
-                            <img class="item pr-3" src="language/eu.png" style="width: 3vw; height:2vh">
+                            <img class="item pr-3" src="{{asset('language/eu.png')}}" style="width: 3vw; height:2vh">
                             {{__('messages.basque')}}
                         </a>
                     </div>
