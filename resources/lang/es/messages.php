@@ -37,5 +37,6 @@ return [
     'contactResponse' => 'Envía una respuesta',
     'dashboard'=> 'dashboard',
     'goReplied' => 'Ir a mensajes respondidos',
-    'goUnreplied' => 'Ir a mensajes pendientes'
+    'goUnreplied' => 'Ir a mensajes pendientes',
+    'contactreplied' => 'Respuesta dada'
 ];

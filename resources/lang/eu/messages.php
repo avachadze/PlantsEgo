@@ -36,5 +36,6 @@ return [
     'contactResponse' => 'Erantzuna bidali',
     'dashboard'=> 'dashboard',
     'goReplied' => 'Erantzundako mezuetara joan',
-    'goUnreplied' => 'Erantzun  gabeko mezuetara joan'
+    'goUnreplied' => 'Erantzun  gabeko mezuetara joan',
+    'contactreplied' => 'Erantzuna'
 ];

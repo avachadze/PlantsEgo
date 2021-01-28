@@ -14,6 +14,11 @@ class ContactMessages extends Model
         'replied' => 'false'
     );
 
+    public function contactReply()
+    {
+        return $this->hasOne(ContactReply::class, 'msgId');
+    }
+
 
     public static function unreplied()
     {

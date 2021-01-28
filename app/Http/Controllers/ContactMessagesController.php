@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\contactResponse;
 use App\Models\ContactMessages;
 use App\Http\Requests\ContactMessagesRequest;
+use App\Models\ContactReply;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,7 @@ class ContactMessagesController extends Controller
         $newEntry->fromEmail= $data['emailC'];
         $newEntry->subject= $data['form-Subject'];
         $newEntry->message= $data['msg'];
+        $newEntry->replied= false;
 
         //Save the model in the DB
         $newEntry->save();
@@ -99,7 +101,10 @@ class ContactMessagesController extends Controller
     {
         $msg= ContactMessages::find($id);
         $user= User::where('email', $msg->fromEmail)->get();
-        Mail::to($user)->send(new contactResponse($request));
+
+        ContactReply::saveReply($request, $id);
+
+        Mail::to($user)->send(new contactResponse($request, $id));
         Session::flash('sentReply', 'Message sent successfully');
 
         $msg->replied= true;
