@@ -15,14 +15,27 @@ class ContactMessagesController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. (unreplied messages)
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $Notifications= ContactMessages::all();
-        return view('ContactMessages.index')->with('Notifications', $Notifications);
+        $Notifications= ContactMessages::unreplied();
+        $replied= false;
+        return view('ContactMessages.index')->with(['Notifications' => $Notifications, 'replied' => $replied]);
+    }
+
+    /**
+     * Display a listing of the resource. (replied messages)
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_replied()
+    {
+        $Notifications= ContactMessages::replied();
+        $replied= true;
+        return view('ContactMessages.index')->with(['Notifications' => $Notifications, 'replied' => $replied]);
     }
 
     /**
@@ -84,9 +97,14 @@ class ContactMessagesController extends Controller
      */
     public function mailResponse(Request $request, $id)
     {
-        $user= User::find($id);
+        $msg= ContactMessages::find($id);
+        $user= User::where('email', $msg->fromEmail)->get();
         Mail::to($user)->send(new contactResponse($request));
         Session::flash('sentReply', 'Message sent successfully');
+
+        $msg->replied= true;
+        $msg->save();
+
         return redirect('/message');
     }
 }

@@ -69,6 +69,22 @@
 
     @endforeach
 
+
+            <a href="
+                @if($replied === true)
+                    {{ route('messages.list') }}
+                @else
+                    {{ route('messages.listReplied') }}
+                @endif" class="text-center mt-5">
+                <button class="btn btn-info waves-effect container-fluid text-light p-2">
+                    @if($replied === true)
+                        {{ __('messages.goUnreplied') }}
+                    @else
+                        {{ __('messages.goReplied') }}
+                    @endif
+                </button>
+            </a>
+
 </section>
 
 @endsection

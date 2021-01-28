@@ -71,7 +71,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                             <ul class="list-unstyled m-0 p-0" >
                                 <div style="max-height: 250px;overflow: auto;width:350px">
-                                    @foreach(\App\Models\ContactMessages::all() as $notification)
+                                    @foreach(\App\Models\ContactMessages::unreplied() as $notification)
                                         <li class="text-center m-3 border border-secondary rounded">
                                             <a href="{{ route('messages.show', $notification) }}">
                                                 <button class="btn btn-light text-dark p-0">
@@ -142,7 +142,7 @@
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light p-4">
-                 @guest @if (Route::has('login')) 
+                 @guest @if (Route::has('login'))
                     <li class="nav-item mb-3" style="list-style: none;">
                         <a id="login" data-toggle="modal" data-target="#signIn"  class="nav-link btn btn-outline-success" href="{{ route('login') }}">{{__('auth.sign-in')}}</a>
                     </li>
