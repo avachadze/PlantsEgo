@@ -18,12 +18,13 @@ class PlantsController extends Controller
     {
         $plants = Plant::All();
         $plantsToShow = array();
+        $id=$request->id;
         foreach($plants as $plant){
             if($plant->system_id==$request->id){
                 array_push($plantsToShow,$plant);
             }
         }
-        return view('pages.plants')->with('plants',$plantsToShow);
+        return view('pages.plants')->with(compact('plantsToShow','id'));
     }
    
 

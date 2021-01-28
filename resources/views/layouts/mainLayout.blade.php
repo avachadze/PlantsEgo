@@ -12,7 +12,15 @@
     <link rel="stylesheet" href="/node_modules/animate.css/animate.css">
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <script src="{{mix('js/app.js') }}"></script>
-
+    <style>
+footer {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+</style>
+    @section('resources')
+    @show
 </head>
 @section ('photoHeader')
 

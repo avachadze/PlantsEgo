@@ -20,6 +20,6 @@ class DashboardController extends Controller
 
     public function redirect()
     {
-        return redirect('/Dashboard/' . Auth::id());
+        return redirect('/systems');
     }
 }

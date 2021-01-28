@@ -53,10 +53,14 @@ class SystemsController extends Controller
         $systemName = $request->input('name');
         $systemCompanyID = $request->input('companyID');
         $systemUserID = $request->input('userID');
+        $systemType = $request->input('type');
+        $systemDescription = $request->input('description');
         $system = new System();
         $system->name=$systemName;
         $system->companyID=$systemCompanyID;
         $system->userID=$systemUserID;
+        $system->type= $systemType;
+        $system->description=$systemDescription;
         $system->save();
         return redirect('/systems');
 
