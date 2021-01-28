@@ -66,7 +66,7 @@ class SensorsController extends Controller
         $sensor->topic = $sensorTopic;
         $sensor->plant_id = $sensorPlantId;
         $sensor->save();
-        return redirect('/system');
+       
     }
 
     /**
