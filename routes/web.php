@@ -29,7 +29,7 @@ Route::group([
 
                 Route::view('/edit', 'admin/edit');
 
-                //User modifier 
+                //User modifier
                 Route::get('administrate', 'UsersController@index')->name('administrate');
                 Route::get('deleteUser/{id}', 'UsersController@delete');
                 Route::get('restoreUser/{id}', 'UsersController@restore');
@@ -46,10 +46,11 @@ Route::group([
                 Route::post('/plants/add', 'PlantsController@store');
                 Route::post('/message/create', 'ContactMessagesController@store')->name('storeContactMessage');
                 Route::get('/message', 'ContactMessagesController@index')->name('messages.list');
+                Route::get('/message/replied', 'ContactMessagesController@index_replied')->name('messages.listReplied');
                 Route::get('/message/send/{id}', 'ContactMessagesController@mailResponse')->name('contactResponseSend');
                 Route::get('/message/{id}', 'ContactMessagesController@show')->name('messages.show');
                 Route::delete('/message/{id}', 'ContactMessagesController@destroy')->name('destroyMessage');
-            
+
                 Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
                 Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
                 Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
@@ -62,7 +63,7 @@ Route::group([
                 Route::get('/systems/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');
                 Route::post('/system/sensors/add', '\App\Http\Controllers\SensorsController@store');
         });
-    
+
         Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
 
 });

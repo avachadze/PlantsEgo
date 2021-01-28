@@ -52,7 +52,7 @@
         </section>
 
         <aside class="col-4 border rounded border-lighterGray mx-2">
-            <form action="{{ route('contactResponseSend', $userID) }}" method="get">
+            <form action="{{ route('contactResponseSend', $message->id) }}" method="get">
                 @csrf
                 <div class="form-header blue accent-1">
                     <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactResponse')}}</h3>
@@ -60,7 +60,7 @@
                 <div class="md-form">
                     <i class="fas fa-tag prefix grey-text"></i>
                     <label for="form-Subject">{{__('messages.subject')}}</label>
-                    <input type="text" id="form-Subject" name="form-Subject" class="form-control">
+                    <input type="text" id="form-Subject" name="form-Subject" class="form-control" value="RE: {{ $message->subject }}">
                 </div>
                 <div class="md-form">
                     <i class="fas fa-pencil-alt prefix grey-text"></i>
