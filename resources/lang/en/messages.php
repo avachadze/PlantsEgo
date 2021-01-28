@@ -34,4 +34,7 @@ return [
     'basque'=>'basque',
     'contactResponse' => 'Send a reply',
     'dashboard'=> 'dashboard',
+    'goReplied' => 'Go to replied messages',
+    'goUnreplied' => 'Go to pending messages',
+    'contactreplied' => 'Message reply'
 ];
