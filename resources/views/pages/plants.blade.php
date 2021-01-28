@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 @section('resources')
-<link rel="stylesheet" href="{{ asset('css/plants.css') }}">
+<link rel="stylesheet" href="{{ asset('css/system.css') }}">
+<script src="{{asset('js/validateSystemForms.js')}}"></script>
 @endsection
 @section('main')
 
@@ -41,6 +42,7 @@
   </div>
 </div>
 <div class="container">
+  <h1>Your plants:</h1>
 <div class="row">
     @foreach($plantsToShow as $plant)
     

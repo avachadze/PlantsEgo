@@ -1,6 +1,9 @@
 @extends('layouts.mainLayout')
+@section('resources')
+<script src="{{asset('js/validateSystemForms.js')}}"></script>
+@endsection
 @section('main')
-<link rel="stylesheet" href="css/systems.css">
+<link rel="stylesheet" href="{{asset('css/system.css')}}">
 <button class="add" data-toggle="modal" data-target="#exampleModal">
 <img src="img/plus.png" class="plus"alt="">
 </button>
@@ -8,7 +11,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add system</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -60,7 +63,9 @@
 @if(count($systems)==0)
  <h1>You don't have any system registred for the moment</h1>
 @else
+
 <div class="container">
+<h1>Your systems:</h1>
 <div class="row">
 @foreach($systems as $system)
 

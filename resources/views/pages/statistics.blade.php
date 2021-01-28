@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 @section('resources')
-<link rel="stylesheet" href="{{ asset('css/plants.css') }}">
-<link rel="stylesheet" href="/css/plant.css"> 
+<link rel="stylesheet" href="{{ asset('css/system.css') }}">
+
 @endsection
 @section('main')
 <button class="add" data-toggle="modal" data-target="#exampleModal">
@@ -38,7 +38,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="/js/receiver.js"></script>
   
-<div class="container ">
+<div class="container border-radious box-shadow mt-3 mb-3">
 <h1 class="col-12">{{$plant->name}}</h1>
 
 <h2 class="col-12">Type: {{$plant->type}}</h2>
