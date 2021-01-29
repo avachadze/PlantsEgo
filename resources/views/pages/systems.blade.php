@@ -25,6 +25,8 @@
         <input type="text" name="name" class="form-control" id="name" required>
         <label for="type">Type:</label>
         <input type="text" name="type" class="form-control" id="type" required>
+        <input type="hidden" name="latitude">
+        <input type="hidden" name="longitude">
         <label for="description">Description:</label>
         <br>
         <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
