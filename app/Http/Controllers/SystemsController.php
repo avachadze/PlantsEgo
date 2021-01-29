@@ -42,6 +42,19 @@ class SystemsController extends Controller
         //
     }
 
+    public function sendLocation(Request $request){
+        $id= $request->id;
+        $system=System::Find($id);
+        $latitude = $system->latitude;
+        $longitude = $system->longitude;
+        $location = [];
+        array_push($location, $latitude);
+        array_push($location, $longitude);
+        return response()->json($location,201);
+    }
+
+  
+
     /**
      * Store a newly created resource in storage.
      *
