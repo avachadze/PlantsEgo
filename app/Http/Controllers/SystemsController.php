@@ -44,13 +44,15 @@ class SystemsController extends Controller
 
     public function sendLocation(Request $request){
         $id= $request->id;
-        $system=System::Find($id);
+        $system = System::find($id);
+        
         $latitude = $system->latitude;
         $longitude = $system->longitude;
         $location = [];
         array_push($location, $latitude);
         array_push($location, $longitude);
-        return response()->json($location,201);
+        
+       return response()->json($location,201);
     }
 
   
