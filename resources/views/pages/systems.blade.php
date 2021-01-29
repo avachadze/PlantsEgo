@@ -96,6 +96,20 @@
 <h1>{{$system->name}}</h1>
 <p>Type: {{$system->type}}</p>
 <p>Description:  {{$system->description}}</p>
+<div class="container-fluid">
+<div class="row">
+<form action="/systems/{{$system->id}}/delete" method="post">
+@csrf 
+@method('DELETE')
+<input type="hidden" name="id" value="{{$system->id}}">
+<button type="submit" class="btn btn-danger mb-2 mr-2">Delete</button>
+
+</form>
+
+ <button class="btn btn-warning mb-2">Edit</button>
+
+</div>
+</div>
 </a>
 </div>
 

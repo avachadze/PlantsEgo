@@ -136,6 +136,8 @@ class SystemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = System::find($id);
+        $note->delete();
+        return redirect('/systems');
     }
 }
