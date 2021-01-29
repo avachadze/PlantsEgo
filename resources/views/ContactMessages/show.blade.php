@@ -65,11 +65,13 @@
                     <label for="msg">{{__('messages.sendMessage')}}</label>
                     <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3">@if($message->replied){{ $message->ContactReply->msg }}@endif</textarea>
                 </div>
+
                 @if(!$message->replied)
-                <div class="text-center">
-                    <button type="submit" class="btn btn-outline-primary waves-effect">{{__('messages.submit')}}</button>
-                </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-primary waves-effect">{{__('messages.submit')}}</button>
+                    </div>
                 @endif
+
             </form>
             <form action="{{ route('destroyMessage', $message->id) }}" class="d-flex justify-content-center my-2 text-center"  method="POST">
                 <input type="submit" id="submitContact" class="waves-effect btn-outline-lightWarningBorder btn pb-4" value="Delete this Message">
