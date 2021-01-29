@@ -23,4 +23,5 @@ $(document).ready(function() {
             register.removeClass('disabled');
         }
     }
+
 });

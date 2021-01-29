@@ -1,81 +1,132 @@
 @extends('layouts/mainLayout')
 
 @section('main')
-<style>
-    footer {
-        position: relative;
-        bottom: 0px;
-        width: 100%;
-    }
-</style>
-<div class="container mt-4">
-    <h2>Company Administrator</h2>
 
-    <form action="createCompany" method="POST">
-        @CSRF
-        <input type="text" name="name" placeholder="Company Name">
-        <input type="submit" value="New Company" class="btn btn-primary text-center p-1 ">
-    </form>
-    <table class="table table-hover">
-        <h2>Company Administration</h2>
-        <thead>
-            <tr>
-                <th scope="col">Company Name</th>
-                <th scope="col">Modification</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($companies as $company)
-            <tr>
-                <th scope="row">{{$company->name}}</th>
-                <td>
-                    <a class="btn" href={{"destroyCompany/".$company['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
-                    @if($company->deleted_at === null)
-                    <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
+<link rel="stylesheet" href="{{URL::asset('css/editing.css')}}">
+
+<div class="container mt-4">
+
+    <ul id="menuList">
+       
+            <li  id="users">User</li>
+        
+        
+            <li id="companies">Company</li>
+        
+        
+            <li id="editing">Edit</li>
+        
+    </ul>
+
+    <div id="userAdministration">
+        <table class="table table-hover">
+            <h2>{{__('admin.userAdministration')}}</h2>
+            <thead>
+                <tr>
+                    <th scope="col">{{__('auth.user')}}</th>
+                    <th scope="col">{{__('auth.email')}}</th>
+                    <th scope="col">{{__('auth.role')}}</th>
+                    <th scope="col">{{__('admin.companyID')}}</th>
+                    <th scope="col">{{__('admin.modification')}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                <tr>
+                    <th scope="row">{{$user->name}}</th>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->role}}</td>
+                    <td>{{$user->company_id}}</td>
+                    <td>
+                        @if($user->role!=="admin")
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="         
+                    <p>{{__('messages.deleteMsg')}} <span class='text-danger'> {{$user->name}} </span> {{__('messages.permanent')}}</p>
+                    <a href={{"destroyUser/".$user['id']}} class='btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
+                    ">
+                            <i class="modificationIcons fa fa-trash"></i></a>
+                        <a class="btn" href={{"edit/".$user['id']}}><i class="modificationIcons fa fa-pencil" aria-hidden="true"></i></a>
+                        @if($user->deleted_at === null)
+                        <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
+                        @else
+                        <a class="btn" href={{"restoreUser/".$user['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></i></a>
+                        @endif
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="hidden" id="companyAdministration">
+
+        <h2>{{__('admin.companyAdministrator')}}</h2>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">{{__('admin.companyName') }}</th>
+                    <th scope="col">{{__('admin.modification') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @FOREACH ($companies as $company)
+                @if($company->deleted_at === null)
+                <tr>
                     @else
-                    <a class="btn" href={{"restoreCompany/".$company['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></i></a>
+                <tr class="text-danger">
                     @endif
-                </td>
-                <td>
-                    <input type="text" name="" placeholder="Change the name " class="col-6">
-                    <input type="button" value="new name" class="btn btn-primary ">
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <table class="table table-hover">
-        <h2>User Administration</h2>
-        <thead>
-            <tr>
-                <th scope="col">User</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">company_id</th>
-                <th scope="col">modify</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($users as $user)
-            <tr>
-                <th scope="row">{{$user->name}}</th>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role}}</td>
-                <td>{{$user->company_id}}</td>
-                <td>
-                    @if($user->role!=="admin")
-                    <a class="btn" href={{"destroyUser/".$user['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
-                    <a class="btn" href={{"edit/".$user['id']}}><i class="modificationIcons fa fa-pencil" aria-hidden="true"></i></a>
-                    @if($user->deleted_at === null)
-                    <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
-                    @else
-                    <a class="btn" href={{"restoreUser/".$user['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></i></a>
-                    @endif
-                    @endif
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                    <th scope="row">{{$company->name}}</th>
+                    <td>
+                        <a class="btn" href={{"destroyCompany/".$company['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
+                        @if($company->deleted_at === null)
+                        <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
+                        @else
+                        <a class="btn" href={{"restoreCompany/".$company['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></i></a>
+                        @endif
+                    </td>
+                    <td>
+                        <form action={{"updateCompany/".$company['id']}} method="POST">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+                            <input type="text" name="name" id="updateCompany" placeholder="Change the name" class="col-6" required required oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
+                            <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">{{__('admin.rename')}}</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompany">
+            {{__('admin.addCompany')}}
+        </button>
+        <div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="addCompanyTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{__('admin.newCompany')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="createCompany" method="POST" id="companyForm">
+                            @CSRF
+                            <input id="newCompany" type="text" name="name" placeholder="Company Name" required oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('admin.close')}}</button>
+                        <button type="submit" class="btn btn-primary" form="companyForm" id="newCompanyB">{{__('admin.saveChanges')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<script src="{{URL::asset('jquery/modifyValidation.js')}}"></script>
+<script src="{{URL::asset('jquery/administration.js')}}"></script>
 @endsection

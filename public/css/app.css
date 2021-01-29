@@ -153,6 +153,10 @@ a {
   text-decoration: none;
 }
 
+footer {
+  width: 100%;
+}
+
 @media (max-width: 992px) {
   .fotoheader {
     display: none;

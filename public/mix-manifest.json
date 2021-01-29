@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/init.js": "/js/init.js",
     "/js/scroll.js": "/js/scroll.js",
     "/js/stickymenu.js": "/js/stickymenu.js"
 }

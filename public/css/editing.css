@@ -1,0 +1,38 @@
+#companies,
+#editing,
+#users {
+    color: inherit;
+    transition: 0.5s;
+    text-decoration: none;
+    margin: 2vh;
+}
+
+#companies:hover,
+#editing:hover,
+#users:hover {
+    z-index: 1;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    color: dodgerblue;
+}
+
+.hidden {
+    display: none;
+}
+
+#menuList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    border-bottom: 2px solid dodgerblue;
+    border-radius: 1vh;
+}
+
+#administration {
+    transition: 0.5s;
+}
+
+.selectedContent {
+    font-weight: bold;
+}

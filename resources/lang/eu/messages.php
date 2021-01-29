@@ -35,4 +35,7 @@ return [
     'basque'=>'Euskara',
     'contactResponse' => 'Erantzuna bidali',
     'dashboard'=> 'dashboard',
+    'deleteMsg'=>'  Kontu hau zure informazio guztiarekin ezabatuko da. Ekintza hau ezin da desegin. Ziur zaude erabiltzaile ',
+    'permanent'=>'betirako ezabatu nahi duzula?',
+  
 ];

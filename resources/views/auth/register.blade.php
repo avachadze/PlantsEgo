@@ -32,7 +32,7 @@
                             <label for="name" class="col-3 col-form-label text-md-right">{{ __('auth.name') }}</label>
 
                             <div class="inputWithIcon">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.name') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="name" autofocus>
                                 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                             <label for="emailC" class="col-3 col-form-label text-md-right">{{ __('auth.email') }}</label>
 
                             <div class="inputWithIcon">
-                                <input id="emailC" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="emailC" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="email">
                                 <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                             <label for="password" class="col-3 col-form-label text-md-right">{{ __('passwords.password') }}</label>
 
                             <div class="inputWithIcon">
-                                <input id="pass" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="pass" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="email" autofocus placeholder="{{ __('auth.placePassword') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="new-password">
                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                             <label for="password-confirm" class="col-3 col-form-label text-md-right">{{ __('passwords.confirm') }}</label>
 
                             <div class="inputWithIcon">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="email" autofocus placeholder="{{ __('auth.placePasswordRepeat') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="new-password">
                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>

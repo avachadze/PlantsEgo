@@ -23,7 +23,7 @@
 
             <div class="card-body ">
                 
-                <h1 class=" text-center">Log In</h1>
+                <h1 class=" text-center">{{ __('auth.login') }}</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
@@ -31,7 +31,7 @@
 
                         <div class="inputWithIcon">
 
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
                             <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
 
                         <div class="inputWithIcon">
 
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('passwords.password') }}">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="current-password" placeholder="{{ __('passwords.password') }}" >
                             <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -81,10 +81,6 @@
                     </a>
                     @endif
                 </div>
-
-
-
-
                 <div class="col-md-12 form-group row justify-content-center">
                     <div class="">
                         <div class="form-check">
@@ -95,12 +91,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     </div>

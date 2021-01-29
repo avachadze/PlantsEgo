@@ -34,4 +34,6 @@ return [
     'basque'=>'basque',
     'contactResponse' => 'Send a reply',
     'dashboard'=> 'dashboard',
+    'deleteMsg'=>'This account is going to be deleted with all their information. This action can not be undone. are you sure you want to delete user ',
+    'permanent'=>'permanently?',
 ];

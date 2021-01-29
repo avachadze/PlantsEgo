@@ -15,12 +15,18 @@ return [
     'name'=>'Nombre',
     'login'=> "Entrar",
     'register'=> "Registrarse",
+    'placePassword'=>"Contraseña",
+    'placePasswordRepeat'=>"Repite la contraseña",
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'password' => 'Contraseña incorrecta',
     'throttle' => 'Demasiados intentos de inicio de sesion. Por favor prueba en :seconds segundos.',
     'remember'=>'Recordar usuario',
     'email' => 'Correo Electronico',
     'logout' => 'sailr',
-    'administrate' =>'administrar'
+    'administrate' =>'administrar',
+    'user' =>'Usuario',
+    'role' =>'Rol',
+    'error'=>'Este campo es obligatorio',
+    
 
 ];

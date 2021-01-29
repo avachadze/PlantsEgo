@@ -36,4 +36,6 @@ return [
     'basque'=>'Euskera',
     'contactResponse' => 'Envía una respuesta',
     'dashboard'=> 'dashboard',
+    'deleteMsg'=>'Esta cuenta se borrará con toda su información. Esta acción no se puede deshacer. ¿Estás seguro de que quieres eliminar al usuario ',
+    'permanent'=>'permanentemente?',
 ];
