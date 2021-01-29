@@ -22,6 +22,8 @@ class CreateSystemsTable extends Migration
             $table->timestamps();
             $table->integer('userID')->nullable();
             $table->integer('companyID')->nullable();
+            $table->double('latitude');
+            $table->double('longitude');
           
         });
         //$seeder= new \Database\Seeders\SystemSeeder();

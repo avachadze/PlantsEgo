@@ -53,7 +53,9 @@ class SystemsController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'type' => 'required',
-            'description'=>'required'
+            'description'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required'
             
         ]);
         $systemName = $request->input('name');
@@ -61,12 +63,17 @@ class SystemsController extends Controller
         $systemUserID = $request->input('userID');
         $systemType = $request->input('type');
         $systemDescription = $request->input('description');
+        $systemLatitude = $request->input('latitude');
+        $systemLongitude = $request->input('longitude');
         $system = new System();
         $system->name=$systemName;
         $system->companyID=$systemCompanyID;
         $system->userID=$systemUserID;
         $system->type= $systemType;
+        $system->latitude = $systemLatitude;
+        $system->longitude= $systemLongitude;
         $system->description=$systemDescription;
+
         $system->save();
         return redirect('/systems');
 
