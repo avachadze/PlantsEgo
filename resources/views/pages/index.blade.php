@@ -47,7 +47,7 @@
       <hr class="my-4">
       <p>{{__('messages.jumbotext')}}</p>
       <p class="lead">
-        <a class="btn btn-success btn-lg" href="#" role="button">{{__('jumbobutton')}}</a>
+        <a class="btn btn-success btn-lg" href="#" role="button">{{__('messages.jumbobutton')}}</a>
       </p>
     </div>
 
