@@ -123,9 +123,15 @@ class SystemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $system = System::find($request->id);
+        $system->name=$request->name;
+        $system->type=$request->type;
+        $system->description= $request->description;
+        $system->save();
+        return redirect('/systems');
+
     }
 
     /**
