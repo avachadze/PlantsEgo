@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plant;
+use App\Models\Sensor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +18,7 @@ class PlantsController extends Controller
     public function index(Request $request)
     {
         $plants = Plant::All();
+        
         $plantsToShow = array();
         $id=$request->id;
         foreach($plants as $plant){
@@ -76,7 +78,14 @@ class PlantsController extends Controller
     public function show(Request $request)
     {
         $plant = DB::table('plants')->where('id', $request->plantid)->first();
-        return view('pages.statistics')->with('plant',$plant);
+        $sensors = Sensor::All();
+        $sensorsToShow = array();
+        foreach($sensors as $sensor){
+            if($sensor->plant_id==$plant->id){
+                array_push($sensorsToShow, $sensor);
+            }
+        }
+        return view('pages.statistics')->with(compact('plant','sensorsToShow'));
 
     }
 
@@ -98,9 +107,14 @@ class PlantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $plant= Plant::find($request->id);
+        $plant->name= $request->name;
+        $plant->type=$request->type;
+        $plant->description=$request->description;
+        $plant->save();
+        return redirect('/systems/'.$request->system_id);
     }
 
     /**

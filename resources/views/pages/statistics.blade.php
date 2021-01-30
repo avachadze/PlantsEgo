@@ -1,12 +1,14 @@
 @extends('layouts.mainLayout')
 @section('resources')
 <link rel="stylesheet" href="{{ asset('css/system.css') }}">
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/js/receiver.js"></script>
 <script>
   let doc = $(document);
   doc.ready(iniciarEventos);
   function iniciarEventos(){
     let form = $('#form');
+    pedirAJAX();
     form.submit(validateTopic);
   }
   function validateTopic(e){
@@ -21,7 +23,7 @@
       }
     }
     if(!same){
-      alert("the topic shoud start with /plantsego/");
+      alert("the topic must start with /plantsego/");
       return false;
     }
     else{
@@ -29,6 +31,7 @@
     }
   }
 </script>
+
 @endsection
 @section('main')
 <button class="add" data-toggle="modal" data-target="#exampleModal">
@@ -74,7 +77,22 @@
 <h2 class="col-12">Type: {{$plant->type}}</h2>
 <h2 class="col-12">Description:</h2>
 <p class="col-12"> {{$plant->description}}</p>
-
+<div>
+  <form action="/sensors/delete" method="post">
+  @csrf
+  @method('delete')
+  <input type="hidden" value="{{$plant->id}}" name="plantId">
+  <input type="hidden" value="{{$plant->system_id}}" name="systemId">
+  <label for="id">Delete a sensor:</label>
+   <select name="id" id="id">
+    @foreach($sensorsToShow as $sensor)
+      <option value="{{$sensor->id}}">{{$sensor->name}}</option>
+    @endforeach   
+   </select>
+   <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
 <div id="charts"></div>
 </div>
+
 @endsection

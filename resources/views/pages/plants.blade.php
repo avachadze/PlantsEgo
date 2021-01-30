@@ -138,16 +138,48 @@ showGoogleMaps();
 @method('DELETE')
 <input type="hidden" name="id" value="{{$plant->id}}">
 <input type="hidden" name="system_id" value="{{$plant->system_id}}">
-<button type="submit" class="btn btn-danger mb-2 mr-2">Delete</button>
+<button type="submit" class="btn btn-danger mb-2 mr-2" >Delete</button>
 
 </form>
 
- <button class="btn btn-warning mb-2">Edit</button>
+ <button class="btn btn-warning mb-2"  data-toggle="modal" data-target="#Modal1">Edit</button>
 
 </div>
 </div>
   </div>
- 
+  <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit system</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+        <form action="/plants/update" method="post">
+        @csrf
+        @method('PUT')
+          <input type="hidden" value="{{$plant->id}}" name="id">
+          <input type="hidden" value="{{$plant->system_id}}" name="system_id">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" class="form-control" value="{{$plant->name}}" required>
+          <label for="type">Type:</label>
+          <input type="text" name="type" class="form-control" id="type" value="{{$plant->type}}" required>
+          <label for="description">Description:</label>
+          <br>
+          <textarea name="description" id="description" cols="30" rows="10" class="form-control" value="" required>{{$plant->description}}</textarea>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
     @endforeach
     </div>
     </div>
