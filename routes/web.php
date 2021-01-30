@@ -56,6 +56,7 @@ Route::group([
                 Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
                 Route::get('/systems','\App\Http\Controllers\SystemsController@index');
                 Route::delete('/systems/{id}/delete', '\App\Http\Controllers\SystemsController@destroy')->name('deleteSystem');
+                Route::delete('/systems/{system_id}/{id}/delete', '\App\Http\Controllers\PlantsController@destroy')->name('deletePlant');
                 Route::get('/systems/{id}', '\App\Http\Controllers\PlantsController@index');
                 Route::get('/systems/{id}/location', '\App\Http\Controllers\SystemsController@sendLocation');
                 Route::get('/systems/{id}/{plantid}', '\App\Http\Controllers\PlantsController@show');

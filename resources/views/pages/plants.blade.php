@@ -131,6 +131,21 @@ showGoogleMaps();
     <p>Type:{{$plant->type}}</p>
     <p>Description:{{$plant->description}}</p>
     </a>
+    <div class="container-fluid">
+<div class="row">
+<form action="/systems/plants/{{$plant->id}}/delete" method="post">
+@csrf 
+@method('DELETE')
+<input type="hidden" name="id" value="{{$plant->id}}">
+<input type="hidden" name="system_id" value="{{$plant->system_id}}">
+<button type="submit" class="btn btn-danger mb-2 mr-2">Delete</button>
+
+</form>
+
+ <button class="btn btn-warning mb-2">Edit</button>
+
+</div>
+</div>
   </div>
  
     @endforeach
