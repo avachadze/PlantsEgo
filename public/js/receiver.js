@@ -1,5 +1,7 @@
 //window.onload = iniciarDivs;
 var datosGraficos = [];
+function pedirAJAX(){
+
 $.ajax({
     // la URL para la petición
     url: window.location + '/statistics',
@@ -61,7 +63,7 @@ $.ajax({
     }
 
 });
-
+}
 function drawGraphic(sensorIndex) {
     google.charts.load('current', {
         'packages': ['line']

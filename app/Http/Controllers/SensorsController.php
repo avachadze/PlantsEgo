@@ -106,7 +106,8 @@ class SensorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+
     }
 
     /**
@@ -115,8 +116,12 @@ class SensorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+       
+            $system = Sensor::find($request->id);
+            $system->delete();
+            return redirect('/systems/'.$request->systemId.'/'.$request->plantId);
+      
     }
 }

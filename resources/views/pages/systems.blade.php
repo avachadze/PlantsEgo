@@ -57,15 +57,15 @@
     <form action="/systems/add/corporative" method="post">
     @csrf
         <label for="name">Name</label>
-        <input type="text" class="col-xl-4" name="name" id="name">
+        <input type="text" class="col-xl-4 form-control" name="name" id="name" required>
         <input type="hidden" id="companyID" name="companyID"value="{{Auth::User()->companyID}}">
         <label for="type">Type:</label>
-        <input type="text" name="type" id="type">
+        <input type="text" name="type" class="form-control" id="type" required>
         <input type="hidden" name="latitude">
         <input type="hidden" name="longitude">
         <label for="description">Description:</label>
         <br>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -96,9 +96,54 @@
 <h1>{{$system->name}}</h1>
 <p>Type: {{$system->type}}</p>
 <p>Description:  {{$system->description}}</p>
+<div class="container-fluid">
+<div class="row">
+<form action="/systems/{{$system->id}}/delete" method="post">
+@csrf 
+@method('DELETE')
+<input type="hidden" name="id" value="{{$system->id}}">
+<button type="submit" class="btn btn-danger mb-2 mr-2">Delete</button>
 </a>
+</form>
+
+ <button class="btn btn-warning mb-2" data-toggle="modal" data-target="#Modal1">Edit</button>
+
+</div>
 </div>
 
+</div>
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit system</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+        <form action="/systems/update" method="post">
+        @csrf
+        @method('PUT')
+          <input type="hidden" value="{{$system->id}}" name="id">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" class="form-control" value="{{$system->name}}" required>
+          <label for="type">Type:</label>
+          <input type="text" name="type" class="form-control" id="type" value="{{$system->type}}" required>
+          <label for="description">Description:</label>
+          <br>
+          <textarea name="description" id="description" cols="30" rows="10" class="form-control" value="" required>{{$system->description}}</textarea>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 @endforeach
 </div>
 </div>
