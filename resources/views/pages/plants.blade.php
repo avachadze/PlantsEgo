@@ -88,7 +88,7 @@ showGoogleMaps();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__('messages.addPlant')}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -98,21 +98,21 @@ showGoogleMaps();
       <form action="/plants/add" method="post">
         @csrf
         <input name="systemID" type="hidden" value="{{$id}}">
-            <label for="name">Name</label>
+            <label for="name">{{__('messages.name')}}</label>
             <br>
             <input type="text" class="form-control" name="name" required>
             <br>
-            <label for="type">Type</label>
+            <label for="type">{{__('messages.type')}}</label>
             <br>
             <input type="text" class="form-control" name="type" required>
             <br>
-            <label for="">Description</label>
+            <label for="description">{{__('messages.description')}}</label>
             <br>
             <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
             <br>
             <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('messages.close')}}</button>
+        <button type="submit" class="btn btn-primary">{{__('messages.save')}}</button>
       </div>
     </form>
     @endif
@@ -121,15 +121,15 @@ showGoogleMaps();
   </div>
 </div>
 <div class="container">
-  <h1>Your plants:</h1>
+  <h1>{{__('messages.yourPlants')}}</h1>
 <div class="row">
     @foreach($plantsToShow as $plant)
     
   <div class="select box-shadow col-3 border-radious mb-3 mt-3 mr-3">
   <a class="text-decoration-none" href="{{$plant->system_id.'/'.$plant->id}}">
     <h1>{{$plant->name}}</h1>
-    <p>Type:{{$plant->type}}</p>
-    <p>Description:{{$plant->description}}</p>
+    <p>{{__('messages.type')}}{{$plant->type}}</p>
+    <p>{{__('messages.description')}}{{$plant->description}}</p>
     </a>
     <div class="container-fluid">
 <div class="row">
@@ -138,11 +138,11 @@ showGoogleMaps();
 @method('DELETE')
 <input type="hidden" name="id" value="{{$plant->id}}">
 <input type="hidden" name="system_id" value="{{$plant->system_id}}">
-<button type="submit" class="btn btn-danger mb-2 mr-2" >Delete</button>
+<button type="submit" class="btn btn-danger mb-2 mr-2" >{{__('messages.delete')}}</button>
 
 </form>
 
- <button class="btn btn-warning mb-2"  data-toggle="modal" data-target="#Modal1">Edit</button>
+ <button class="btn btn-warning mb-2"  data-toggle="modal" data-target="#Modal1">{{__('messages.edit')}}</button>
 
 </div>
 </div>
@@ -152,7 +152,7 @@ showGoogleMaps();
     <div class="modal-content">
     <div class="modal-body">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit system</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__('messages.editSystem')}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -163,18 +163,18 @@ showGoogleMaps();
         @method('PUT')
           <input type="hidden" value="{{$plant->id}}" name="id">
           <input type="hidden" value="{{$plant->system_id}}" name="system_id">
-          <label for="name">Name:</label>
+          <label for="name">{{__('messages.name')}}</label>
           <input type="text" name="name" id="name" class="form-control" value="{{$plant->name}}" required>
-          <label for="type">Type:</label>
+          <label for="type">{{__('messages.type')}}</label>
           <input type="text" name="type" class="form-control" id="type" value="{{$plant->type}}" required>
-          <label for="description">Description:</label>
+          <label for="description">{{__('messages.description')}}</label>
           <br>
           <textarea name="description" id="description" cols="30" rows="10" class="form-control" value="" required>{{$plant->description}}</textarea>
       
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('messages.close')}}</button>
+        <button type="submit" class="btn btn-primary">{{__('messages.save')}}</button>
       </div>
       </form>
     </div>

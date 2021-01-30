@@ -9,19 +9,19 @@
     }
 </style>
 <div class="container mt-4">
-    <h2>Company Administrator</h2>
+    <h2>{{__('messages.companyAdministrator')}}</h2>
 
     <form action="createCompany" method="POST">
         @CSRF
-        <input type="text" name="name" placeholder="Company Name">
-        <input type="submit" value="New Company" class="btn btn-primary text-center p-1 ">
+        <input type="text" name="name" placeholder="{{__('messages.companyName')}}">
+        <input type="submit" value="{{__('messages.newCompany')}}" class="btn btn-primary text-center p-1 ">
     </form>
     <table class="table table-hover">
-        <h2>Company Administration</h2>
+        <h2>{{__('messages.companyAdministration')}}</h2>
         <thead>
             <tr>
-                <th scope="col">Company Name</th>
-                <th scope="col">Modification</th>
+                <th scope="col">{{__('messages.companyName')}}</th>
+                <th scope="col">{{__('messages.modification')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -37,22 +37,22 @@
                     @endif
                 </td>
                 <td>
-                    <input type="text" name="" placeholder="Change the name " class="col-6">
-                    <input type="button" value="new name" class="btn btn-primary ">
+                    <input type="text" name="" placeholder="{{__('messages.changeName')}}" class="col-6">
+                    <input type="button" value="{{__('messages.newName')}}" class="btn btn-primary ">
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
     <table class="table table-hover">
-        <h2>User Administration</h2>
+        <h2>{{__('messages.userAdministration')}}</h2>
         <thead>
             <tr>
-                <th scope="col">User</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">company_id</th>
-                <th scope="col">modify</th>
+                <th scope="col">{{__('messages.user')}}</th>
+                <th scope="col">{{__('messages.email')}}</th>
+                <th scope="col">{{__('messages.role')}}</th>
+                <th scope="col">{{__('messages.companyId')}}</th>
+                <th scope="col">{{__('messages.modify')}}</th>
             </tr>
         </thead>
         <tbody>
