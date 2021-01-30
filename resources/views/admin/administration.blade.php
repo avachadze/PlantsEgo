@@ -7,9 +7,14 @@
         bottom: 0px;
         width: 100%;
     }
+  
 </style>
 <div class="container mt-4">
+
     <h2>{{__('messages.companyAdministrator')}}</h2>
+
+
+<br>
 
     <form action="createCompany" method="POST">
         @CSRF
@@ -17,7 +22,11 @@
         <input type="submit" value="{{__('messages.newCompany')}}" class="btn btn-primary text-center p-1 ">
     </form>
     <table class="table table-hover">
+
         <h2>{{__('messages.companyAdministration')}}</h2>
+
+        <br>
+
         <thead>
             <tr>
                 <th scope="col">{{__('messages.companyName')}}</th>
@@ -44,8 +53,15 @@
             @endforeach
         </tbody>
     </table>
+
     <table class="table table-hover">
         <h2>{{__('messages.userAdministration')}}</h2>
+
+   
+  
+     
+        <br>
+
         <thead>
             <tr>
                 <th scope="col">{{__('messages.user')}}</th>
@@ -77,5 +93,6 @@
             @endforeach
         </tbody>
     </table>
+    
 </div>
 @endsection

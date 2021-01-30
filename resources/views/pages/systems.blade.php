@@ -91,7 +91,7 @@
 <div class="row">
 @foreach($systems as $system)
 
-<div class="select box-shadow col-3 border-radious mb-3 mt-3 mr-3">
+<div class="select box-shadow col-sm-12 col-xl-3 border-radious mb-3 mt-3 mr-3">
 <a class="text-decoration-none" href="/systems/{{$system->id}}">
 <h1>{{$system->name}}</h1>
 <p>{{__('messages.type')}} {{$system->type}}</p>

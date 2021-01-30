@@ -84,8 +84,8 @@ function drawGraphic(sensorIndex) {
                 title: datosGraficos[sensorIndex].name,
                 subtitle: ''
             },
-            width: 900,
-            height: 500
+            width: "100%",
+            height: "30%"
         };
 
         var chart = new google.charts.Line(document.getElementById("chart" + sensorIndex));
