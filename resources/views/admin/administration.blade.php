@@ -7,10 +7,11 @@
         bottom: 0px;
         width: 100%;
     }
+  
 </style>
 <div class="container mt-4">
     <h2>Company Administrator</h2>
-
+<br>
     <form action="createCompany" method="POST">
         @CSRF
         <input type="text" name="name" placeholder="Company Name">
@@ -18,6 +19,7 @@
     </form>
     <table class="table table-hover">
         <h2>Company Administration</h2>
+        <br>
         <thead>
             <tr>
                 <th scope="col">Company Name</th>
@@ -44,8 +46,10 @@
             @endforeach
         </tbody>
     </table>
-    <table class="table table-hover">
+   
+    <table style="overflow-x:auto;" class="table table-hover col-9 bg-primary">
         <h2>User Administration</h2>
+        <br>
         <thead>
             <tr>
                 <th scope="col">User</th>
@@ -77,5 +81,6 @@
             @endforeach
         </tbody>
     </table>
+    
 </div>
 @endsection

@@ -125,7 +125,7 @@ showGoogleMaps();
 <div class="row">
     @foreach($plantsToShow as $plant)
     
-  <div class="select box-shadow col-3 border-radious mb-3 mt-3 mr-3">
+  <div class="select box-shadow col-xl-3 col-sm-12 border-radious mb-3 mt-3 mr-3">
   <a class="text-decoration-none" href="{{$plant->system_id.'/'.$plant->id}}">
     <h1>{{$plant->name}}</h1>
     <p>Type:{{$plant->type}}</p>
