@@ -19,7 +19,6 @@
     </ul>
 
     <div id="userAdministration">
-
         <table class="table table-hover ">
             <h2>{{__('admin.userAdministration')}}</h2>
             <thead id="tableHead">
@@ -27,15 +26,12 @@
                     <th scope="col">{{__('auth.user')}}</th>
                     <th scope="col">{{__('auth.email')}}</th>
                     <th scope="col">{{__('auth.role')}}</th>
-                    @if(\Illuminate\Support\Facades\Auth::user()->company_id != null)<th scope="col">
                     <th scope="col">{{__('admin.companyID')}}</th>
-                    </th>@endif
                     <th scope="col">{{__('admin.modification')}}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
-                @can('update', $user)
                 @if($user->deleted_at !== null)
                 <tr class=" text-danger">
                     @else
@@ -69,18 +65,16 @@
                         @endif
                     </td>
                 </tr>
-                @endcan
                 @endforeach
             </tbody>
         </table>
-
     </div>
 
 
     <div class="hidden mb-3" id="companyAdministration">
 
         <h2>{{__('admin.companyAdministrator')}}</h2>
-        @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -90,7 +84,6 @@
             </thead>
             <tbody>
                 @FOREACH ($companies as $company)
-                @can('update', $company)
                 @if($company->deleted_at === null)
                 <tr>
                     @else
@@ -115,17 +108,15 @@
                         <form action={{"updateCompany/".$company['id']}} method="POST">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
-                            <input type="text" name="name" id="updateCompany" placeholder="Change the name" class="col-6" required required oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
+                            <input type="text" name="name" id="updateCompany" placeholder="Change the name" required class="col-6" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
                             <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">{{__('admin.rename')}}</button>
                         </form>
                         @endif
                     </td>
                 </tr>
-                @endcan
                 @endforeach
             </tbody>
         </table>
-        @endif
         <button type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#addCompany">
             {{__('admin.addCompany')}}
         </button>
