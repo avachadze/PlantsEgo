@@ -67,6 +67,7 @@ return [
     'yourPlants'=>'Your plants:',
     'addSystem'=>'Add system',
     'addPlant'=>'Add plant',
-    'registerSensor'=>'Register sensor'
+    'registerSensor'=>'Register sensor',
+    'yoursystems'=>"Your systems"
 
 ];

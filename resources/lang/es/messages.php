@@ -69,5 +69,6 @@ return [
     'yourPlants'=>'Tus plantas:',
     'addSystem'=>'Añadir sistema',
     'addPlant'=>'Añadir planta',
-    'registerSensor'=>'Registrar sensor'
+    'registerSensor'=>'Registrar sensor',
+    'yoursystems'=>"Tus sistemas"
 ];

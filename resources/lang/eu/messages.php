@@ -68,5 +68,6 @@ return [
     'yourPlants'=>'Zure landareak:',
     'addSystem'=>'Sistema erregistratu',
     'addPlant'=>'Landarea erregistratu',
-    'registerSensor'=>'Sensorea erregistratu'
+    'registerSensor'=>'Sensorea erregistratu',
+    'yoursystems'=>"Your systems"
 ];

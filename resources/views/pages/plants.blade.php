@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 @section('resources')
 <link rel="stylesheet" href="{{ asset('css/system.css') }}">
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false">
 </script>
  <script>
 let doc = $(document);

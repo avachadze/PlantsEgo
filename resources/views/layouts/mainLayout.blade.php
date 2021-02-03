@@ -43,6 +43,11 @@ footer {
                 <li class="item nav-item">
                     <a class="nav-link" href="/contact">{{__('messages.contact')}}</a>
                 </li>
+                @auth
+                <li class="item nav-item">
+                    <a class="nav-link" href="/systems">{{__('messages.yoursystems')}}</a>
+                </li>
+                @endauth
                 <li class="nav-item dropup" id="drop3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{__('messages.language')}}
