@@ -15,7 +15,26 @@ class CompanySeeder extends Seeder
     public function run()
     {
         DB::table('companies')->insert([
-            'name' => 'Placeholder Company',
+            'name' => 'Plants Zubiri',
         ]);
+        DB::table('companies')->insert([
+            'name' => 'IrrP',
+        ]);
+        DB::table('companies')->insert([
+            'name' => 'System77',
+        ]);
+        DB::table('companies')->insert([
+            'name' => 'Your Plants',
+        ]);
+        DB::table('companies')->insert([
+            'name' => 'Sunshine',
+        ]);
+        DB::table('companies')->insert([
+            'name' => 'R12',
+        ]);
+        DB::table('companies')->insert([
+            'name' => 'Planetta',
+        ]);
+
     }
 }
