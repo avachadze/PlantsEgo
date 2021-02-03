@@ -8,10 +8,10 @@ return [
     'sign-in'=> 'Iniciar sesión',
     'sign-up'=> 'Registrarse',
     'subtitle'=> '¡El mejor panel de administracion web para tu sistema de riego!',
-    'jumbotitle'=> '¡Prueba el sistema de forma gratuita!',
-    'jumbosubtitle'=> 'Tenemos una demostracion de la aplicacion para que puedas decidir si la compras o no.',
-    'jumbotext'=> 'La información que mostramos en la demostracion está generada de manera aleatoria',
-    'jumbobutton'=> '¡Ir a la demostración!',
+    'jumbotitle'=> '¡Registrate!',
+    'jumbosubtitle'=> 'Empieza a digitalizar tu huerta',
+    'jumbotext'=> 'Todo lo que necesitas para esto en Plants-EGO',
+    'jumbobutton'=> '¡Registrate!',
     'comptitle'=> 'Compatible con todos los sistemas de riego.',
     'card1'=> 'Este sistema es totalmente compatible con los sistemas de riego por goteo',
     'card2'=> 'Este sistema es totalmente ompatible con aspersores',
@@ -70,5 +70,6 @@ return [
     'addSystem'=>'Añadir sistema',
     'addPlant'=>'Añadir planta',
     'registerSensor'=>'Registrar sensor',
-    'yoursystems'=>"Tus sistemas"
+    'yoursystems'=>"Tus sistemas",
+    'registernow'=>"¡Registrate ahora!"
 ];
