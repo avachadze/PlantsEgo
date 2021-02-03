@@ -42,6 +42,21 @@ class SystemsController extends Controller
         //
     }
 
+    public function sendLocation(Request $request){
+        $id= $request->id;
+        $system = System::find($id);
+        
+        $latitude = $system->latitude;
+        $longitude = $system->longitude;
+        $location = [];
+        array_push($location, $latitude);
+        array_push($location, $longitude);
+        
+       return response()->json($location,201);
+    }
+
+  
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,13 +65,30 @@ class SystemsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'type' => 'required',
+            'description'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required'
+            
+        ]);
         $systemName = $request->input('name');
         $systemCompanyID = $request->input('companyID');
         $systemUserID = $request->input('userID');
+        $systemType = $request->input('type');
+        $systemDescription = $request->input('description');
+        $systemLatitude = $request->input('latitude');
+        $systemLongitude = $request->input('longitude');
         $system = new System();
         $system->name=$systemName;
         $system->companyID=$systemCompanyID;
         $system->userID=$systemUserID;
+        $system->type= $systemType;
+        $system->latitude = $systemLatitude;
+        $system->longitude= $systemLongitude;
+        $system->description=$systemDescription;
+
         $system->save();
         return redirect('/systems');
 
@@ -91,9 +123,15 @@ class SystemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $system = System::find($request->id);
+        $system->name=$request->name;
+        $system->type=$request->type;
+        $system->description= $request->description;
+        $system->save();
+        return redirect('/systems');
+
     }
 
     /**
@@ -104,6 +142,8 @@ class SystemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $system = System::find($id);
+        $system->delete();
+        return redirect('/systems');
     }
 }

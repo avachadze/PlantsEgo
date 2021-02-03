@@ -58,6 +58,12 @@ class SensorsController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'topic' => 'required',
+            'plant_id'=>'required'
+            
+        ]);
         $sensorName = $request->name;
         $sensorTopic = $request->topic;
         $sensorPlantId = $request->plant_id;
@@ -66,7 +72,7 @@ class SensorsController extends Controller
         $sensor->topic = $sensorTopic;
         $sensor->plant_id = $sensorPlantId;
         $sensor->save();
-        return redirect('/system');
+       
     }
 
     /**
@@ -100,7 +106,8 @@ class SensorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+
     }
 
     /**
@@ -109,8 +116,12 @@ class SensorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+       
+            $system = Sensor::find($request->id);
+            $system->delete();
+            return redirect('/systems/'.$request->systemId.'/'.$request->plantId);
+      
     }
 }

@@ -16,8 +16,13 @@
         }
 
     </style>
-
 <section class="d-flex flex-column justify-content-between align-items-center container-fluid">
+
+    @if(Session::has('sentReply'))
+        <div class="row alert alert-lightSuccess border border-success mt-4 animate__animated animate__backInUp">
+            <h3>{{ Session::get('sentReply') }}</h3>
+        </div>
+    @endif
 
     @foreach($Notifications as $message)
 
@@ -63,6 +68,22 @@
         </article>
 
     @endforeach
+
+
+            <a href="
+                @if($replied === true)
+                    {{ route('messages.list') }}
+                @else
+                    {{ route('messages.listReplied') }}
+                @endif" class="text-center mt-5">
+                <button class="btn btn-info waves-effect container-fluid text-light p-2">
+                    @if($replied === true)
+                        {{ __('messages.goUnreplied') }}
+                    @else
+                        {{ __('messages.goReplied') }}
+                    @endif
+                </button>
+            </a>
 
 </section>
 

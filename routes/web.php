@@ -30,7 +30,7 @@ Route::group([
 
                 Route::view('/edit', 'admin/edit');
 
-                //User modifier 
+                //User modifier
                 Route::get('administrate', 'UsersController@index')->name('administrate');
                 Route::get('deleteUser/{id}', 'UsersController@delete');
                 Route::get('restoreUser/{id}', 'UsersController@restore');
@@ -43,27 +43,29 @@ Route::group([
                 Route::get('deleteCompany/{id}', 'CompaniesController@delete');
                 Route::get('restoreCompany/{id}', 'CompaniesController@restore');
                 Route::get('destroyCompany/{id}', 'CompaniesController@destroy');
-
                 Route::post('/plants/add', 'PlantsController@store');
                 Route::post('/message/create', 'ContactMessagesController@store')->name('storeContactMessage');
                 Route::get('/message', 'ContactMessagesController@index')->name('messages.list');
+                Route::get('/message/replied', 'ContactMessagesController@index_replied')->name('messages.listReplied');
                 Route::get('/message/send/{id}', 'ContactMessagesController@mailResponse')->name('contactResponseSend');
                 Route::get('/message/{id}', 'ContactMessagesController@show')->name('messages.show');
                 Route::delete('/message/{id}', 'ContactMessagesController@destroy')->name('destroyMessage');
-            
                 Route::post('/plants/add', '\App\Http\Controllers\PlantsController@store');
+                Route::put('/plants/update', '\App\Http\Controllers\PlantsController@update');
+                Route::delete('/sensors/delete', '\App\Http\Controllers\SensorsController@destroy');
                 Route::post('/systems/add/corporative','\App\Http\Controllers\SystemsController@store');
                 Route::post('/systems/add/personal','\App\Http\Controllers\SystemsController@store');
+                Route::put('/systems/update','\App\Http\Controllers\SystemsController@update');
                 Route::get('/systems','\App\Http\Controllers\SystemsController@index');
-                Route::view('/systems/add', '/pages/addSystem');
+                Route::delete('/systems/{id}/delete', '\App\Http\Controllers\SystemsController@destroy')->name('deleteSystem');
+                Route::delete('/systems/{system_id}/{id}/delete', '\App\Http\Controllers\PlantsController@destroy')->name('deletePlant');
                 Route::get('/systems/{id}', '\App\Http\Controllers\PlantsController@index');
-                Route::get('/systems/{id}/addplant', '\App\Http\Controllers\PlantsController@showStoreForm');
-                Route::get('/systems/{id}/{plantid}/addsensor', '\App\Http\Controllers\SensorsController@showStoreForm');
-                Route::get('/systems/{id}/{plantid}', '\App\Http\Controllers\PlantsController@show');
-                Route::get('/systems/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');
+                Route::get('/systems/{id}/location', '\App\Http\Controllers\SystemsController@sendLocation');
+                Route::get('/systems/{id}/{plantid}', '\App\Http\Controllers\PlantsController@show');              
+                Route::get('/systems/{id}/{plantid}/statistics', '\App\Http\Controllers\SensorsController@index');               
                 Route::post('/system/sensors/add', '\App\Http\Controllers\SensorsController@store');
         });
-    
+
         Route::get('/redirect', 'DashboardController@redirect')->name('usrDashboard');
 
 });

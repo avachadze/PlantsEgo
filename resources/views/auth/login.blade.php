@@ -1,5 +1,5 @@
-<script src="/jquery/loginValidation.js"></script>
-<link rel="stylesheet" href="css/forms.css">
+<script src="{{asset('/jquery/loginValidation.js')}}"></script>
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
 <style>
     .logo-margin-negative {
         margin-top: -100px;
@@ -13,7 +13,7 @@
         <div id="modalWindow" class="modal-content">
             <div class="d-flex modal-header">
                 
-                <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="img/logo.png" class="logo-margin-negative ml-5"></h4>
+                <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="{{asset('img/logo.png')}}" class="logo-margin-negative ml-5"></h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

@@ -16,7 +16,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" id="signUpBorder">
             <div class="modal-header">
-                <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="img/logo.png" class="logo-margin-negative"></h4>
+                <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="{{asset('img/logo.png')}}" class="logo-margin-negative"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plant;
+use App\Models\Sensor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,13 +18,15 @@ class PlantsController extends Controller
     public function index(Request $request)
     {
         $plants = Plant::All();
+        
         $plantsToShow = array();
+        $id=$request->id;
         foreach($plants as $plant){
             if($plant->system_id==$request->id){
                 array_push($plantsToShow,$plant);
             }
         }
-        return view('pages.plants')->with('plants',$plantsToShow);
+        return view('pages.plants')->with(compact('plantsToShow','id'));
     }
    
 
@@ -48,6 +51,11 @@ class PlantsController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'type'=>'required',
+            'description' => 'required'
+        ]);
         $plantName = $request->input('name');
         $plantType = $request->input('type');
         $plantDescription = $request->input('description');
@@ -70,7 +78,14 @@ class PlantsController extends Controller
     public function show(Request $request)
     {
         $plant = DB::table('plants')->where('id', $request->plantid)->first();
-        return view('pages.statistics')->with('plant',$plant);
+        $sensors = Sensor::All();
+        $sensorsToShow = array();
+        foreach($sensors as $sensor){
+            if($sensor->plant_id==$plant->id){
+                array_push($sensorsToShow, $sensor);
+            }
+        }
+        return view('pages.statistics')->with(compact('plant','sensorsToShow'));
 
     }
 
@@ -92,9 +107,14 @@ class PlantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $plant= Plant::find($request->id);
+        $plant->name= $request->name;
+        $plant->type=$request->type;
+        $plant->description=$request->description;
+        $plant->save();
+        return redirect('/systems/'.$request->system_id);
     }
 
     /**
@@ -103,8 +123,12 @@ class PlantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+ 
+        public function destroy(Request $request)
+        {
+            $plant = Plant::find($request->id);
+            $plant->delete();
+            return redirect('/systems/'.$request->system_id);
+        }
+   
 }

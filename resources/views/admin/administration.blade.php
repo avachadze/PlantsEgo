@@ -8,6 +8,7 @@
         border-top: 0.5vh solid dodgerblue;
 
     }
+
 </style>
 @can('isAdmin')
 <div class="adminPanel container mt-4">
