@@ -7,6 +7,8 @@ return [
     'name'=>'Name',
     'login'=> "Log in",
     'register'=> "Register",
+    'placePassword'=>"Password",
+    'placePasswordRepeat'=>"Repeat Password",
     'sign-in'=> 'Sign In',
     'sign-up'=> 'Sign Up',
     'failed' => 'These credentials do not match our records.',
@@ -15,6 +17,11 @@ return [
     'remember'=>'Remember Me',
     'email' => 'E-Mail Address',
     'logout' => 'logout',
-    'administrate' =>'administrate'
+    'administrate' =>'administrate',
+    'user' =>'User',
+    'role' =>'Role',
+    'error' =>'This fiels is required',
+    'user'=>'user',
+
     
 ];

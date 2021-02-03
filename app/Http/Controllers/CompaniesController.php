@@ -79,6 +79,7 @@ class CompaniesController extends Controller
     {
         $company = Company::findOrFail($id);
         $company -> update($request->all());
+        $company->save();
         return redirect('administrate');
     }
 

@@ -24,15 +24,13 @@
               @csrf
 
             <div class="form-header blue accent-1">
-              <h3 class="mt-2"><i class="fas fa-envelope"></i> {{__('messages.contactWrite')}}</h3>
+              <h3 class="mt-2">{{__('messages.contactWrite')}}</h3>
             </div>
             <div class="md-form">
-              <i class="fas fa-user prefix grey-text"></i>
                 <label for="nameC">{{__('auth.name')}}</label>
               <input type="text" id="nameC" name="nameC" @auth value="{{ Auth::user()->name }}" @endauth class="form-control">
             </div>
             <div class="md-form">
-              <i class="fas fa-envelope prefix grey-text"></i>
                 <label for="emailC">Email</label>
               <input type="text" id="emailC" name="emailC" @auth value="{{ Auth::user()->email }}" @endauth class="form-control">
               @error('email')
@@ -42,12 +40,10 @@
               @enderror
             </div>
             <div class="md-form">
-              <i class="fas fa-tag prefix grey-text"></i>
                 <label for="form-Subject">{{__('messages.subject')}}</label>
               <input type="text" id="form-Subject" name="form-Subject" class="form-control">
             </div>
             <div class="md-form">
-              <i class="fas fa-pencil-alt prefix grey-text"></i>
                 <label for="msg">{{__('messages.sendMessage')}}</label>
               <textarea id="msg" name="msg" class="form-control md-textarea mb-3" rows="3"></textarea>
             </div>
@@ -70,21 +66,18 @@
       <div class="row text-center">
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
-            <i class="fas fa-map-marker-alt"></i>
           </a>
           <p>Donostia, 20012</p>
           <p class="mb-md-0">Guipuzcoa</p>
         </div>
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
-            <i class="fas fa-phone"></i>
           </a>
           <p>943 89 92 92</p>
           <p class="mb-md-0">Mon - Fri, 8:00-22:00</p>
         </div>
         <div class="col-md-4">
           <a class="btn-floating blue accent-1">
-            <i class="fas fa-envelope"></i>
           </a>
           <p>plantsEGO@gmail.com</p>
           <p class="mb-0">Plants EGO</p>

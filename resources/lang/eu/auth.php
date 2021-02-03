@@ -16,12 +16,18 @@ return [
     'login'=> "Sartu",
     'register'=> "Erregistratu",
     'resetPasswords' => 'Reset Password!',
+    'placePassword'=>"Pasahitza",
+    'placePasswordRepeat'=>"Errepikatu Pasahitza",
     'failed' => 'Egiaztagiri hauek ez datoz bat gure erregistroekin.',
     'password' => 'Pasahitza ez da zuzena',
     'throttle' => 'Saioa hasteko saiakera gehiegi. Saiatu berriro en :seconds segundotan.',
     'remember'=>'Gogorarazi',
     'email' => 'Helbide elektronikoa',
     'logout' => 'saioa itxi',
-    'administrate' =>'administratu'
+    'administrate' =>'administratu',
+    'user' =>'Erabiltzailea',
+    'role' =>'Rola',
+    'error'=>'Eremu hau derrigorrezkoa da',
+    'user'=>'erabiltzilea',
   
 ];

@@ -14,5 +14,6 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/stickymenu.js', 'public/js')
     .js('resources/js/scroll.js', 'public/js')
+    .js('resources/js/init.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
