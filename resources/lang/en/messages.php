@@ -6,10 +6,10 @@ return [
     'home'=> 'Home',
     'compatibility'=> 'Compatibility',
     'subtitle'=> 'The best admin panel for your irrigation system!',
-    'jumbotitle'=> 'Try the system for free!',
-    'jumbosubtitle'=> 'We have a demonstration of the application to try and decide if you buy it or not',
-    'jumbotext'=> 'The data we show in the demonstration is random',
-    'jumbobutton'=> 'Go to demo!',
+    'jumbotitle'=> 'Register now',
+    'jumbosubtitle'=> 'Start digitalizing your vegetable garden!',
+    'jumbotext'=> 'All you need for this at Plants-EGO',
+    'jumbobutton'=> 'Register!',
     'comptitle'=> 'Compatible with all irrigation systems.',
     'card1'=> 'This system is fully compatible with drip irrigation systems',
     'card2'=> 'This system is fully compatible with arpersors',
@@ -68,6 +68,7 @@ return [
     'addSystem'=>'Add system',
     'addPlant'=>'Add plant',
     'registerSensor'=>'Register sensor',
-    'yoursystems'=>"Your systems"
+    'yoursystems'=>"Your systems",
+    'registernow'=>'Register now!'
 
 ];

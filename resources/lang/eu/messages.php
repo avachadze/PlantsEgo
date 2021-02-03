@@ -8,10 +8,10 @@ return [
     'sign-in'=> 'Saioa hasi',
     'sign-up'=> 'Erregistratu',
     'subtitle'=> 'Administrazio panel hoberena zure ureztatze sistemarako!',
-    'jumbotitle'=> 'Proba ezazu sistema doan!',
-    'jumbosubtitle'=> 'Aplikazioaren demostrazio bat daukagu zuk aukeratu ahal izateko erosten duzun edo ez',
-    'jumbotext'=> 'Demostrazion dagoen informazioa aleatorioki sortuta dago',
-    'jumbobutton'=> 'Joan demostraziora!',
+    'jumbotitle'=> 'Erregistratu',
+    'jumbosubtitle'=> 'Hasi ezazu zure baratza digitalizatzen',
+    'jumbotext'=> 'Horretarako behar duzun guztia Plants-EGOn',
+    'jumbobutton'=> 'Erregistratu!',
     'comptitle'=> 'Ureztatze sistema guztiekin kompatiblea da.',
     'card1'=> 'Sistema hau guztiz konpatiblea da tanta sistemekin',
     'card2'=> 'Sistema hau guztiz konpatiblea da aspersoreekin',
@@ -69,5 +69,6 @@ return [
     'addSystem'=>'Sistema erregistratu',
     'addPlant'=>'Landarea erregistratu',
     'registerSensor'=>'Sensorea erregistratu',
-    'yoursystems'=>"Your systems"
+    'yoursystems'=>"Your systems",
+    'registernow'=>'Erregistratu orain!'
 ];
