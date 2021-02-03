@@ -13,16 +13,12 @@
 <div class="adminPanel container mt-4">
 
     <ul id="menuList">
-
         <li id="users">User</li>
-
-
         <li id="companies">Company</li>
-
-
     </ul>
 
     <div id="userAdministration">
+
         <table class="table table-hover ">
             <h2>{{__('admin.userAdministration')}}</h2>
             <thead id="tableHead">
@@ -30,12 +26,15 @@
                     <th scope="col">{{__('auth.user')}}</th>
                     <th scope="col">{{__('auth.email')}}</th>
                     <th scope="col">{{__('auth.role')}}</th>
+                    @if(\Illuminate\Support\Facades\Auth::user()->company_id != null)<th scope="col">
                     <th scope="col">{{__('admin.companyID')}}</th>
+                    </th>@endif
                     <th scope="col">{{__('admin.modification')}}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
+                @can('update', $user)
                 @if($user->deleted_at !== null)
                 <tr class=" text-danger">
                     @else
@@ -69,16 +68,18 @@
                         @endif
                     </td>
                 </tr>
+                @endcan
                 @endforeach
             </tbody>
         </table>
+
     </div>
 
 
     <div class="hidden mb-3" id="companyAdministration">
 
         <h2>{{__('admin.companyAdministrator')}}</h2>
-
+        @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -88,6 +89,7 @@
             </thead>
             <tbody>
                 @FOREACH ($companies as $company)
+                @can('update', $company)
                 @if($company->deleted_at === null)
                 <tr>
                     @else
@@ -118,9 +120,11 @@
                         @endif
                     </td>
                 </tr>
+                @endcan
                 @endforeach
             </tbody>
         </table>
+        @endif
         <button type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#addCompany">
             {{__('admin.addCompany')}}
         </button>
