@@ -3,25 +3,29 @@
 @section('main')
 
 <link rel="stylesheet" href="{{URL::asset('css/editing.css')}}">
+<style>
+    tbody {
+        border-top: 0.5vh solid dodgerblue;
 
-<div class="container mt-4">
+    }
+</style>
+@can('isAdmin')
+<div class="adminPanel container mt-4">
 
     <ul id="menuList">
-       
-            <li  id="users">User</li>
-        
-        
-            <li id="companies">Company</li>
-        
-        
-            <li id="editing">Edit</li>
-        
+
+        <li id="users">User</li>
+
+
+        <li id="companies">Company</li>
+
+
     </ul>
 
     <div id="userAdministration">
-        <table class="table table-hover">
+        <table class="table table-hover ">
             <h2>{{__('admin.userAdministration')}}</h2>
-            <thead>
+            <thead id="tableHead">
                 <tr>
                     <th scope="col">{{__('auth.user')}}</th>
                     <th scope="col">{{__('auth.email')}}</th>
@@ -32,10 +36,22 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
+                @if($user->deleted_at !== null)
+                <tr class=" text-danger">
+                    @else
                 <tr>
+                    @endif
                     <th scope="row">{{$user->name}}</th>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->role}}</td>
+                    @if($user->role === "admin")
+                    <td class="text-success"><strong>
+                            {{$user->role}}
+                        </strong></td>
+                    @else
+                    <td class>
+                        {{__('auth.user')}}
+                    </td>
+                    @endif
                     <td>{{$user->company_id}}</td>
                     <td>
                         @if($user->role!=="admin")
@@ -44,7 +60,7 @@
                     <a href={{"destroyUser/".$user['id']}} class='btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
                     ">
                             <i class="modificationIcons fa fa-trash"></i></a>
-                        <a class="btn" href={{"edit/".$user['id']}}><i class="modificationIcons fa fa-pencil" aria-hidden="true"></i></a>
+
                         @if($user->deleted_at === null)
                         <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
                         @else
@@ -59,7 +75,7 @@
     </div>
 
 
-    <div class="hidden" id="companyAdministration">
+    <div class="hidden mb-3" id="companyAdministration">
 
         <h2>{{__('admin.companyAdministrator')}}</h2>
 
@@ -79,7 +95,12 @@
                     @endif
                     <th scope="row">{{$company->name}}</th>
                     <td>
-                        <a class="btn" href={{"destroyCompany/".$company['id']}}><i class="modificationIcons fa fa-trash" aria-hidden="true"></i></a>
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="         
+                    <p>{{__('messages.deleteMsgCompany')}} <span class='text-danger'> {{$user->name}} </span> {{__('messages.permanent')}}</p>
+                    <a href={{"destroyCompany/".$company['id']}} class='btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
+                    ">
+                            <i class="modificationIcons fa fa-trash"></i></a>
+
                         @if($company->deleted_at === null)
                         <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
                         @else
@@ -87,18 +108,20 @@
                         @endif
                     </td>
                     <td>
+                        @if($company->deleted_at === null)
                         <form action={{"updateCompany/".$company['id']}} method="POST">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
                             <input type="text" name="name" id="updateCompany" placeholder="Change the name" class="col-6" required required oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
                             <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">{{__('admin.rename')}}</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompany">
+        <button type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#addCompany">
             {{__('admin.addCompany')}}
         </button>
         <div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="addCompanyTitle" aria-hidden="true">
@@ -118,7 +141,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('admin.close')}}</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">{{__('admin.close')}}</button>
                         <button type="submit" class="btn btn-primary" form="companyForm" id="newCompanyB">{{__('admin.saveChanges')}}</button>
                     </div>
                 </div>
@@ -127,6 +150,7 @@
     </div>
 
 </div>
+@endcan
 <script src="{{URL::asset('jquery/modifyValidation.js')}}"></script>
 <script src="{{URL::asset('jquery/administration.js')}}"></script>
 @endsection

@@ -21,5 +21,7 @@ return [
     'user' =>'User',
     'role' =>'Role',
     'error' =>'This fiels is required',
+    'user'=>'user',
+
     
 ];

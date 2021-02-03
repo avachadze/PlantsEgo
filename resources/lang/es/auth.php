@@ -27,6 +27,7 @@ return [
     'user' =>'Usuario',
     'role' =>'Rol',
     'error'=>'Este campo es obligatorio',
+    'user'=>'usuario',
     
 
 ];

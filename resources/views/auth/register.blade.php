@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <input type="text" class="d-none form-control" value="user" id="role" name="role" required autocomplete="role">
+
 
                         <div class="form-group row justify-content-center">
                             <label for="name" class="col-3 col-form-label text-md-right">{{ __('auth.name') }}</label>

@@ -28,5 +28,6 @@ return [
     'user' =>'Erabiltzailea',
     'role' =>'Rola',
     'error'=>'Eremu hau derrigorrezkoa da',
+    'user'=>'erabiltzilea',
   
 ];
