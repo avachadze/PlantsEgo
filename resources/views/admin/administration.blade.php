@@ -8,14 +8,14 @@
         border-top: 0.5vh solid dodgerblue;
 
     }
-
 </style>
 @can('isAdmin')
-<div class="adminPanel container mt-4">
+<div class="adminPanel container mt-2">
 
     <ul id="menuList">
         <li id="users">User</li>
         <li id="companies">Company</li>
+
     </ul>
 
     <div id="userAdministration">
@@ -64,6 +64,7 @@
                         @endif
                         @endif
                     </td>
+                    <td></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -93,12 +94,12 @@
                     <td>
                         <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="         
                     <p>{{__('messages.deleteMsgCompany')}} <span class='text-danger'> {{$user->name}} </span> {{__('messages.permanent')}}</p>
-                    <a href={{"destroyCompany/".$company['id']}} class='btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
+                    <a href={{"destroyCompany/".$company['id']}} class='disableCompany btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
                     ">
                             <i class="modificationIcons fa fa-trash"></i></a>
 
                         @if($company->deleted_at === null)
-                        <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
+                        <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-primary fa fa-check-square" aria-hidden="true"></i></a>
                         @else
                         <a class="btn" href={{"restoreCompany/".$company['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></i></a>
                         @endif
@@ -120,7 +121,7 @@
         <button type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#addCompany">
             {{__('admin.addCompany')}}
         </button>
-        <div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="addCompanyTitle" aria-hidden="true">
+        <div class="modal fade mb-2" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="addCompanyTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -149,4 +150,5 @@
 @endcan
 <script src="{{URL::asset('jquery/modifyValidation.js')}}"></script>
 <script src="{{URL::asset('jquery/administration.js')}}"></script>
+<script src="{{URL::asset('jquery/adminPanelModifications.js')}}"></script>
 @endsection

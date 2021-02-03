@@ -104,7 +104,7 @@ eval("$(function () {\n  $('[data-toggle=\"popover\"]').popover();\n});//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Plants EGO\PlantsEgo\resources\js\init.js */"./resources/js/init.js");
+module.exports = __webpack_require__(/*! A:\proyecto\PlantsEgo\resources\js\init.js */"./resources/js/init.js");
 
 
 /***/ })
