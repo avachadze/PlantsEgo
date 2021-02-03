@@ -51,6 +51,7 @@
       <form action="/system/sensors/add" id="form" method="post">
     @csrf
         <input type="hidden" name="plant_id" class="" value="{{$plant->id}}">
+        <input type="hidden" name="system_id" class="" value="{{$plant->system_id}}">
         <label for="name" class="">{{__('messages.name')}}</label>
         <br>
         <input type="text" class="form-control" id="name" class="col-xl-12" name="name" required>
