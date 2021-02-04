@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\Company;
 class UsersController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +29,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -56,7 +59,7 @@ class UsersController extends Controller
         return redirect('administrate');
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -66,7 +69,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-       
+        $this->authorize('update', User::find($id));
     }
 
     /**
@@ -79,7 +82,7 @@ class UsersController extends Controller
     public function updateRole( $id)
     {
         $userRole = User::findOrFail($id);
-        
+
         return $userRole;
     }
 
@@ -89,7 +92,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
     public function delete($id)
     {
        $data = User::findOrFail($id);
