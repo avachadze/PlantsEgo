@@ -1,29 +1,40 @@
-.box-shadow{
+.box-shadow {
     box-shadow: 0px 0px 8px rgb(155, 155, 155);
 }
-.border-radious{
+
+.border-radious {
     border-radius: 10px;
 }
-a{
+
+a {
     text-decoration: none;
     widows: 100%;
 }
-.text-decoration-none{
+
+.text-decoration-none {
     text-decoration: none;
-    color:rgb(63, 63, 63);
+    color: rgb(63, 63, 63);
 }
-.select:hover{
+
+.select {
+    transition: 0.5s;
+}
+
+.select:hover {
+    z-index: 1;
+    border: 0.3vh solid dodgerblue;
+    transform: scale(1.1);
     background-color: rgb(230, 230, 230);
 }
 
-.add{
+.add {
     height: 50px;
-    width:50px;
+    width: 50px;
     border-radius: 100%;
     box-shadow: 0px 0px 8px rgb(155, 155, 155);
     position: fixed;
     bottom: 200px;
-    right:50px;
+    right: 50px;
     background-color: white;
     border: 0px;
     overflow: hidden;
@@ -31,20 +42,22 @@ a{
     transition-property: transform;
 }
 
-.add:hover{
+.add:hover {
     background-color: rgb(230, 230, 230);
-    border: 0px; 
+    border: 0px;
     -webkit-transform: rotate(360deg);
-    
-}
-.add:focus{
-    outline: 0; 
-}
-.plus{
-    height: 40px;
-    width:40px;
-}
-html, body {
-    height: 100%;
 }
 
+.add:focus {
+    outline: 0;
+}
+
+.plus {
+    height: 40px;
+    width: 40px;
+}
+
+html,
+body {
+    height: 100%;
+}

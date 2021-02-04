@@ -46,10 +46,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
-    public function company(){
-        return $this->hasOne('App\Models\Company');
-    }
-
 
     public function isAdmin($role){
         if($this->role === $role){

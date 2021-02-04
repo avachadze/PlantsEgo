@@ -120,7 +120,7 @@ showGoogleMaps();
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container mt-3">
   <h1>{{__('messages.yourPlants')}}</h1>
 <div class="row">
     @foreach($plantsToShow as $plant)

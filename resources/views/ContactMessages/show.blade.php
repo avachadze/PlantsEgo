@@ -15,11 +15,11 @@
         {
             display: none;
         }
-
+     
     </style>
 
     <div class="container-fluid pt-4 row" id="container">
-        <section class="col-7 border-lighterGray border rounded mx-4">
+        <section id="section" class="col-7 border-primary border rounded mx-4">
 
             <article class="mt-3">
                 <h1>
@@ -51,7 +51,7 @@
 
         </section>
 
-        <aside class="col-4 border rounded border-lighterGray mx-2">
+        <aside class="col-4 border rounded border-primary mx-2">
             <form action="{{ route('contactResponseSend', $message->id) }}" method="get">
                 @csrf
                 <div class="form-header blue accent-1">

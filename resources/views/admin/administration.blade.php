@@ -13,10 +13,11 @@
 <div class="adminPanel container mt-2">
 
     @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
-        <ul id="menuList">
-            <li id="users">User</li>
-            <li id="companies">Company</li>
-        </ul>
+    <ul id="menuList">
+        <li id="users">User</li>
+        <li id="companies">Company</li>
+        <li id="editing">{{ Auth::user()->name }}</li>
+    </ul>
     @endif
 
     <div id="userAdministration">
@@ -28,49 +29,49 @@
                     <th scope="col">{{__('auth.email')}}</th>
                     <th scope="col">{{__('auth.role')}}</th>
                     @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
-                        <th scope="col">{{__('admin.companyID')}}</th>
+                    <th scope="col">{{__('admin.companyID')}}</th>
                     @endif
                     <th scope="col">{{__('admin.modification')}}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
-                    @can('update', $user)
-                        @if($user->deleted_at !== null)
-                        <tr class=" text-danger">
-                            @else
-                        <tr>
-                            @endif
-                            <th scope="row">{{$user->name}}</th>
-                            <td>{{$user->email}}</td>
-                            @if($user->role === "admin")
-                            <td class="text-success"><strong>
-                                    {{$user->role}}
-                                </strong></td>
-                            @else
-                            <td class>
-                                {{__('auth.user')}}
-                            </td>
-                            @endif
-                            <td>{{$user->company_id}}</td>
-                            <td>
-                                @if($user->role!=="admin")
-                                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="
+                @can('update', $user)
+                @if($user->deleted_at !== null)
+                <tr class=" text-danger">
+                    @else
+                <tr>
+                    @endif
+                    <th scope="row">{{$user->name}}</th>
+                    <td>{{$user->email}}</td>
+                    @if($user->role === "admin")
+                    <td class="text-success"><strong>
+                            {{$user->role}}
+                        </strong></td>
+                    @else
+                    <td class>
+                        {{__('auth.user')}}
+                    </td>
+                    @endif
+                    <td>{{$user->company_id}}</td>
+                    <td>
+                        @if($user->role!=="admin")
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="
                             <p>{{__('messages.deleteMsg')}} <span class='text-danger'> {{$user->name}} </span> {{__('messages.permanent')}}</p>
                             <a href={{"destroyUser/".$user['id']}} class='btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
                             ">
-                                    <i class="modificationIcons fa fa-trash"></i></a>
+                            <i class="modificationIcons fa fa-trash"></i></a>
 
-                                @if($user->deleted_at === null)
-                                <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
-                                @else
-                                <a class="btn" href={{"restoreUser/".$user['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></a>
-                                @endif
-                                @endif
-                            </td>
-                            <td></td>
-                        </tr>
-                    @endcan
+                        @if($user->deleted_at === null)
+                        <a class="btn" href={{"deleteUser/".$user['id']}}><i class="modificationIcons text-success fa fa-check-square" aria-hidden="true"></i></a>
+                        @else
+                        <a class="btn" href={{"restoreUser/".$user['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></a>
+                        @endif
+                        @endif
+                    </td>
+                    <td></td>
+                </tr>
+                @endcan
                 @endforeach
             </tbody>
         </table>
@@ -90,38 +91,38 @@
             </thead>
             <tbody>
                 @FOREACH ($companies as $company)
-                    @can('update', $company)
-                        @if($company->deleted_at === null)
-                        <tr>
-                            @else
-                        <tr class="text-danger">
-                            @endif
-                            <th scope="row">{{$company->name}}</th>
-                            <td>
-                                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="
+                @can('update', $company)
+                @if($company->deleted_at === null)
+                <tr>
+                    @else
+                <tr class="text-danger">
+                    @endif
+                    <th scope="row">{{$company->name}}</th>
+                    <td>
+                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Confirmation" data-html="true" data-content="
                             <p>{{__('messages.deleteMsgCompany')}} <span class='text-danger'> {{$user->name}} </span> {{__('messages.permanent')}}</p>
                             <a href={{"destroyCompany/".$company['id']}} class='disableCompany btn col-12 justify-content-center btn-outline-lightWarningBorder waves-effect'>Delete</a>
                             ">
-                                    <i class="modificationIcons fa fa-trash"></i></a>
+                            <i class="modificationIcons fa fa-trash"></i></a>
 
-                                @if($company->deleted_at === null)
-                                <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-primary fa fa-check-square" aria-hidden="true"></i></a>
-                                @else
-                                <a class="btn" href={{"restoreCompany/".$company['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></a>
-                                @endif
-                            </td>
-                            <td>
-                                @if($company->deleted_at === null)
-                                <form action={{"updateCompany/".$company['id']}} method="POST">
-                                    {{ method_field('PUT') }}
-                                    {{ csrf_field() }}
-                                    <input type="text" name="name" id="updateCompany" placeholder="Change the name" required class="col-6" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
-                                    <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">{{__('admin.rename')}}</button>
-                                </form>
-                                @endif
-                            </td>
-                        </tr>
-                    @endcan
+                        @if($company->deleted_at === null)
+                        <a class="btn" href={{"deleteCompany/".$company['id']}}><i class="modificationIcons text-primary fa fa-check-square" aria-hidden="true"></i></a>
+                        @else
+                        <a class="btn" href={{"restoreCompany/".$company['id']}}><i class="restore fa fa-times-circle" aria-hidden="true"></i></a>
+                        @endif
+                    </td>
+                    <td>
+                        @if($company->deleted_at === null)
+                        <form action={{"updateCompany/".$company['id']}} method="POST">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+                            <input type="text" name="name" id="updateCompany" placeholder="Change the name" required class="col-6" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
+                            <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">{{__('admin.rename')}}</button>
+                        </form>
+                        @endif
+                    </td>
+                </tr>
+                @endcan
                 @endforeach
             </tbody>
         </table>
@@ -151,6 +152,17 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="hidden" id="edit">
+
+        <div>
+            <h1>
+                {{ Auth::user()->name }}
+            </h1>
+
+        </div>
+
     </div>
 
 </div>

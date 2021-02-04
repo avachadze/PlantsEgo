@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now()
         ]);
 
+
         DB::table('users')->insert([
             'name' => 'Urbil',
             'email' => 'urbil@admin.com',
@@ -38,11 +39,52 @@ class UserSeeder extends Seeder
             'role' => 'admin',
             'email_verified_at' => now()
         ]);
-
+        DB::table('users')->insert([
+            'name' => 'Ana',
+            'email' => 'avachadze19dw31@ikzubirimanteo.com',
+            'Password' => Hash::make('suuhdude'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
         DB::table('users')->insert([
             'name' => 'test',
             'email' => 'test@test.com',
             'Password' => Hash::make('testtest'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Unai',
+            'email' => 'Unai@Unai.com',
+            'Password' => Hash::make('UnaiUnai'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Zubiri',
+            'email' => 'Zubiri@Zubiri.com',
+            'Password' => Hash::make('ZubiriZubiri'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'plantsEgo',
+            'email' => 'plantsEgo@plantsEgo.com',
+            'Password' => Hash::make('plantsEgoplantsEgo'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'test2',
+            'email' => 'test2@test.com',
+            'Password' => Hash::make('test2test2'),
+            'role' => 'user',
+            'email_verified_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'AnaV',
+            'email' => 'AnaV@AnaV.com',
+            'Password' => Hash::make('AnaVAnaV'),
             'role' => 'user',
             'email_verified_at' => now()
         ]);

@@ -8,11 +8,11 @@
         min-width: 15vw;
     }
 </style>
-<div class="modal fade mt-3" id="signIn" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade mt-3" id="signIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div id="modalWindow" class="modal-content">
             <div class="d-flex modal-header">
-                
+
                 <h4 class="modal-title col-11 text-center"><img id="logoRotate" src="{{asset('img/logo.png')}}" class="logo-margin-negative ml-5"></h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -22,7 +22,7 @@
 
 
             <div class="card-body ">
-                
+
                 <h1 class=" text-center">{{ __('auth.login') }}</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -45,7 +45,7 @@
 
                         <div class="inputWithIcon">
 
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="email" autofocus placeholder="{{ __('auth.email') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="current-password" placeholder="{{ __('passwords.password') }}" >
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="email" autofocus placeholder="{{ __('auth.placePassword') }}" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')" autocomplete="current-password" placeholder="{{ __('passwords.password') }}">
                             <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                             @error('password')
                             <span class="invalid-feedback" role="alert">

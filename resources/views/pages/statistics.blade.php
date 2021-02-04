@@ -78,6 +78,7 @@
 <h2 class="col-12">{{__('messages.type')}} {{$plant->type}}</h2>
 <h2 class="col-12">{{__('messages.description')}}</h2>
 <p class="col-12"> {{$plant->description}}</p>
+
 <div>
   <form action="/sensors/delete" method="post">
   @csrf
