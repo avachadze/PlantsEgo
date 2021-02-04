@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
+
 class UsersController extends Controller
 {
 
@@ -17,9 +18,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-      $users = User::withTrashed()->get();
-      $companies = Company::withTrashed()->get();
-      return view('admin.administration')->with(['users'=>$users, 'companies'=>$companies]);
+        $users = User::withTrashed()->get();
+        $companies = Company::withTrashed()->get();
+        return view('admin.administration')->with(['users' => $users, 'companies' => $companies]);
     }
 
     /**
@@ -29,7 +30,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -79,11 +79,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateRole( $id)
+    public function update(Request $request, $id)
     {
-        $userRole = User::findOrFail($id);
-
-        return $userRole;
+        $userToChange = User::findOrFail($id);
+        $userToChange->name = $request->name;
+        $userToChange->email = $request->email;
+        
     }
 
     /**
@@ -95,9 +96,9 @@ class UsersController extends Controller
 
     public function delete($id)
     {
-       $data = User::findOrFail($id);
-       $data->delete();
-       return redirect('administrate');
+        $data = User::findOrFail($id);
+        $data->delete();
+        return redirect('administrate');
     }
     public function destroy($id)
     {

@@ -16,10 +16,40 @@
     <ul id="menuList">
         <li id="users">User</li>
         <li id="companies">Company</li>
-        <li id="editing">{{ Auth::user()->name }}</li>
+        <li id="editing" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+            {{ Auth::user()->name }}
+        </li>
     </ul>
     @endif
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form action={{route('updateUser',Auth::user()->id)}}" method="POST">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+                            <input type="text" name="name" id="updateUser" placeholder="Change the name" required class="col-6" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
+                            <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">rename</button>
+                        </form>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary col-12">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="userAdministration">
         <table class="table table-hover ">
             <h2>{{__('admin.userAdministration')}}</h2>
@@ -154,19 +184,8 @@
         </div>
     </div>
 
-    <div class="hidden" id="edit">
-
-        <div>
-            <h1>
-                {{ Auth::user()->name }}
-            </h1>
-
-        </div>
-
-    </div>
-
 </div>
+
 <script src="{{URL::asset('jquery/modifyValidation.js')}}"></script>
 <script src="{{URL::asset('jquery/administration.js')}}"></script>
-<script src="{{URL::asset('jquery/adminPanelModifications.js')}}"></script>
 @endsection

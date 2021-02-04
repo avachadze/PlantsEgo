@@ -36,7 +36,7 @@ Route::group([
                 Route::get('restoreUser/{id}', 'UsersController@restore');
                 Route::get('destroyUser/{id}', 'UsersController@destroy');
                 Route::get('edit/{id}', 'UsersController@updateRole');
-
+                Route::put('/updateUser{id}','UsersController@update')->name('updateUser');
                 //Company Modifier
                 Route::post('createCompany', 'CompaniesController@create');
                 Route::put('updateCompany/{id}', 'CompaniesController@update');
