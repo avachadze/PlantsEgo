@@ -58,9 +58,6 @@ class UsersController extends Controller
         User::withTrashed()->findOrFail($id)->restore();
         return redirect('administrate');
     }
-
-
-
     /**
      * Show the form for editing the specified resource.
      *

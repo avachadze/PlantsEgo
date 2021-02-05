@@ -71,5 +71,8 @@ return [
     'addPlant'=>'Añadir planta',
     'registerSensor'=>'Registrar sensor',
     'yoursystems'=>"Tus sistemas",
-    'registernow'=>"¡Registrate ahora!"
+    'registernow'=>"¡Registrate ahora!",
+    'verifyEmail'=>'Antes de continuar, verifique su cuenta de correo.',
+    'notReceived'=>'Si no ha recibido el correo electrónico',
+    'resendEmail'=>'haga clic aquí para solicitar otro',
 ];

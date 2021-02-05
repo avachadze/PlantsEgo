@@ -3,41 +3,37 @@
 @section('main')
 
 <style>
-    footer
-    {
+    footer {
         position: absolute;
         bottom: 0px;
         width: 100%;
     }
 
-    #login_register
-    {
+    #login_register {
         display: none;
     }
 </style>
 
-<div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
-            </div>
+
+
+
+
+<div class="d-flex  align-items-center" style="min-height: 75vh;">
+    <div class="col-12">
+        <div class="row">
+            <h2 class="col-12 text-center  text-secondary">{{ __('messages.verifyEmail') }}</h2>
+        </div>
+        <div class="row justify-content-center">
+            <h3 class="text-center text-secondary">{{ __('messages.notReceived') }},</h3>
+            <form class="d-inline text-center" method="POST" action="{{ route('verification.resend') }}">
+                @csrf
+                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('messages.resendEmail') }}</button>.
+            </form>
         </div>
     </div>
 </div>
+
+
 @endsection
