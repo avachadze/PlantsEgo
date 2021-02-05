@@ -69,7 +69,7 @@ class SensorsController extends Controller
         $sensorPlantId = $request->plant_id;
         $sensor = new Sensor();
         $sensor->name = $sensorName;
-        $sensor->topic = $sensorTopic;
+        $sensor->topic = "/plantsego/".$sensorTopic;
         $sensor->plant_id = $sensorPlantId;
         $sensor->save();
        return redirect('/systems/'.$request->system_id.'/'.$request->plant_id);

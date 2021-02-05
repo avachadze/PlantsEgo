@@ -12,7 +12,7 @@
     form.submit(validateTopic);
   }
   function validateTopic(e){
-    let string = "/plantsego/";
+   /* let string = "/plantsego/";
     let topic = $('#topic').val();
     let same = true;
   
@@ -29,7 +29,7 @@
     else{
       return true;
     }
-  }
+  }*/
 </script>
 
 @endsection
@@ -56,7 +56,7 @@
         <br>
         <input type="text" class="form-control" id="name" class="col-xl-12" name="name" required>
         <br>
-        <label for="topic" class="">MQTT Topic:</label>
+        <label for="topic" class="">MQTT Topic: /plantsego/</label>
         <br>
         <input type="text" class="form-control" id="topic" name="topic" class="col-xl-12 mb-2" required>
         <br>
