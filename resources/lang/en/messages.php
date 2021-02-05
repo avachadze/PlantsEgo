@@ -69,6 +69,11 @@ return [
     'addPlant'=>'Add plant',
     'registerSensor'=>'Register sensor',
     'yoursystems'=>"Your systems",
-    'registernow'=>'Register now!'
+    'registernow'=>'Register now!',
+    'verifyEmail'=>'Before proceeding, please check your email for a verification link.',
+    'notReceived'=>'If you did not receive the email',
+    'resendEmail'=>'click here to request another',
+    
+    
 
 ];
