@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
-
+use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller
 {
 
@@ -84,6 +84,10 @@ class UsersController extends Controller
         $userToChange = User::findOrFail($id);
         $userToChange->name = $request->name;
         $userToChange->email = $request->email;
+        $userToChange->password = Hash::make($request->password);
+        $userToChange->save();
+        return redirect ("administrate");
+        
         
     }
 

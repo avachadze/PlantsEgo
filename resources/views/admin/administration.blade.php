@@ -6,7 +6,6 @@
 <style>
     tbody {
         border-top: 0.5vh solid dodgerblue;
-
     }
 </style>
 
@@ -28,24 +27,27 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"> {{ Auth::user()->name }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                <form action={{route('updateUser',Auth::user()->id)}}" method="POST">
-                            {{ method_field('PUT') }}
-                            {{ csrf_field() }}
-                            <input type="text" name="name" id="updateUser" placeholder="Change the name" required class="col-6" oninvalid="this.setCustomValidity('{{__('auth.error')}}')" oninput="setCustomValidity('')">
-                            <button id="updateCompanyB" type="submit" class="btn btn-primary" value="Rename">rename</button>
-                        </form>
-
-
-
+                    <form id="userForm" action={{route('updateUser',Auth::user()->id)}}" method="POST">
+                        {{ method_field('PUT') }}
+                        {{ csrf_field() }}
+                        <input type="text" class="p-4" id="userName" required name="name" value="{{Auth::user()->name}}">
+                        <input type="email" class="p-4" id="userEmail" required name="email" value="{{Auth::user()->email}}">
+                        <div class="input-group">
+                            <input id="txtPassword" name="password" type="Password" Class="form-control p-4">
+                            <div class="input-group-append">
+                                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()" style="height: 90%; margin-top:1vh;"> <span class="fa fa-eye-slash icon"></span> </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary col-12">Save changes</button>
+                    <button type="submit" form="userForm" class="btn btn-primary col-12">Save changes</button>
                 </div>
             </div>
         </div>
@@ -183,9 +185,20 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <script src="{{URL::asset('jquery/modifyValidation.js')}}"></script>
 <script src="{{URL::asset('jquery/administration.js')}}"></script>
+<script>
+    function mostrarPassword() {
+        var input = document.getElementById("txtPassword");
+        if (input.type == "password") {
+            input.type = "text";
+            $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+        } else {
+            input.type = "password";
+            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+        }
+    }
+</script>
 @endsection
