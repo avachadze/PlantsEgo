@@ -50,9 +50,11 @@
             </div>
         </div>
     </div>
-    <div id="userAdministration">
+    <h2>{{__('admin.userAdministration')}}</h2>
+    <div id="userAdministration" class="col-md-9" style="overflow-x: auto">
+  
         <table class="table table-hover ">
-            <h2>{{__('admin.userAdministration')}}</h2>
+            
             <thead id="tableHead">
                 <tr>
                     <th scope="col">{{__('auth.user')}}</th>
