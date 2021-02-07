@@ -2,6 +2,22 @@ $(function() {
 
 
 
+
+    var name = $("#userName");
+    var email = $("#userEmail");
+    var password = $("#userPassword");
+    var updateUser = $("#updateUser");
+    if (name.val() === "") {
+        updateUser.addClass('disabled');
+    }
+    name.on('Input', validate);
+    email.on('Input', validate);
+    password.on('Input', validate);
+
+    function validate() {
+        console.log('ye');
+    }
+
     var userB = $('#users');
     userB.css('color', 'dodgerblue');
     userB.addClass("selectedContent");
