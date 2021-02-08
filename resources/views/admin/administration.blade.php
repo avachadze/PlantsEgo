@@ -11,15 +11,15 @@
 
 <div class="adminPanel container mt-2">
 
-    @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
     <ul id="menuList">
+    @if(\Illuminate\Support\Facades\Auth::user()->company_id != null || \Illuminate\Support\Facades\Auth::user()->role === 'admin')
         <li id="users">User</li>
         <li id="companies">Company</li>
+    @endif
         <li id="editing" type="button" data-toggle="modal" data-target="#exampleModalCenter">
             {{ Auth::user()->name }}
         </li>
     </ul>
-    @endif
 
 
     <!-- Modal -->
